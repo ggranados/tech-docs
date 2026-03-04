@@ -34,9 +34,9 @@ SQL databases, also known as **Relational Databases**, store data in structured 
 
     
 ## Data Integrity
-SQL databases are known for enforcing data integrity through the use of _schemas_, _constraints_, and _relationships_. They support [ACID](acid.md) (Atomicity, Consistency, Isolation, Durability) transactions, ensuring data consistency.
+SQL databases are known for enforcing data integrity through the use of _schemas_, _constraints_, and _relationships_. They support [ACID](../db-concepts/acid.md) (Atomicity, Consistency, Isolation, Durability) transactions, ensuring data consistency.
 
-- See also: [ACID](acid.md)
+- See also: [ACID](../db-concepts/acid.md)
 
 
 <sub>[Back to top](#table-of-contents)</sub>
@@ -81,8 +81,8 @@ ___
 
 ___
 
-[Get Started](../../get-started.md) |
-[DBMS](../../get-started.md#database-management-systems)
+[Get Started](../../../get-started.md) |
+[SQL](../../../get-started.md#relational-databases--sql-)
 
 ---
 

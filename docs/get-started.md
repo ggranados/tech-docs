@@ -13,10 +13,12 @@
   * [Web Development Frameworks](#web-development-frameworks)
     * [Backend](#backend)
     * [Frontend](#frontend)
-  * [Database Management Systems](#database-management-systems)
-    * [Concepts](#concepts)
-    * [Relational (SQL)](#relational--sql-)
-    * [NoSQL](#nosql)
+  * [Data Processing](#data-processing)
+    * [Database Concepts](#database-concepts)
+    * [Relational Databases (SQL)](#relational-databases--sql-)
+    * [NoSQL Databases](#nosql-databases)
+    * [Real-Time Processing](#real-time-processing)
+      * [Event Streaming](#event-streaming)
   * [Networking Concepts](#networking-concepts)
   * [Cloud Computing Platform](#cloud-computing-platform)
   * [DevOps Practices](#devops-practices)
@@ -88,12 +90,32 @@
 
 <sub>[Back to top](#table-of-contents)</sub>
 
-## Database Management Systems
 
-### Concepts
- - [ACID](pages/dbms/acid.md)
- - [BASE](pages/dbms/base.md)
- - [CAP Theorem](pages/dbms/cap.md)
+## Data Processing
+
+- Batch Processing
+- [Real-Time Processing](#real-time-processing)
+- ETL (Extract, Transform, Load)
+- [SQL Databases](#relational-databases--sql-)
+- Data Warehousing
+- In-Memory Processing
+- Data Integration
+- [NoSQL Databases](#nosql-databases)
+- MapReduce
+- Machine Learning and AI
+- Data Cleaning and Transformation
+- Data Lakes
+- Text and Natural Language Processing (NLP)
+- Image and Video Processing
+- Time Series Analysis
+
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+### Database Concepts
+ - [ACID](pages/data-processing/db-concepts/acid.md)
+ - [BASE](pages/data-processing/db-concepts/base.md)
+ - [CAP Theorem](pages/data-processing/db-concepts/cap.md)
  - CRDTs
  - Snapshot Isolation
  - Two-Phase Commit (2PC)
@@ -101,10 +123,11 @@
  - MVCC (Multi-Version Concurrency Control)
  - Read Committed Isolation
  - Distributed Databases
-  
-### [Relational (SQL)](pages/dbms/relational.md)
-- SQL
-- RDBMS
+
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+### [Relational Databases (SQL)](pages/data-processing/sql/relational.md)
   - MySQL
   - PostgreSQL
   - Microsoft SQL Server
@@ -116,17 +139,35 @@
   - Google Cloud SQL
   - Azure SQL Database
 
-### [NoSQL](pages/dbms/nosql.md)
-- MongoDB
-- Cassandra
-- Couchbase
-- Redis
-- Amazon DynamoDB
-- Apache HBase
-- Apache CouchDB
-- Neo4j
-- Elasticsearch
-- Amazon DocumentDB
+<sub>[Back to top](#table-of-contents)</sub>
+
+### [NoSQL Databases](pages/data-processing/nosql/nosql.md)
+  - MongoDB
+  - Cassandra
+  - Couchbase
+  - Redis
+  - Amazon DynamoDB
+  - Apache HBase
+  - Apache CouchDB
+  - Neo4j
+  - Elasticsearch
+  - Amazon DocumentDB
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+### Real-Time Processing
+  #### [Event Streaming](pages/data-processing/real-time/event-streaming.md)
+  - [Apache Kafka](pages/data-processing/real-time/event-streaming/kafka.md)
+  - Apache Pulsar
+  - RabbitMQ
+  - Amazon Kinesis
+  - Google Cloud Pub/Sub
+  - NATS
+  - Apache ActiveMQ
+  - Redis Streams
+  - IBM MQ
+  - Microsoft Azure Event Hubs
+
 
 <sub>[Back to top](#table-of-contents)</sub>
 

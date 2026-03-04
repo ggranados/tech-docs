@@ -73,7 +73,7 @@ ___
 
 ___
 
-[Get Started](../../get-started.md) |
-[NoSQL](../../get-started.md#nosql)
+[Get Started](../../../get-started.md) |
+[No SQL](../../../get-started.md#nosql-databases)
 
 ---

@@ -48,7 +48,7 @@ Durability ensures that once a transaction is committed, its changes are permane
 <sub>[Back to top](#table-of-contents)</sub>
 
 
-![acid.png](../../img/acid.png)
+![acid.png](../../../img/acid.png)
 
 <sub>[Back to top](#table-of-contents)</sub>
 
@@ -61,7 +61,7 @@ Durability ensures that once a transaction is committed, its changes are permane
 
 ---
 
-[Get Started](../../get-started.md) |
-[DBMS](../../get-started.md#database-management-systems)
+[Get Started](../../../get-started.md) |
+[Database Concepts](../../../get-started.md#database-concepts)
 
 ___

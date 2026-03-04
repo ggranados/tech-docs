@@ -73,7 +73,7 @@ Network partitions can cause nodes in a distributed system to become isolated, m
 ## Scenarios    
 The CAP theorem asserts that a distributed system can achieve at most two out of the three properties at any given time. This leads to three possible scenarios:
 
-![img.png](../../img/cap.png)
+![img.png](../../../img/cap.png)
 
 ### CA
 _A system that prioritizes **Consistency** and **Availability** but is not **Partition-Tolerant**_. 
@@ -115,7 +115,7 @@ This means the system remains available and can tolerate network partitions, eve
 
 ---
 
-[Get Started](../../get-started.md) |
-[DBMS](../../get-started.md#database-management-systems)
+[Get Started](../../../get-started.md) |
+[Database Concepts](../../../get-started.md#database-concepts)
 
 ___

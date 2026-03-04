@@ -32,7 +32,7 @@ BASE systems prioritize eventual consistency over strong consistency. This means
 
 >ACID databases prioritize strong consistency and transactional integrity, making them suitable for use cases where data consistency is critical, such as financial systems. On the other hand, BASE databases are often used in scenarios where high availability and fault tolerance are more important than immediate consistency, such as web applications, content delivery networks, and social media platforms.
 
-![img.png](../../img/base.png)
+![img.png](../../../img/base.png)
 
 <sub>[Back to top](#table-of-contents)</sub>
 
@@ -45,7 +45,7 @@ BASE systems prioritize eventual consistency over strong consistency. This means
 
 ---
 
-[Get Started](../../get-started.md) |
-[DBMS](../../get-started.md#database-management-systems)
+[Get Started](../../../get-started.md) |
+[Database Concepts](../../../get-started.md#database-concepts)
 
 ___

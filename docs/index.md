@@ -1,6 +1,6 @@
-# Data-Driven-Docs
+# Tech Docs
 
-Welcome to the Data Driven Docs Repository! This repository serves as a comprehensive collection of IT topics and data organized as a study guide. Whether you're a beginner looking to dive into the world of technology or an experienced professional seeking to expand your knowledge, you've come to the right place.
+Welcome to the Tech Docs Repository! This repository serves as a comprehensive collection of IT topics and data organized as a study guide. Whether you're a beginner looking to dive into the world of technology or an experienced professional seeking to expand your knowledge, you've come to the right place.
 
 ## Study Guide Contents
 
@@ -32,4 +32,3 @@ To start exploring the study guide, simply browse the repository's directory str
 We hope this study guide serves as a valuable resource on your learning journey. Happy studying!
 
 ___
-

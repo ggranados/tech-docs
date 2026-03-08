@@ -1,11 +1,11 @@
-# Data-Driven-Docs
+# Tech Docs
 
 ---
 
 ## Table of Contents
 
 <!-- TOC -->
-* [Data-Driven-Docs](#data-driven-docs)
+* [Tech Docs](#tech-docs)
   * [Table of Contents](#table-of-contents)
   * [Programming](#programming)
     * [Languages](#languages)

@@ -1,4 +1,4 @@
-# Data-Driven-Docs Enhancement Plan
+# Tech Docs Enhancement Plan
 
 **Created:** 2025-11-13
 **Status:** Proposed
@@ -9,7 +9,7 @@
 ## Table of Contents
 
 <!-- TOC -->
-* [Data-Driven-Docs Enhancement Plan](#data-driven-docs-enhancement-plan)
+* [Tech Docs Enhancement Plan](#tech-docs-enhancement-plan)
   * [Table of Contents](#table-of-contents)
   * [Executive Summary](#executive-summary)
   * [Current State Analysis](#current-state-analysis)
@@ -46,7 +46,7 @@
 
 ## Executive Summary
 
-This enhancement plan proposes strategic improvements to the Data-Driven-Docs educational repository based on comprehensive analysis of existing content. The plan focuses on:
+This enhancement plan proposes strategic improvements to the Tech Docs educational repository based on comprehensive analysis of existing content. The plan focuses on:
 
 1. **Completing critical content gaps** - Particularly Java concurrency and security topics
 2. **Enhancing learning experience** - Interactive features, learning paths, and better navigation
@@ -910,9 +910,6 @@ timeline
          : Virtual Threads
          : Pattern Matching for switch
 ```
-```
-
-**Example: Database Concepts Hierarchy**
 ```markdown
 ## Database Theory Concepts
 
@@ -1427,7 +1424,7 @@ Create comprehensive glossary with links:
 ```markdown
 # Glossary
 
-Quick reference for technical terms used throughout Data-Driven-Docs.
+Quick reference for technical terms used throughout Tech Docs.
 
 ---
 
@@ -1570,12 +1567,8 @@ Quick reference for technical terms used throughout Data-Driven-Docs.
 ---
 
 Legend:
-- ✅ Complete content available
-- ⏳ Planned/In progress
-
----
-
-[Back to Home](index.md) | [Get Started](get-started.md)
+- ✅ Complete content
+- ⏳ Planned/TODO
 ```
 
 **Benefits:**
@@ -2178,7 +2171,7 @@ Convert wide tables to responsive format:
 | Query Language | SQL | MQL | CQL | Commands | Cypher |
 | ACID | Full ACID | Multi-document ACID | Eventual Consistency | No transactions | ACID |
 | Scalability | Vertical | Horizontal | Horizontal | Horizontal | Vertical/Horizontal |
-| Best For | Complex queries, joins | Flexible data | High write throughput | Caching, sessions | Relationships, graphs |
+| Best For | Complex queries, transactions | Flexible data | High write throughput | Caching, sessions | Relationships, graphs |
 
 </div>
 
@@ -2323,469 +2316,7 @@ Reading Time = (Word Count / 200 words per minute) + (Code Examples × 1 minute)
 
 ---
 
-### 10. Version-Specific Content
-
-#### Technology Version Badges
-
-**Clear Version Requirements**
-
-Add version badges to indicate feature availability:
-
-```markdown
-# Virtual Threads ![Java 21+](https://img.shields.io/badge/Java-21+-blue) ![Preview](https://img.shields.io/badge/Status-Preview-yellow)
-
-# Records ![Java 16+](https://img.shields.io/badge/Java-16+-blue) ![Stable](https://img.shields.io/badge/Status-Stable-green)
-
-# Lambda Expressions ![Java 8+](https://img.shields.io/badge/Java-8+-blue) ![LTS](https://img.shields.io/badge/LTS-8%2C%2011%2C%2017%2C%2021-green)
-
-# Sealed Classes ![Java 17+](https://img.shields.io/badge/Java-17+-blue) ![LTS](https://img.shields.io/badge/LTS-17%2C%2021-green)
-```
-
-**Version Matrix Table:**
-```markdown
-## Stream API Feature Availability
-
-| Feature | Java 8 | Java 9 | Java 10 | Java 11+ |
-|---------|:------:|:------:|:-------:|:--------:|
-| Basic Streams | ✅ | ✅ | ✅ | ✅ |
-| `takeWhile()` / `dropWhile()` | ❌ | ✅ | ✅ | ✅ |
-| `ofNullable()` | ❌ | ✅ | ✅ | ✅ |
-| `iterate()` with predicate | ❌ | ✅ | ✅ | ✅ |
-| Local-variable type inference (`var`) | ❌ | ❌ | ✅ | ✅ |
-| `toList()` (unmodifiable) | ❌ | ❌ | ❌ | ✅ (Java 16+) |
-
-**Legend:**
-- ✅ Available
-- ❌ Not available
-- 🔶 Preview feature
-```
-
-**Benefits:**
-- Prevents version confusion
-- Helps with upgrade planning
-- Shows feature evolution
-- Professional documentation
-
-**Effort:** Low (badge generation + version research, 6-8 hours)
-
-#### Compatibility Notes
-
-**Migration and Alternative Guidance**
-
-Add version compatibility notes:
-
-```markdown
-## CompletableFuture ![Java 8+](https://img.shields.io/badge/Java-8+-blue)
-
-> **Version Note:** This feature requires Java 8 or higher.
->
-> **For Java 7 and earlier:** Use `Future` with `ExecutorService` ([see alternative approach](#java-7-alternative))
-
-### Modern Approach (Java 8+)
-
-```java
-CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
-    return "Hello from async task";
-});
-
-future.thenAccept(result -> System.out.println(result));
-```
-
-### Java 7 Alternative
-
-<details>
-<summary>Click to see Java 7 compatible code</summary>
-
-```java
-ExecutorService executor = Executors.newSingleThreadExecutor();
-Future<String> future = executor.submit(new Callable<String>() {
-    @Override
-    public String call() throws Exception {
-        return "Hello from async task";
-    }
-});
-
-try {
-    String result = future.get();
-    System.out.println(result);
-} catch (InterruptedException | ExecutionException e) {
-    e.printStackTrace();
-} finally {
-    executor.shutdown();
-}
-```
-
-**Limitations:**
-- More verbose (no lambda syntax)
-- No chaining (`thenApply`, `thenCompose`)
-- Manual exception handling
-- Must manage executor lifecycle
-
-**Migration Guide:** [Upgrading to CompletableFuture](migration-guide.md)
-
-</details>
-
----
-
-## Compatibility Matrix
-
-| Feature | Java 8 | Java 11 | Java 17 | Java 21 |
-|---------|:------:|:-------:|:-------:|:-------:|
-| `supplyAsync()` | ✅ | ✅ | ✅ | ✅ |
-| `orTimeout()` | ❌ | ✅ | ✅ | ✅ |
-| `completeOnTimeout()` | ❌ | ✅ | ✅ | ✅ |
-| Virtual thread support | ❌ | ❌ | ❌ | ✅ |
-```
-
-**Benefits:**
-- Supports legacy systems
-- Smooth upgrade path
-- Shows evolution over time
-- Reduces frustration
-
-**Effort:** Medium (research + code examples for alternatives, 15-20 hours)
-
----
-
-### 11. Performance & Technical Improvements
-
-#### Image Optimization
-
-**Faster Page Loads**
-
-Optimize all diagrams and images:
-
-**Current State:**
-- 32 PNG/JPG diagrams
-- Sizes range from 50KB to 500KB
-- No lazy loading
-
-**Optimization Strategy:**
-
-1. **Convert to SVG where possible**
-   - Technical diagrams, flowcharts, architecture diagrams
-   - Infinite scalability, smaller file size
-   - Text remains selectable
-
-2. **Use Mermaid.js for new diagrams**
-   - No image files needed
-   - Rendered client-side
-   - Version controlled as code
-
-3. **Compress raster images**
-   - PNG: Use `pngquant` or `tinypng.com`
-   - JPG: Use `jpegoptim` or `squoosh.app`
-   - Target: < 100KB per image
-
-4. **Implement WebP with PNG fallback**
-   ```markdown
-   <picture>
-     <source srcset="../../img/oauth-flow.webp" type="image/webp">
-     <img src="../../img/oauth-flow.png" alt="OAuth 2.0 flow diagram">
-   </picture>
-   ```
-
-5. **Add lazy loading**
-   ```markdown
-   ![Diagram](../../img/diagram.png){:loading="lazy"}
-   ```
-
-**Expected Results:**
-- 50-70% reduction in image sizes
-- Faster page load times
-- Better mobile experience
-- Reduced bandwidth usage
-
-**Effort:** Medium (image conversion + optimization, 8-10 hours)
-
-#### Static Search Implementation
-
-**Client-Side Search with Lunr.js**
-
-Add search functionality without backend:
-
-**Jekyll Plugin Configuration** (`docs/_config.yml`):
-```yaml
-plugins:
-  - jekyll-lunr-js-search
-
-lunr_search:
-  excludes: [index.md]
-  min_length: 3
-  stopwords: 'stopwords.txt'
-```
-
-**Search Interface** (add to `docs/index.md`):
-```markdown
-## 🔍 Search Documentation
-
-<div id="search-container">
-  <input type="text" id="search-input" placeholder="Search topics..." aria-label="Search">
-  <ul id="results-container"></ul>
-</div>
-
-<script src="https://unpkg.com/lunr/lunr.js"></script>
-<script src="assets/js/search.js"></script>
-```
-
-**Search Script** (`docs/assets/js/search.js`):
-```javascript
-// Initialize Lunr index
-const idx = lunr(function () {
-  this.field('title', { boost: 10 });
-  this.field('tags', { boost: 5 });
-  this.field('content');
-  this.ref('url');
-
-  documents.forEach(doc => this.add(doc));
-});
-
-// Search handler
-document.getElementById('search-input').addEventListener('keyup', function(e) {
-  const query = e.target.value;
-  if (query.length < 3) return;
-
-  const results = idx.search(query);
-  displayResults(results);
-});
-```
-
-**Alternative: Algolia**
-```yaml
-# _config.yml
-algolia:
-  application_id: YOUR_APP_ID
-  index_name: data-driven-docs
-  search_only_api_key: YOUR_SEARCH_KEY
-```
-
-**Benefits:**
-- Fast, client-side search
-- No server required
-- Works offline (PWA)
-- Better than browser Ctrl+F
-
-**Effort:** Medium (8-12 hours for implementation + testing)
-
-#### Dark Mode Support
-
-**Theme Toggle for Better Readability**
-
-Implement dark mode with preference persistence:
-
-**CSS Variables** (`docs/assets/css/dark-mode.css`):
-```css
-:root {
-  --bg-color: #ffffff;
-  --text-color: #333333;
-  --code-bg: #f5f5f5;
-  --link-color: #0066cc;
-  --border-color: #dddddd;
-}
-
-[data-theme="dark"] {
-  --bg-color: #1a1a1a;
-  --text-color: #e0e0e0;
-  --code-bg: #2d2d2d;
-  --link-color: #66b3ff;
-  --border-color: #444444;
-}
-
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-}
-
-code {
-  background-color: var(--code-bg);
-}
-
-a {
-  color: var(--link-color);
-}
-
-/* Respect system preference */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-color: #1a1a1a;
-    --text-color: #e0e0e0;
-    --code-bg: #2d2d2d;
-    --link-color: #66b3ff;
-  }
-}
-```
-
-**Toggle Button** (add to header):
-```html
-<button id="theme-toggle" aria-label="Toggle dark mode">
-  <span class="sun-icon">☀️</span>
-  <span class="moon-icon">🌙</span>
-</button>
-
-<script>
-  const toggle = document.getElementById('theme-toggle');
-  const currentTheme = localStorage.getItem('theme') ||
-    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-
-  document.documentElement.setAttribute('data-theme', currentTheme);
-
-  toggle.addEventListener('click', () => {
-    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-  });
-</script>
-```
-
-**Benefits:**
-- Reduces eye strain
-- Better for night reading
-- Modern UX expectation
-- Respects system preferences
-
-**Effort:** Low-Medium (6-8 hours for implementation + testing)
-
----
-
-### 12. Analytics & Insights
-
-#### Popular Topics Indicator
-
-**Data-Driven Content Priorities**
-
-Show trending topics based on views/engagement:
-
-```markdown
-## 🔥 Trending Topics This Month
-
-1. **[Java Stream API](pages/programming/languages/java/java-8/stream-api.md)** - 2,341 views
-   *Most searched: parallel streams, collectors, flatMap*
-
-2. **[Microservices Architecture](pages/architectural-patterns/microservices.md)** - 1,892 views
-   *Most searched: distributed transactions, service discovery*
-
-3. **[OAuth 2.0](pages/ws-and-api-design/authn-and-authz/oauth.md)** - 1,654 views
-   *Most searched: authorization code flow, refresh tokens*
-
-4. **[SOLID Principles](pages/design-patterns/solid.md)** - 1,432 views
-   *Most searched: dependency inversion, interface segregation*
-
-5. **[RESTful API Design](pages/ws-and-api-design/restful/restful-api-design.md)** - 1,287 views
-   *Most searched: HATEOAS, versioning, pagination*
-
----
-
-## 📈 Fastest Growing Topics
-
-- **CompletableFuture** +245% (newly added content)
-- **Event Sourcing** +189% (architectural pattern interest)
-- **NoSQL Databases** +156% (MongoDB tutorials)
-```
-
-**Implementation:**
-- Privacy-friendly analytics (Plausible, Fathom)
-- GitHub traffic API for page views
-- Update monthly via GitHub Actions
-
-**Benefits:**
-- Shows popular content
-- Guides content priorities
-- Validates effort
-- Helps users find trending topics
-
-**Effort:** Medium (analytics integration + automation, 10-12 hours)
-
-#### Content Heatmap
-
-**Visual Coverage Dashboard**
-
-Create visual representation of topic maturity:
-
-```markdown
-## 📊 Documentation Coverage
-
-### Overall Progress: 68% ████████████░░░░░░░░
-
----
-
-### By Category
-
-**Programming** (75%) ███████████████░░░░░
-- ✅ Java 8+ Features: 95% ███████████████████░
-- ✅ Paradigms: 85% █████████████████░░░
-- 🔄 Other Languages: 20% ████░░░░░░░░░░░░░░░░
-
-**Database Management** (82%) ████████████████░░░░
-- ✅ Concepts: 100% ████████████████████
-- ✅ SQL: 90% ██████████████████░░
-- ✅ NoSQL: 80% ████████████████░░░░
-
-**Web Services & API Design** (78%) ████████████████░░░░
-- ✅ RESTful: 85% █████████████████░░░
-- ✅ Authentication: 100% ████████████████████
-- 🔄 API Tooling: 45% █████████░░░░░░░░░░░
-
-**Design Patterns** (42%) ████████░░░░░░░░░░░░
-- ✅ SOLID: 100% ████████████████████
-- 🔄 GoF Patterns: 15% ███░░░░░░░░░░░░░░░░░
-- ✅ DI/IoC: 80% ████████████████░░░░
-
-**Architectural Patterns** (65%) █████████████░░░░░░░
-- ✅ Microservices: 80% ████████████████░░░░
-- ✅ Reactive: 90% ██████████████████░░
-- 🔄 Event-Driven: 30% ██████░░░░░░░░░░░░░░
-
-**Cyber-security** (25%) █████░░░░░░░░░░░░░░░
-- ✅ IAM: 80% ████████████████░░░░
-- ⏳ OWASP: 10% ██░░░░░░░░░░░░░░░░░░
-- ⏳ Web Security: 5% █░░░░░░░░░░░░░░░░░░░
-
----
-
-### Legend
-- ✅ Well-developed (> 70%)
-- 🔄 In progress (30-70%)
-- ⏳ Planned (< 30%)
-
-### Priority Gaps
-1. **Cyber-security** - Only 25% complete, high demand
-2. **Design Patterns** - Missing 85% of GoF patterns
-3. **Event-Driven Architecture** - Referenced but incomplete
-```
-
-**Visual Dashboard (Mermaid):**
-```mermaid
-%%{init: {'theme':'base'}}%%
-quadrantChart
-    title Documentation Maturity Matrix
-    x-axis Low Effort --> High Effort
-    y-axis Low Priority --> High Priority
-    quadrant-1 Do First
-    quadrant-2 Plan Ahead
-    quadrant-3 Low Priority
-    quadrant-4 Quick Wins
-
-    "Java Concurrency": [0.3, 0.9]
-    "Security Basics": [0.4, 0.85]
-    "Design Patterns": [0.7, 0.7]
-    "Event Sourcing": [0.6, 0.65]
-    "OpenAPI/Swagger": [0.3, 0.6]
-    "Caching": [0.25, 0.55]
-    "GraphQL": [0.5, 0.4]
-    "Advanced Algorithms": [0.8, 0.3]
-```
-
-**Benefits:**
-- Quick status overview
-- Identifies priorities
-- Motivates contribution
-- Tracks progress over time
-
-**Effort:** Medium (initial setup + automation, 8-10 hours)
-
----
-
-## Implementation Priority Matrix
+### Implementation Priority Matrix
 
 ### Quick Wins (Low effort, High impact)
 

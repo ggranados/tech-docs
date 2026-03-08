@@ -1,4 +1,4 @@
-# Data-Driven-Docs: Enhancement Tickets
+# Tech Docs: Enhancement Tickets
 
 This directory contains detailed implementation tickets for the enhancement plan.
 

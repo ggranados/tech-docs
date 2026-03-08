@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-**Data-Driven-Docs** is a comprehensive IT knowledge repository and study guide built as a collection of markdown documents. The project is designed to be rendered as a GitHub Pages website, providing an organized, navigable reference for various technology topics.
+**Tech Docs** is a comprehensive IT knowledge repository and study guide built as a collection of markdown documents. The project is designed to be rendered as a GitHub Pages website, providing an organized, navigable reference for various technology topics.
 
 **Live Site:** https://ggranados.github.io/data-driven-docs/
 
@@ -142,7 +142,7 @@ Main content with subsections...
 2. **Back to Top Links**: `<sub>[Back to top](#table-of-contents)</sub>` after major sections
 3. **References Section**: Links to official documentation and external resources
 4. **Navigation Footer**: Links back to get-started.md and relevant section indexes
-5. **Images**: Stored in `docs/img/` and referenced with relative paths
+5. **Images**: Stored in `docs/img/` and referenced with relative paths from the page
 
 ## Java Utility Code
 

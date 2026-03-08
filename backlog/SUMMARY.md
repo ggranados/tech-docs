@@ -85,7 +85,7 @@ All tickets are fully specified in **TICKET-INDEX.md** with:
 ## Project Structure
 
 ```
-data-driven-docs/
+tech-docs/
 ├── backlog/
 │   ├── enhancement-plan.md          ← Master strategy document
 │   ├── SUMMARY.md                   ← This file
@@ -120,7 +120,6 @@ Use the 7 fully detailed ticket files that include:
 - Step-by-step implementation guidance
 - Acceptance criteria checklists
 - Testing requirements
-- Resource links
 
 **Best for:** Contributors new to the project
 

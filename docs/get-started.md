@@ -285,9 +285,11 @@
 
 ## Design Patterns
 - Creational Patterns:
+  - [Factory Patterns](pages/design-patterns/creational/factory.md)
+    - [Simple Factory](pages/design-patterns/creational/factory/simple-factory.md)
+    - [Factory Method](pages/design-patterns/creational/factory/factory-method.md)
+    - [Abstract Factory](pages/design-patterns/creational/factory/abstract-factory.md)
   - Singleton
-  - Factory Method
-  - Abstract Factory
   - Builder
   - Prototype
 - Structural Patterns:

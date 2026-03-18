@@ -2,19 +2,22 @@
 
 ## Project Overview
 
-**Tech Docs** is a comprehensive IT knowledge repository and study guide built as a collection of markdown documents. The project is designed to be rendered as a GitHub Pages website, providing an organized, navigable reference for various technology topics.
+**Tech Docs** is a comprehensive IT knowledge repository and training path for software architects, built as a collection of markdown documents rendered as a GitHub Pages website.
 
 **Live Site:** https://ggranados.github.io/data-driven-docs/
 
 ## Project Purpose
 
 This repository serves as:
+- A structured training path for software architect candidates (primary audience: GG)
 - A centralized study guide covering broad IT topics
 - A quick reference for technical concepts and tools
 - A starting point with links to official documentation
 - An open-source educational resource for developers
 
-**Important Note:** The documentation provides breadth over depth - it covers many topics but intentionally does not go into exhaustive detail. The focus is on providing clear overviews and linking to official documentation for deeper learning.
+**Content Philosophy:** Breadth over depth — clear overviews with links to official documentation for deeper learning.
+
+---
 
 ## Technology Stack
 
@@ -24,10 +27,12 @@ This repository serves as:
 - **Utility Code:** Java (for markdown file validation and reference checking)
 - **Hosting:** GitHub Pages
 
+---
+
 ## Project Structure
 
 ```
-data-driven-docs/
+tech-docs/
 ├── docs/                           # Main documentation directory
 │   ├── _config.yml                 # Jekyll configuration
 │   ├── index.md                    # Homepage/landing page
@@ -37,69 +42,56 @@ data-driven-docs/
 │       ├── architectural-patterns/
 │       ├── common/                # Templates and shared resources
 │       ├── cyber-security/
-│       ├── dbms/
+│       ├── data-processing/
 │       ├── design-patterns/
+│       ├── frameworks/
 │       ├── programming/
 │       │   ├── languages/
-│       │   │   └── java/          # Language-specific deep dives
 │       │   └── paradigms/
 │       └── ws-and-api-design/
+├── .claude/                       # Claude Code configuration
+│   ├── agents/                    # Sub-agent definitions
+│   │   ├── topic-researcher.md    # Researches topics via web + codebase
+│   │   ├── diagram-specialist.md  # Generates PlantUML diagrams
+│   │   └── doc-writer.md         # Writes final markdown pages
+│   ├── commands/                  # Custom slash commands
+│   │   ├── explore-topic.md       # /explore-topic {topic-name}
+│   │   └── document-topic.md      # /document-topic
+│   ├── explorations/              # In-progress and accepted exploration plans
+│   │   └── {topic-name}/
+│   │       └── exploration.md
+│   └── templates/
+│       └── page.md               # Standard page template
 ├── code/                          # Java utilities
 │   └── src/edu/datadrivendocs/code/utils/
 │       └── MarkdownFileReferences.java
-└── README.md                      # GitHub repository readme
+└── README.md
 ```
+
+---
 
 ## Content Organization
 
 ### Topic Categories
 
-The documentation is organized into these main categories:
-
-1. **Programming**
-   - Languages (Java, JavaScript, Python, etc.)
-   - Paradigms (OOP, Functional, Reactive, etc.)
-
-2. **Web Development Frameworks**
-   - Backend (Spring, Express.js, Nest.js, etc.)
-   - Frontend (React, Angular, Vue.js, etc.)
-
-3. **Database Management Systems**
-   - Concepts (ACID, BASE, CAP Theorem)
-   - Relational/SQL databases
-   - NoSQL databases
-
-4. **Networking Concepts**
-   - TCP/IP, DNS, routing, switching, etc.
-
-5. **Cloud Computing Platforms**
-   - AWS, Azure, GCP, etc.
-
-6. **DevOps Practices**
-   - CI/CD, IaC, containerization, etc.
-
-7. **Data Structures & Algorithms**
-   - Arrays, trees, graphs, sorting, searching, etc.
-
-8. **Cyber-security Fundamentals**
-   - Access control, IAM, cryptography, etc.
-
-9. **Design Patterns**
-   - Creational, Structural, Behavioral patterns
-   - SOLID principles
-
-10. **Architectural Patterns**
-    - MVC, MVVM, Microservices, Reactive Systems, etc.
-
-11. **Web Services and API Design**
-    - REST, SOAP, GraphQL, gRPC
-    - Authentication/Authorization (OAuth, JWT, SAML, etc.)
+1. **Programming** — Languages (Java, JS, Python…), Paradigms (OOP, FP, Reactive…)
+2. **Web Development Frameworks** — Backend (Spring, Express…), Frontend (React, Angular…)
+3. **Database Management Systems** — ACID/BASE/CAP, SQL, NoSQL
+4. **Networking Concepts** — TCP/IP, DNS, routing, switching
+5. **Cloud Computing Platforms** — AWS, Azure, GCP
+6. **DevOps Practices** — CI/CD, IaC, containerization
+7. **Data Structures & Algorithms** — Arrays, trees, graphs, sorting, searching
+8. **Cyber-security Fundamentals** — Access control, IAM, cryptography
+9. **Design Patterns** — Creational, Structural, Behavioral, SOLID
+10. **Architectural Patterns** — MVC, MVVM, Microservices, Reactive Systems
+11. **Web Services and API Design** — REST, SOAP, GraphQL, gRPC, OAuth, JWT
 
 ### File Naming Conventions
 
-- All content files use lowercase with hyphens: `kebab-case.md`
-- Files are named descriptively after their topic
+- All content files: lowercase with hyphens (`kebab-case.md`)
 - Directory structure mirrors the conceptual hierarchy
+
+---
 
 ## Markdown Document Structure
 
@@ -117,6 +109,10 @@ Every documentation page follows this standard structure:
 
 ---
 
+## Overview
+
+Intro paragraph...
+
 ## Content Sections
 
 Main content with subsections...
@@ -125,9 +121,22 @@ Main content with subsections...
 
 ---
 
+## Q&A
+
+**Q: Question?**
+A: Answer.
+
+---
+
+## Related Topics
+
+- [Topic](path) — relationship
+
+---
+
 ## Ref.
 
-- External reference links
+- [Source](URL) — description
 
 ---
 
@@ -138,92 +147,110 @@ Main content with subsections...
 
 ### Key Patterns
 
-1. **Table of Contents**: Auto-generated TOC at the top of each page
-2. **Back to Top Links**: `<sub>[Back to top](#table-of-contents)</sub>` after major sections
-3. **References Section**: Links to official documentation and external resources
-4. **Navigation Footer**: Links back to get-started.md and relevant section indexes
-5. **Images**: Stored in `docs/img/` and referenced with relative paths from the page
+1. **Table of Contents**: `<!-- TOC -->` markers, auto-generated
+2. **Back to Top Links**: `<sub>[Back to top](#table-of-contents)</sub>` after each major section
+3. **Q&A Section**: Every page includes a Q&A for the architect trainee
+4. **Related Topics**: Cross-links between pages
+5. **References Section**: Official documentation links only
+6. **Navigation Footer**: Links back to `get-started.md` and the section index
+
+---
+
+## Exploration & Documentation Workflow
+
+This project uses a two-phase workflow for adding new content:
+
+### Phase 1 — Explore (`/explore-topic {topic-name}`)
+
+GG selects a topic and runs the command. Claude acts as a learning tutor and:
+1. Uses the `topic-researcher` sub-agent to gather structured information
+2. Uses the `diagram-specialist` sub-agent to prepare PlantUML diagrams
+3. Creates an exploration plan at `.claude/explorations/{topic-name}/exploration.md`
+4. Presents a summary and invites GG to ask questions, go deeper, or iterate
+
+**Rules during exploration:**
+- No changes are made to `docs/` — exploration only
+- GG can ask technical questions freely; Claude answers without saving to the plan unless GG asks
+- GG iterates until satisfied, then explicitly accepts the plan
+- GG signals acceptance by saying something like "accepted" or "looks good, proceed"
+
+### Phase 2 — Document (`/document-topic`)
+
+Once GG accepts the plan:
+1. Claude creates a `content/{topic-kebab-case}` Git branch
+2. Uses the `doc-writer` sub-agent to generate markdown files in `docs/`
+3. Updates `docs/get-started.md` navigation
+4. Presents a summary and asks GG for approval
+5. On approval, commits the changes
+
+**Git rules:**
+- Only GG merges branches into `develop` or `master`
+- Claude never pushes to remote or opens PRs
+- Each topic gets its own branch
+
+### Exploration Plan Statuses
+
+| Status | Meaning |
+|--------|---------|
+| `DRAFT` | Being created or iterated |
+| `ACCEPTED` | GG approved — ready to document |
+| `DOCUMENTED` | Files generated and committed |
+
+---
+
+## Sub-Agents
+
+| Agent | File | Purpose |
+|-------|------|---------|
+| `topic-researcher` | `.claude/agents/topic-researcher.md` | Web research, subtopic identification, Q&A generation |
+| `diagram-specialist` | `.claude/agents/diagram-specialist.md` | PlantUML diagram generation |
+| `doc-writer` | `.claude/agents/doc-writer.md` | Markdown page generation from accepted plans |
+
+---
 
 ## Java Utility Code
 
-### MarkdownFileReferences.java
-
 **Location:** `code/src/edu/datadrivendocs/code/utils/MarkdownFileReferences.java`
 
-**Purpose:** Validates the documentation structure by:
-- Scanning all markdown files in the `docs/` directory
-- Identifying which files are referenced from other markdown files
-- Reporting unreferenced files (orphaned content)
-- Helping maintain documentation completeness
+Validates documentation structure by scanning `docs/` for orphaned (unreferenced) markdown files. The `common/` directory is excluded.
 
-**Exclusion:** The `common/` directory is excluded from validation (contains templates)
-
-## Development Guidelines
-
-### Adding New Content
-
-1. **Choose the Appropriate Category:** Place new files in the correct subdirectory under `docs/pages/`
-2. **Follow the Template:** Use `docs/pages/common/template.md` as a starting point
-3. **Add Table of Contents:** Include auto-generated TOC after the title
-4. **Include Navigation:** Add "Back to top" links and footer navigation
-5. **Update get-started.md:** Link to the new page from the main navigation hub
-6. **Add References:** Include official documentation links in the Ref. section
-
-### Editing Existing Content
-
-1. **Maintain Structure:** Keep the standard document structure intact
-2. **Update TOC:** Regenerate if section headings change
-3. **Check Links:** Ensure all internal links remain valid
-4. **Test Locally:** Preview changes with Jekyll locally if possible
-
-### Content Philosophy
-
-- **Breadth over Depth:** Provide overviews rather than comprehensive tutorials
-- **Link to Authority:** Always reference official documentation for detailed information
-- **Stay Current:** Focus on concepts that remain relevant across versions
-- **Keep it Accessible:** Write for beginners and experienced developers alike
+---
 
 ## Important Files
 
-- **docs/index.md** - Homepage introducing the project
-- **docs/get-started.md** - Main navigation hub with complete topic index
-- **docs/_config.yml** - Jekyll configuration (theme and plugins)
-- **docs/pages/common/template.md** - Template for new documentation pages
-- **README.md** - GitHub repository description
+- `docs/index.md` — Homepage
+- `docs/get-started.md` — Main navigation hub
+- `docs/_config.yml` — Jekyll configuration
+- `docs/pages/common/template.md` — Legacy basic template
+- `.claude/templates/page.md` — Full page template with Q&A and Related Topics
+- `README.md` — GitHub repository description
+
+---
 
 ## Git Workflow
 
 **Main Branch:** `master`
+**Integration Branch:** `develop` (merge feature branches here first)
+**Feature Branches:** `content/{topic-kebab-case}`
 
-**Current Status:** Repository is clean (no uncommitted changes)
-
-**Recent Activity:**
-- RESTful API design content added
-- SQL and NoSQL database documentation
-- Design patterns section
-
-## Notes for AI Assistants
-
-When working with this project:
-
-1. **Consistency is Key:** Always follow the established markdown structure
-2. **Link Validation:** Check that internal links use correct relative paths
-3. **Reference Quality:** Prioritize official documentation links over tutorials
-4. **No Deep Content:** Don't write exhaustive explanations - keep content concise
-5. **Java Utility:** Run `MarkdownFileReferences.java` to find orphaned documentation
-6. **Navigation Updates:** When adding pages, update `get-started.md` with proper links
-7. **Image Paths:** Images go in `docs/img/` and use relative paths from the page
-8. **Common Directory:** The `docs/pages/common/` directory is for shared resources/templates
-
-## Contributing
-
-The project welcomes contributions via pull requests for:
-- New topic pages following the template
-- Corrections and improvements to existing content
-- Additional reference links to official documentation
-- Structure and navigation enhancements
+Only GG merges to `develop` or `master`.
 
 ---
 
-**Last Updated:** 2025-11-13
+## Notes for AI Assistants
+
+1. **Consistency is Key:** Always follow the established markdown structure
+2. **Template:** Use `.claude/templates/page.md` for new pages (richer than `common/template.md`)
+3. **Link Validation:** Check that internal links use correct relative paths
+4. **Reference Quality:** Prioritize official documentation links over tutorials
+5. **No Deep Content:** Overviews, not exhaustive tutorials
+6. **Navigation Updates:** Always update `get-started.md` when adding pages
+7. **Image Paths:** `docs/img/` — reference with relative paths from the page
+8. **Common Directory:** `docs/pages/common/` is for shared resources/templates — excluded from link validation
+9. **Explorations:** Never modify `docs/` during `/explore-topic` — exploration only
+10. **Branch per Topic:** Each documented topic gets its own `content/` branch
+
+---
+
+**Last Updated:** 2026-03-18
 **Repository:** https://github.com/ggranados/data-driven-docs

@@ -51,35 +51,22 @@ The **Fork/Join Framework** (Java 7+) is designed for **parallel processing** of
 
 ### Divide-and-Conquer Pattern
 
-<!-- PlantUML Source:
-@startuml
-skinparam backgroundColor #0d1117
-skinparam activityBorderColor #00ff00
-skinparam activityBackgroundColor #1a1a1a
-skinparam arrowColor #00ff00
-
-start
-:Large Task;
-fork
-  :Subtask 1;
-  :Process;
-fork again
-  :Subtask 2;
-  fork
-    :Subtask 2.1;
-    :Process;
-  fork again
-    :Subtask 2.2;
-    :Process;
-  end fork
-end fork
-:Join;
-:Final Result;
-stop
-@enduml
--->
-
-![Divide-and-Conquer Pattern](http://www.plantuml.com/plantuml/svg/~1RP5DQzim48Rl-nH3Tew1r8NL2efBIIbxe5cX8cOMgBpTTqDtzlaHYi_lMmZNfM_lyy-tE_U96QNZCeBkuSUC6BT0aI4DW4K-0-Uf3XWSaNGBmSI56GOH4YSZ6H08tGQ9GG0KmmCS28u8J49L9MJ2k86bFJK0rY5w8oLYfz5BUq2xX_0IZ5Oa0pK25-2p-0lS0we05-4N-0qu0-00wW0LW17O0Pe6E47E0F44YO1Xy20u3gC5l03f85m0Ce23-2dO1hO3WS3_W48m59C4te9_CrUz__pvVVzVwZ-lV_VwNz_lVm00)
+```mermaid
+flowchart TD
+    A([Large Task]) --> B[Fork]
+    B --> C[Subtask 1]
+    B --> D[Subtask 2]
+    C --> E[Process]
+    D --> F[Fork]
+    F --> G[Subtask 2.1]
+    F --> H[Subtask 2.2]
+    G --> I[Process]
+    H --> J[Process]
+    E --> K[Join]
+    I --> K
+    J --> K
+    K --> L([Final Result])
+```
 
 ### Basic Pattern
 
@@ -387,31 +374,17 @@ public class QuicksortTask extends RecursiveAction {
 2. Worker threads push/pop tasks from **their own** deque (LIFO)
 3. **Idle threads steal** tasks from **other threads'** deques (FIFO)
 
-<!-- PlantUML Source:
-@startuml
-skinparam backgroundColor #0d1117
-skinparam packageBorderColor #00ff00
-skinparam packageBackgroundColor #1a1a1a
-skinparam componentBorderColor #00ff00
-skinparam componentBackgroundColor #2a2a2a
-skinparam arrowColor #00ff00
-
-package "Worker Thread 1" {
-  component [Task Queue] as Q1
-  component [Working] as W1
-}
-
-package "Worker Thread 2" {
-  component [Task Queue\nEmpty] as Q2
-  component [Idle] as W2
-}
-
-Q1 -right-> W2 : Steal
-W1 -> Q1 : Fork
-@enduml
--->
-
-![Work-Stealing Algorithm](http://www.plantuml.com/plantuml/svg/~1VL9BRjim4BphAnQv1hq1Ki8rGf8K4of9ZIWYGPafRCaMONcHaAkx-kyQ-v8YbKWlUz-VczzpnIHXPIIZ5OA53yW3K2fSs1buUOYHYWIea3IdaaDFyWKpWIIfNYF1WGvLJWcm4O08H8h08XqEIK96mTRO9ZSWp4GvOD5fLg5oU42YpZ3jH8W3s2G_0kq06S01y0DO0wu06S05u0Cu0MW0AW01O1sW0Em04i2gm07W1iG08y0IO0We0Le0EO0Dy3Se2FW3JW48q5Lu5-m1de9rArYjjKVoxXxxFpxjxdVjxvVztxV_bRy_p-VhzOBvw_xZVm00)
+```mermaid
+graph LR
+    subgraph T1["Worker Thread 1"]
+        W1[Working] --> Q1[Task Queue]
+    end
+    subgraph T2["Worker Thread 2"]
+        W2[Idle]
+        Q2["Task Queue (Empty)"]
+    end
+    Q1 -->|Steal| W2
+```
 
 **Benefits:**
 - **Load balancing**: Idle threads help busy threads

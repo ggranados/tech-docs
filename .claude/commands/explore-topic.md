@@ -12,7 +12,7 @@ Use the `topic-researcher` sub-agent to gather structured information about **$A
 
 ## Step 2 — Diagram Planning
 
-Review the research results. For any concept that would benefit from a visual explanation (architecture, flow, structure, sequence), use the `diagram-specialist` sub-agent to generate PlantUML definitions. Include at least one diagram for the main topic overview if applicable.
+Review the research results. For any concept that would benefit from a visual explanation (architecture, flow, structure, sequence), use the `diagram-specialist` sub-agent to generate Mermaid definitions. Include at least one diagram for the main topic overview if applicable.
 
 ## Step 3 — Build the Exploration Plan
 
@@ -69,7 +69,7 @@ For each identified subtopic:
 
 ## 4. Diagrams
 
-Include any PlantUML diagrams prepared by the diagram-specialist, with captions.
+Include any Mermaid diagrams prepared by the diagram-specialist, with captions.
 
 ---
 

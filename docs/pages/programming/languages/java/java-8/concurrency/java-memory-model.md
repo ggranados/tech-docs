@@ -45,38 +45,25 @@ The **Java Memory Model (JMM)** defines how threads interact with memory, ensuri
 
 ## Thread Memory Architecture
 
-<!-- PlantUML Source:
-@startuml
-skinparam backgroundColor #0d1117
-skinparam defaultTextAlignment center
-skinparam packageBorderColor #00ff00
-skinparam packageBackgroundColor #1a1a1a
-skinparam componentBorderColor #00ff00
-skinparam arrowColor #00ff00
-
-package "Thread 1" #fff4e1 {
-  component [Stack\nLocal Variables] as T1Stack #fff4e1
-  component [CPU Cache\nThread 1] as T1Cache #e1f5ff
-}
-
-package "Thread 2" #fff4e1 {
-  component [Stack\nLocal Variables] as T2Stack #fff4e1
-  component [CPU Cache\nThread 2] as T2Cache #e1f5ff
-}
-
-package "Main Memory" #ffe1e1 {
-  component [Heap\nShared Objects] as Heap #ffe1e1
-  component [Static Variables\nClass Data] as Static #ffe1e1
-}
-
-T1Stack -down-> T1Cache : reads/writes
-T2Stack -down-> T2Cache : reads/writes
-T1Cache <--> Heap : eventual\nsync
-T2Cache <--> Heap : eventual\nsync
-@enduml
--->
-
-![Thread Memory Architecture](http://www.plantuml.com/plantuml/svg/~1bLFBRjim4BphAnQv1hq14jKqWfG8YgbLIrGfqoZnCsusaZPRcPWzqZ_ttYIhM5YdY7lv-tFcPzzPp2ZQ5BQ65T0I7d0Ya0auZYjTw8NJgR3rRdaCG-FGlHBx06qMaX7FBYqHVQ5a8JQ3j44h0xyXKxE0v3kf88JWJ8YO08g00Ds04D0WH14p1Ri1u44t0GS0XK0JC0pW06y0Q-0JW04d0QW0Ce0B-6hC4L0kW0MW0LO8G36x1Ri2u46l0Ai0GW0Lu0Nu0kW0Oy0F-0RW0Yu1s8tKA4LUqQ4vK7jO7Zo_qXz4Ey8wkkLyD7bTxP-zzsVUTVdzw-yVxNy_iprk_L__wXxvFxqzRuFzd_Sy_fzxgxvd-V_V7m00)
+```mermaid
+graph TD
+    subgraph T1["Thread 1"]
+        T1Stack["Stack\nLocal Variables"]
+        T1Cache["CPU Cache\nThread 1"]
+    end
+    subgraph T2["Thread 2"]
+        T2Stack["Stack\nLocal Variables"]
+        T2Cache["CPU Cache\nThread 2"]
+    end
+    subgraph MM["Main Memory"]
+        Heap["Heap\nShared Objects"]
+        Static["Static Variables\nClass Data"]
+    end
+    T1Stack -->|reads/writes| T1Cache
+    T2Stack -->|reads/writes| T2Cache
+    T1Cache <-->|eventual sync| Heap
+    T2Cache <-->|eventual sync| Heap
+```
 
 **How It Works:**
 1. Each thread has its own **stack** (local variables, method calls)
@@ -272,34 +259,24 @@ public class BankAccount {
 
 ### Memory Visibility with Synchronized
 
-<!-- PlantUML Source:
-@startuml
-skinparam backgroundColor #0d1117
-skinparam sequenceArrowColor #00ff00
-skinparam sequenceParticipantBorderColor #00ff00
-skinparam sequenceParticipantBackgroundColor #1a1a1a
-skinparam noteBorderColor #00ff00
-skinparam noteBackgroundColor #2a2a2a
+```mermaid
+sequenceDiagram
+    participant T1 as Thread 1
+    participant Lock
+    participant Memory as Main Memory
+    participant T2 as Thread 2
 
-participant "Thread 1" as T1
-participant Lock
-participant "Main Memory" as Memory
-participant "Thread 2" as T2
+    T1->>Lock: acquire lock
+    T1->>T1: counter = 1
+    T1->>Memory: flush all changes to main memory
+    T1->>Lock: release lock
+    Note over Memory: counter = 1 visible
 
-T1 -> Lock: acquire lock
-T1 -> T1: counter = 1
-T1 -> Memory: flush all changes\nto main memory
-T1 -> Lock: release lock
-note over Memory: counter = 1 visible
-
-T2 -> Lock: acquire lock
-T2 -> Memory: read latest values\nfrom main memory
-T2 -> T2: sees counter = 1
-T2 -> Lock: release lock
-@enduml
--->
-
-![Memory Visibility with Synchronized](http://www.plantuml.com/plantuml/svg/~1ZP91Jzim48Nl_XKxzWB4z8KvG5HrK2H4YW9TQXDq9caMONaHqBj9-USvCLQ6gU7qtJduystytZC8dDRu6IAafUf2oLGIb0pOT0IeXScaNdRFa3qX9h5WSI3fGW4cYWeT4GOTLmHLMT4g18hZLi62AX2V1ZK3tJ0rQejxKXh2-W5I3z0Xt0WrveZxnS9Wra_2Qq0Py1HO0ve03W00Xi01u03a01S35Hx1Ne2Am0xWD4m08D1By0Ai0mW0cO09W08O0Ae0Re0aO1zy3Zy36-4NG4Cp25L1Ra31O43W00Hm09u0Lu10S5Ma1m00000)
+    T2->>Lock: acquire lock
+    T2->>Memory: read latest values from main memory
+    T2->>T2: sees counter = 1
+    T2->>Lock: release lock
+```
 
 **Key Point:** Synchronized doesn't just provide mutual exclusion - it also ensures **memory visibility** by flushing and reloading from main memory at lock boundaries.
 

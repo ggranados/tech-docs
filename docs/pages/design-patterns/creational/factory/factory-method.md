@@ -55,65 +55,37 @@ The Factory Method pattern defines four participants.
 
 ## Structure
 
-```plantuml
-@startuml
-title Factory Method Pattern — GoF Structure
+```mermaid
+classDiagram
+    class Product {
+        <<interface>>
+        +use() void
+    }
+    class ConcreteProductA {
+        +use() void
+    }
+    class ConcreteProductB {
+        +use() void
+    }
+    class Creator {
+        <<abstract>>
+        +factoryMethod()* Product
+        +someOperation() void
+    }
+    class ConcreteCreatorA {
+        +factoryMethod() Product
+    }
+    class ConcreteCreatorB {
+        +factoryMethod() Product
+    }
 
-skinparam classAttributeIconSize 0
-skinparam class {
-    BackgroundColor White
-    BorderColor #555555
-    ArrowColor #333333
-}
-skinparam abstract {
-    BackgroundColor #f0f4ff
-    BorderColor #555599
-}
-
-interface Product {
-    + use() : void
-}
-
-class ConcreteProductA {
-    + use() : void
-}
-
-class ConcreteProductB {
-    + use() : void
-}
-
-abstract class Creator {
-    + {abstract} factoryMethod() : Product
-    + someOperation() : void
-}
-
-note right of Creator
-  someOperation() {
-    Product p = factoryMethod();
-    p.use();
-  }
-end note
-
-class ConcreteCreatorA {
-    + factoryMethod() : Product
-}
-
-class ConcreteCreatorB {
-    + factoryMethod() : Product
-}
-
-Product <|.. ConcreteProductA
-Product <|.. ConcreteProductB
-
-Creator <|-- ConcreteCreatorA
-Creator <|-- ConcreteCreatorB
-
-ConcreteCreatorA ..> ConcreteProductA : <<creates>>
-ConcreteCreatorB ..> ConcreteProductB : <<creates>>
-
-Creator ..> Product : uses
-
-@enduml
+    Product <|.. ConcreteProductA
+    Product <|.. ConcreteProductB
+    Creator <|-- ConcreteCreatorA
+    Creator <|-- ConcreteCreatorB
+    ConcreteCreatorA ..> ConcreteProductA : creates
+    ConcreteCreatorB ..> ConcreteProductB : creates
+    Creator ..> Product : uses
 ```
 
 **Caption:** `Creator.someOperation()` works entirely against the `Product` interface and never references a concrete class. Adding a new product only requires a new `ConcreteCreator` subclass.

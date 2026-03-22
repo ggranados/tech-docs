@@ -1,0 +1,14 @@
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Jekyll renders ```mermaid fences as <pre><code class="language-mermaid">
+    // Convert them to <div class="mermaid"> so Mermaid can render them
+    document.querySelectorAll('pre code.language-mermaid').forEach(function (el) {
+      var div = document.createElement('div');
+      div.className = 'mermaid';
+      div.textContent = el.textContent;
+      el.closest('pre').replaceWith(div);
+    });
+    mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+  });
+</script>

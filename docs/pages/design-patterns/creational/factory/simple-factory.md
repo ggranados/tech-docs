@@ -55,47 +55,27 @@ The Simple Factory pattern involves four elements.
 
 ## Structure
 
-```plantuml
-@startuml
-title Simple Factory — Static Creation Method
+```mermaid
+classDiagram
+    class Shape {
+        <<interface>>
+        +draw() void
+    }
+    class Circle {
+        +draw() void
+    }
+    class Rectangle {
+        +draw() void
+    }
+    class ShapeFactory {
+        +create(type String)$ Shape
+    }
+    class Client
 
-skinparam classAttributeIconSize 0
-skinparam class {
-    BackgroundColor White
-    BorderColor #555555
-    ArrowColor #333333
-}
-
-interface Shape {
-    + draw() : void
-}
-
-class Circle {
-    + draw() : void
-}
-
-class Rectangle {
-    + draw() : void
-}
-
-class ShapeFactory {
-    + {static} create(type : String) : Shape
-}
-
-class Client {
-}
-
-Shape <|.. Circle
-Shape <|.. Rectangle
-Client --> ShapeFactory : calls create()
-ShapeFactory ..> Shape : <<creates>>
-
-note right of ShapeFactory
-  if (type == "circle") return new Circle();
-  if (type == "rect")   return new Rectangle();
-end note
-
-@enduml
+    Shape <|.. Circle
+    Shape <|.. Rectangle
+    Client --> ShapeFactory : calls create()
+    ShapeFactory ..> Shape : creates
 ```
 
 **Caption:** The Simple Factory centralises object creation in a single static method. The client depends only on the factory and the `Shape` interface, never on concrete classes — but every new type requires modifying `ShapeFactory`.

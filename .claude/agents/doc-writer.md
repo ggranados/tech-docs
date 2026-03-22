@@ -32,7 +32,7 @@ Your job is to transform an exploration plan into one or more properly structure
    - Use bullet lists for characteristics and patterns
    - Use `### Bold Term:` style for named concepts within sections (follow microservices.md pattern)
    - Include code snippets only when brief and illustrative (max 15 lines)
-   - Embed PlantUML diagrams where provided in the exploration plan
+   - Embed Mermaid diagrams where provided in the exploration plan
    - Never use emojis
 
 7. **Internal links**: Use relative paths from the file's location. Verify paths against existing file structure before writing.

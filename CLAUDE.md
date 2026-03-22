@@ -52,7 +52,7 @@ tech-docs/
 ├── .claude/                       # Claude Code configuration
 │   ├── agents/                    # Sub-agent definitions
 │   │   ├── topic-researcher.md    # Researches topics via web + codebase
-│   │   ├── diagram-specialist.md  # Generates PlantUML diagrams
+│   │   ├── diagram-specialist.md  # Generates Mermaid diagrams
 │   │   └── doc-writer.md         # Writes final markdown pages
 │   ├── commands/                  # Custom slash commands
 │   │   ├── explore-topic.md       # /explore-topic {topic-name}
@@ -164,7 +164,7 @@ This project uses a two-phase workflow for adding new content:
 
 GG selects a topic and runs the command. Claude acts as a learning tutor and:
 1. Uses the `topic-researcher` sub-agent to gather structured information
-2. Uses the `diagram-specialist` sub-agent to prepare PlantUML diagrams
+2. Uses the `diagram-specialist` sub-agent to prepare Mermaid diagrams
 3. Creates an exploration plan at `.claude/explorations/{topic-name}/exploration.md`
 4. Presents a summary and invites GG to ask questions, go deeper, or iterate
 
@@ -203,7 +203,7 @@ Once GG accepts the plan:
 | Agent | File | Purpose |
 |-------|------|---------|
 | `topic-researcher` | `.claude/agents/topic-researcher.md` | Web research, subtopic identification, Q&A generation |
-| `diagram-specialist` | `.claude/agents/diagram-specialist.md` | PlantUML diagram generation |
+| `diagram-specialist` | `.claude/agents/diagram-specialist.md` | Mermaid diagram generation |
 | `doc-writer` | `.claude/agents/doc-writer.md` | Markdown page generation from accepted plans |
 
 ---
@@ -249,8 +249,9 @@ Only GG merges to `develop` or `master`.
 8. **Common Directory:** `docs/pages/common/` is for shared resources/templates — excluded from link validation
 9. **Explorations:** Never modify `docs/` during `/explore-topic` — exploration only
 10. **Branch per Topic:** Each documented topic gets its own `content/` branch
+11. **Diagrams:** Always use Mermaid (` ```mermaid `) — never PlantUML. Supported types: `classDiagram`, `flowchart TD/LR`, `sequenceDiagram`, `stateDiagram-v2`, `graph TD`, `erDiagram`. Mermaid renders natively on GitHub.com and on the Jekyll site via `docs/_includes/head-custom.html`.
 
 ---
 
-**Last Updated:** 2026-03-18
+**Last Updated:** 2026-03-22
 **Repository:** https://github.com/ggranados/data-driven-docs

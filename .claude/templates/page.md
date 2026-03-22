@@ -41,6 +41,15 @@
   // illustrative example (keep under 15 lines)
   ```
 
+  {Optional — include a Mermaid diagram when a visual helps. Use classDiagram, flowchart TD, sequenceDiagram, stateDiagram-v2, or graph TD.}
+
+  ```mermaid
+  {diagram type}
+      {diagram content}
+  ```
+
+  **Caption:** {One sentence describing what the diagram shows.}
+
 <sub>[Back to top](#table-of-contents)</sub>
 
 - ### {Concept Name}:

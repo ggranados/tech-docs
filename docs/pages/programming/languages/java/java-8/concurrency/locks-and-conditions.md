@@ -498,33 +498,19 @@ public class Point {
 
 ### Optimistic Reading Flow
 
-<!-- PlantUML Source:
-@startuml
-skinparam backgroundColor #0d1117
-skinparam activityBorderColor #00ff00
-skinparam activityBackgroundColor #1a1a1a
-skinparam activityDiamondBorderColor #00ff00
-skinparam activityDiamondBackgroundColor #2a2a2a
-skinparam arrowColor #00ff00
-
-start
-:Start Optimistic Read;
-:Get stamp;
-:Read data;
-if (Validate stamp?) then (Valid)
-  :Return data\n**No lock needed!**;
-  stop
-else (Invalid)
-  :Acquire read lock;
-  :Re-read data;
-  :Release lock;
-  :Return data;
-  stop
-endif
-@enduml
--->
-
-![Optimistic Reading Flow](http://www.plantuml.com/plantuml/svg/~1RP5DQzim48NtynI3TfW9L0YkYQeIfGWCfY98j0XJgJsPTAD5zR2zzinWzwCLj7RyxpzvdttRD9KI1sCn4kCGVG2q2m38em7PqKRJ41ZW7xLIm4gL63G8Z8PdHY99G08sGWHyGIEm91u8I3C918hZRk16zxKnD5Z3jS1MRY_2Tu6x9QNx0-RR3e3x1Oa0TW2w-3W40Di04u05G07q0Ai05S05y0Qe0wO4BO1sG1Ie2-m05W3wq1VW5Dm0B-2Jy0Fy1AO2NS1JC35i4sS4lP29mAjZmTr-VZJzlVxlddx_l_u_VRy_fz_Vy_h-zD_T-V__Vd__0m00)
+```mermaid
+flowchart TD
+    A([Start Optimistic Read]) --> B[Get stamp]
+    B --> C[Read data]
+    C --> D{Validate stamp?}
+    D -- Valid --> E["Return data — no lock needed"]
+    D -- Invalid --> F[Acquire read lock]
+    F --> G[Re-read data]
+    G --> H[Release lock]
+    H --> I[Return data]
+    E --> Z([End])
+    I --> Z
+```
 
 ### Lock Upgrade/Downgrade
 

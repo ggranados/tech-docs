@@ -409,47 +409,37 @@ No built-in way to be notified when computation completes without polling or blo
 
 ## Future Execution Flow
 
-<!-- PlantUML Source:
-@startuml
-skinparam backgroundColor #0d1117
-skinparam sequenceArrowColor #00ff00
-skinparam sequenceParticipantBorderColor #00ff00
-skinparam sequenceParticipantBackgroundColor #1a1a1a
-skinparam noteBorderColor #00ff00
-skinparam noteBackgroundColor #2a2a2a
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Executor
+    participant WorkerThread
+    participant Future
 
-participant Client
-participant Executor
-participant WorkerThread
-participant Future
+    Client->>Executor: submit(Callable)
+    Executor->>Future: create Future&lt;T&gt;
+    Executor-->>Client: return Future
+    Note over Client: Can do other work
 
-Client -> Executor: submit(Callable)
-Executor -> Future: create Future<T>
-Executor --> Client: return Future
-note over Client: Can do other work
+    Executor->>WorkerThread: assign task
+    WorkerThread->>WorkerThread: execute callable.call()
 
-Executor -> WorkerThread: assign task
-WorkerThread -> WorkerThread: execute callable.call()
-
-alt Task completes successfully
-    WorkerThread -> Future: set result(value)
-    Client -> Future: get()
-    Future --> Client: return value
-else Task throws exception
-    WorkerThread -> Future: set exception(e)
-    Client -> Future: get()
-    Future --> Client: throw ExecutionException
-else Task is cancelled
-    Client -> Future: cancel(true)
-    Future -> WorkerThread: interrupt()
-    WorkerThread -> Future: set cancelled
-    Client -> Future: get()
-    Future --> Client: throw CancellationException
-end
-@enduml
--->
-
-![Future Execution Flow](http://www.plantuml.com/plantuml/svg/~1ZLJ1Rjim3BthAuXSm2X47IGMIbYNnH98gHH9IjHIjRjIMGHY9JqN-zqzagT4gvKVxvpppddlVrsR3Tr2aLrA1GXR2AWKA0nYf0BPKbZ5UaeBDKeaNdjW7fDNWWeWMGTLG08OGO04D0sQejJLqZ0AX2VHZ4C3qF0vUe3xKnn2--OYI5m1LW3s2q_41m09a01-11W0Au01O0QW0Ce0B-0vu0DS4R-0RW09S0Aa0Tu0lu0J-15e3Zu39W47u5Qm07W5rG1Ai0oi0Ne0mu0DS0w-1lW0Lq1cy3ly38W4_C4rW5la4xO6rS8lq9rCrYzVzVzzVczVpN_p__dVxRzyxxVz_z_xZxvyy_xVsVzUzzdttdtwkxwgz_FzfwsR_NVm00)
+    alt Task completes successfully
+        WorkerThread->>Future: set result(value)
+        Client->>Future: get()
+        Future-->>Client: return value
+    else Task throws exception
+        WorkerThread->>Future: set exception(e)
+        Client->>Future: get()
+        Future-->>Client: throw ExecutionException
+    else Task is cancelled
+        Client->>Future: cancel(true)
+        Future->>WorkerThread: interrupt()
+        WorkerThread->>Future: set cancelled
+        Client->>Future: get()
+        Future-->>Client: throw CancellationException
+    end
+```
 
 <sub>[Back to top](#table-of-contents)</sub>
 

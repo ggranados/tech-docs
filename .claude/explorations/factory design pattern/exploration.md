@@ -158,47 +158,27 @@ docs/pages/design-patterns/
 
 ### Diagram 1 — Simple Factory
 
-```plantuml
-@startuml
-title Simple Factory — Static Creation Method
+```mermaid
+classDiagram
+    class Shape {
+        <<interface>>
+        +draw() void
+    }
+    class Circle {
+        +draw() void
+    }
+    class Rectangle {
+        +draw() void
+    }
+    class ShapeFactory {
+        +create(type String)$ Shape
+    }
+    class Client
 
-skinparam classAttributeIconSize 0
-skinparam class {
-    BackgroundColor White
-    BorderColor #555555
-    ArrowColor #333333
-}
-
-interface Shape {
-    + draw() : void
-}
-
-class Circle {
-    + draw() : void
-}
-
-class Rectangle {
-    + draw() : void
-}
-
-class ShapeFactory {
-    + {static} create(type : String) : Shape
-}
-
-class Client {
-}
-
-Shape <|.. Circle
-Shape <|.. Rectangle
-Client --> ShapeFactory : calls create()
-ShapeFactory ..> Shape : <<creates>>
-
-note right of ShapeFactory
-  if (type == "circle") return new Circle();
-  if (type == "rect")   return new Rectangle();
-end note
-
-@enduml
+    Shape <|.. Circle
+    Shape <|.. Rectangle
+    Client --> ShapeFactory : calls create()
+    ShapeFactory ..> Shape : creates
 ```
 
 **Caption:** The Simple Factory pattern centralises object creation in a single static method. The client depends only on the factory and the `Shape` interface, never on concrete classes — but every new type requires modifying `ShapeFactory`.
@@ -207,65 +187,37 @@ end note
 
 ### Diagram 2 — Factory Method Pattern (GoF)
 
-```plantuml
-@startuml
-title Factory Method Pattern — GoF Structure
+```mermaid
+classDiagram
+    class Product {
+        <<interface>>
+        +use() void
+    }
+    class ConcreteProductA {
+        +use() void
+    }
+    class ConcreteProductB {
+        +use() void
+    }
+    class Creator {
+        <<abstract>>
+        +factoryMethod()* Product
+        +someOperation() void
+    }
+    class ConcreteCreatorA {
+        +factoryMethod() Product
+    }
+    class ConcreteCreatorB {
+        +factoryMethod() Product
+    }
 
-skinparam classAttributeIconSize 0
-skinparam class {
-    BackgroundColor White
-    BorderColor #555555
-    ArrowColor #333333
-}
-skinparam abstract {
-    BackgroundColor #f0f4ff
-    BorderColor #555599
-}
-
-interface Product {
-    + use() : void
-}
-
-class ConcreteProductA {
-    + use() : void
-}
-
-class ConcreteProductB {
-    + use() : void
-}
-
-abstract class Creator {
-    + {abstract} factoryMethod() : Product
-    + someOperation() : void
-}
-
-note right of Creator
-  someOperation() {
-    Product p = factoryMethod();
-    p.use();
-  }
-end note
-
-class ConcreteCreatorA {
-    + factoryMethod() : Product
-}
-
-class ConcreteCreatorB {
-    + factoryMethod() : Product
-}
-
-Product <|.. ConcreteProductA
-Product <|.. ConcreteProductB
-
-Creator <|-- ConcreteCreatorA
-Creator <|-- ConcreteCreatorB
-
-ConcreteCreatorA ..> ConcreteProductA : <<creates>>
-ConcreteCreatorB ..> ConcreteProductB : <<creates>>
-
-Creator ..> Product : uses
-
-@enduml
+    Product <|.. ConcreteProductA
+    Product <|.. ConcreteProductB
+    Creator <|-- ConcreteCreatorA
+    Creator <|-- ConcreteCreatorB
+    ConcreteCreatorA ..> ConcreteProductA : creates
+    ConcreteCreatorB ..> ConcreteProductB : creates
+    Creator ..> Product : uses
 ```
 
 **Caption:** The Factory Method pattern delegates instantiation to subclasses. `Creator.someOperation()` works entirely against the `Product` interface — it never references a concrete class. Adding a new product only requires a new `ConcreteCreator` subclass.
@@ -274,91 +226,65 @@ Creator ..> Product : uses
 
 ### Diagram 3 — Abstract Factory Pattern
 
-```plantuml
-@startuml
-title Abstract Factory Pattern — Cross-Platform GUI
+```mermaid
+classDiagram
+    class GUIFactory {
+        <<interface>>
+        +createButton() Button
+        +createCheckbox() Checkbox
+    }
+    class WinFactory {
+        +createButton() Button
+        +createCheckbox() Checkbox
+    }
+    class MacFactory {
+        +createButton() Button
+        +createCheckbox() Checkbox
+    }
+    class Button {
+        <<interface>>
+        +render() void
+        +onClick() void
+    }
+    class Checkbox {
+        <<interface>>
+        +render() void
+        +onCheck() void
+    }
+    class WinButton {
+        +render() void
+        +onClick() void
+    }
+    class MacButton {
+        +render() void
+        +onClick() void
+    }
+    class WinCheckbox {
+        +render() void
+        +onCheck() void
+    }
+    class MacCheckbox {
+        +render() void
+        +onCheck() void
+    }
+    class Client {
+        -factory GUIFactory
+        +buildUI() void
+    }
 
-skinparam classAttributeIconSize 0
-skinparam class {
-    BackgroundColor White
-    BorderColor #555555
-    ArrowColor #333333
-}
-skinparam interface {
-    BackgroundColor #f0fff0
-    BorderColor #448844
-}
-
-interface GUIFactory {
-    + createButton() : Button
-    + createCheckbox() : Checkbox
-}
-
-class WinFactory {
-    + createButton() : Button
-    + createCheckbox() : Checkbox
-}
-
-class MacFactory {
-    + createButton() : Button
-    + createCheckbox() : Checkbox
-}
-
-interface Button {
-    + render() : void
-    + onClick() : void
-}
-
-interface Checkbox {
-    + render() : void
-    + onCheck() : void
-}
-
-class WinButton {
-    + render() : void
-    + onClick() : void
-}
-
-class MacButton {
-    + render() : void
-    + onClick() : void
-}
-
-class WinCheckbox {
-    + render() : void
-    + onCheck() : void
-}
-
-class MacCheckbox {
-    + render() : void
-    + onCheck() : void
-}
-
-class Client {
-    - factory : GUIFactory
-    + Client(factory : GUIFactory)
-    + buildUI() : void
-}
-
-GUIFactory <|.. WinFactory
-GUIFactory <|.. MacFactory
-
-Button <|.. WinButton
-Button <|.. MacButton
-
-Checkbox <|.. WinCheckbox
-Checkbox <|.. MacCheckbox
-
-WinFactory ..> WinButton : <<creates>>
-WinFactory ..> WinCheckbox : <<creates>>
-MacFactory ..> MacButton : <<creates>>
-MacFactory ..> MacCheckbox : <<creates>>
-
-Client --> GUIFactory : uses
-Client ..> Button : uses
-Client ..> Checkbox : uses
-
-@enduml
+    GUIFactory <|.. WinFactory
+    GUIFactory <|.. MacFactory
+    Button <|.. WinButton
+    Button <|.. MacButton
+    Checkbox <|.. WinCheckbox
+    Checkbox <|.. MacCheckbox
+    WinFactory ..> WinButton : creates
+    WinFactory ..> WinCheckbox : creates
+    MacFactory ..> MacButton : creates
+    MacFactory ..> MacCheckbox : creates
+    Client --> GUIFactory : uses
+    Client ..> Button : uses
+    Client ..> Checkbox : uses
 ```
 
 **Caption:** The Abstract Factory pattern groups related product families (`WinButton`/`WinCheckbox`, `MacButton`/`MacCheckbox`) behind a common interface. The `Client` is fully decoupled — it knows nothing about which platform-specific family it's working with.
@@ -367,41 +293,16 @@ Client ..> Checkbox : uses
 
 ### Diagram 4 — Pattern Selection Flow
 
-```plantuml
-@startuml
-title Choosing the Right Factory Pattern
-
-skinparam activityBackgroundColor White
-skinparam activityBorderColor #555555
-skinparam arrowColor #333333
-skinparam diamond {
-    BackgroundColor #fffbe6
-    BorderColor #ccaa00
-}
-
-start
-
-:Need to decouple object\ncreation from client code?;
-
-if (Creation logic is simple\nand only **one product type**?) then (yes)
-    #lightblue: **Simple Factory**\n----\nStatic helper method.\nNo inheritance required.\nOne class, one location.;
-    stop
-else (no)
-endif
-
-if (Product type varies by\n**subclass decision**?) then (yes)
-    #lightgreen: **Factory Method**\n----\nDefine abstract factoryMethod()\nin a base Creator.\nSubclasses pick the product.\nOpen/Closed Principle.;
-    stop
-else (no)
-endif
-
-if (Multiple **related product families**\nthat must be used together?) then (yes)
-    #lightyellow: **Abstract Factory**\n----\nInterface for creating families.\nSwap entire product suites\nat runtime (e.g. Win vs Mac).;
-    stop
-else (no)
-    :Revisit requirements —\nconsider Builder or Prototype;
-    stop
-endif
+```mermaid
+flowchart TD
+    A([Need to decouple object\ncreation from client code?])
+    A --> B{Creation logic is simple\nand only one product type?}
+    B -- yes --> C[\"<b>Simple Factory</b>\n---\nStatic helper method.\nNo inheritance required.\nOne class, one location."\]
+    B -- no  --> D{Product type varies by\nsubclass decision?}
+    D -- yes --> E[\"<b>Factory Method</b>\n---\nDefine abstract factoryMethod\nin a base Creator.\nSubclasses pick the product.\nOpen/Closed Principle."\]
+    D -- no  --> F{Multiple related product families\nthat must be used together?}
+    F -- yes --> G[\"<b>Abstract Factory</b>\n---\nInterface for creating families.\nSwap entire product suites\nat runtime e.g. Win vs Mac."\]
+    F -- no  --> H([Revisit requirements —\nconsider Builder or Prototype])
 
 @enduml
 ```

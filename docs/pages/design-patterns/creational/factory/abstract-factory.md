@@ -58,91 +58,66 @@ The Abstract Factory pattern defines five participants.
 
 ## Structure
 
-```plantuml
-@startuml
-title Abstract Factory Pattern — Cross-Platform GUI
+```mermaid
+classDiagram
+    class GUIFactory {
+        <<interface>>
+        +createButton() Button
+        +createCheckbox() Checkbox
+    }
+    class WinFactory {
+        +createButton() Button
+        +createCheckbox() Checkbox
+    }
+    class MacFactory {
+        +createButton() Button
+        +createCheckbox() Checkbox
+    }
+    class Button {
+        <<interface>>
+        +render() void
+        +onClick() void
+    }
+    class Checkbox {
+        <<interface>>
+        +render() void
+        +onCheck() void
+    }
+    class WinButton {
+        +render() void
+        +onClick() void
+    }
+    class MacButton {
+        +render() void
+        +onClick() void
+    }
+    class WinCheckbox {
+        +render() void
+        +onCheck() void
+    }
+    class MacCheckbox {
+        +render() void
+        +onCheck() void
+    }
+    class Client {
+        -factory GUIFactory
+        +Client(factory GUIFactory)
+        +buildUI() void
+    }
 
-skinparam classAttributeIconSize 0
-skinparam class {
-    BackgroundColor White
-    BorderColor #555555
-    ArrowColor #333333
-}
-skinparam interface {
-    BackgroundColor #f0fff0
-    BorderColor #448844
-}
-
-interface GUIFactory {
-    + createButton() : Button
-    + createCheckbox() : Checkbox
-}
-
-class WinFactory {
-    + createButton() : Button
-    + createCheckbox() : Checkbox
-}
-
-class MacFactory {
-    + createButton() : Button
-    + createCheckbox() : Checkbox
-}
-
-interface Button {
-    + render() : void
-    + onClick() : void
-}
-
-interface Checkbox {
-    + render() : void
-    + onCheck() : void
-}
-
-class WinButton {
-    + render() : void
-    + onClick() : void
-}
-
-class MacButton {
-    + render() : void
-    + onClick() : void
-}
-
-class WinCheckbox {
-    + render() : void
-    + onCheck() : void
-}
-
-class MacCheckbox {
-    + render() : void
-    + onCheck() : void
-}
-
-class Client {
-    - factory : GUIFactory
-    + Client(factory : GUIFactory)
-    + buildUI() : void
-}
-
-GUIFactory <|.. WinFactory
-GUIFactory <|.. MacFactory
-
-Button <|.. WinButton
-Button <|.. MacButton
-
-Checkbox <|.. WinCheckbox
-Checkbox <|.. MacCheckbox
-
-WinFactory ..> WinButton : <<creates>>
-WinFactory ..> WinCheckbox : <<creates>>
-MacFactory ..> MacButton : <<creates>>
-MacFactory ..> MacCheckbox : <<creates>>
-
-Client --> GUIFactory : uses
-Client ..> Button : uses
-Client ..> Checkbox : uses
-
-@enduml
+    GUIFactory <|.. WinFactory
+    GUIFactory <|.. MacFactory
+    Button <|.. WinButton
+    Button <|.. MacButton
+    Checkbox <|.. WinCheckbox
+    Checkbox <|.. MacCheckbox
+    WinFactory ..> WinButton : creates
+    WinFactory ..> WinCheckbox : creates
+    MacFactory ..> MacButton : creates
+    MacFactory ..> MacCheckbox : creates
+    Client --> GUIFactory : uses
+    Client ..> Button : uses
+    Client ..> Checkbox : uses
 ```
 
 **Caption:** The `Client` is fully decoupled — it knows nothing about which platform-specific family it works with. Swapping `WinFactory` for `MacFactory` changes the entire product suite without touching any client code.

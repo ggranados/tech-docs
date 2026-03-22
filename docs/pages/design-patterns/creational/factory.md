@@ -77,43 +77,16 @@ The three variants share the same intent — decouple creation from use — but 
 
 The diagram below guides the choice between the three variants based on creation requirements.
 
-```plantuml
-@startuml
-title Choosing the Right Factory Pattern
-
-skinparam activityBackgroundColor White
-skinparam activityBorderColor #555555
-skinparam arrowColor #333333
-skinparam diamond {
-    BackgroundColor #fffbe6
-    BorderColor #ccaa00
-}
-
-start
-
-:Need to decouple object\ncreation from client code?;
-
-if (Creation logic is simple\nand only **one product type**?) then (yes)
-    #lightblue: **Simple Factory**\n----\nStatic helper method.\nNo inheritance required.\nOne class, one location.;
-    stop
-else (no)
-endif
-
-if (Product type varies by\n**subclass decision**?) then (yes)
-    #lightgreen: **Factory Method**\n----\nDefine abstract factoryMethod()\nin a base Creator.\nSubclasses pick the product.\nOpen/Closed Principle.;
-    stop
-else (no)
-endif
-
-if (Multiple **related product families**\nthat must be used together?) then (yes)
-    #lightyellow: **Abstract Factory**\n----\nInterface for creating families.\nSwap entire product suites\nat runtime (e.g. Win vs Mac).;
-    stop
-else (no)
-    :Revisit requirements —\nconsider Builder or Prototype;
-    stop
-endif
-
-@enduml
+```mermaid
+flowchart TD
+    A([Need to decouple object\ncreation from client code?])
+    A --> B{Creation logic is simple\nand only one product type?}
+    B -- yes --> C[\"<b>Simple Factory</b>\n---\nStatic helper method.\nNo inheritance required.\nOne class, one location."\]
+    B -- no  --> D{Product type varies by\nsubclass decision?}
+    D -- yes --> E[\"<b>Factory Method</b>\n---\nDefine abstract factoryMethod\nin a base Creator.\nSubclasses pick the product.\nOpen/Closed Principle."\]
+    D -- no  --> F{Multiple related product families\nthat must be used together?}
+    F -- yes --> G[\"<b>Abstract Factory</b>\n---\nInterface for creating families.\nSwap entire product suites\nat runtime e.g. Win vs Mac."\]
+    F -- no  --> H([Revisit requirements —\nconsider Builder or Prototype])
 ```
 
 **Caption:** A decision-flow guide for selecting between the three factory variants based on creation complexity and product family structure.

@@ -289,7 +289,7 @@
     - [Simple Factory](pages/design-patterns/creational/factory/simple-factory.md)
     - [Factory Method](pages/design-patterns/creational/factory/factory-method.md)
     - [Abstract Factory](pages/design-patterns/creational/factory/abstract-factory.md)
-  - Singleton
+  - [Singleton](pages/design-patterns/creational/singleton.md)
   - Builder
   - Prototype
 - Structural Patterns:

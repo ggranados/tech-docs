@@ -263,32 +263,32 @@ document.addEventListener('DOMContentLoaded', function () {
 <sub>[Back to top](#table-of-contents)</sub>
 
 ## Algorithms
-- Sorting Algorithms 
-  - Bubble Sort
-  - Insertion Sort
-  - Merge Sort
-  - Quick Sort
-- Searching Algorithms 
-  - Linear Search
-  - Binary Search)
-- Graph Algorithms
-  - Depth-First Search
-  - Breadth-First Search
-  - Dijkstra's Algorithm
-- Dynamic Programming
-- Greedy Algorithms
-- Divide and Conquer Algorithms
-- Backtracking Algorithms
-- String Matching Algorithms 
-  - Knuth-Morris-Pratt Algorithm
-  - Rabin-Karp Algorithm)
-- Tree Traversal Algorithms 
-  - Inorder
-  - Preorder
-  - Postorder)
-- Hashing Algorithms 
-  - SHA-1
-  - MD5
+- [Sorting Algorithms](pages/algorithms/sorting-algorithms.md)
+  - [Bubble Sort](pages/algorithms/sorting-algorithms.md#bubble-sort)
+  - [Insertion Sort](pages/algorithms/sorting-algorithms.md#insertion-sort)
+  - [Merge Sort](pages/algorithms/sorting-algorithms.md#merge-sort)
+  - [Quick Sort](pages/algorithms/sorting-algorithms.md#quick-sort)
+- [Searching Algorithms](pages/algorithms/searching-algorithms.md)
+  - [Linear Search](pages/algorithms/searching-algorithms.md#linear-search)
+  - [Binary Search](pages/algorithms/searching-algorithms.md#binary-search)
+- [Graph Algorithms](pages/algorithms/graph-algorithms.md)
+  - [Depth-First Search](pages/algorithms/graph-algorithms.md#depth-first-search-dfs)
+  - [Breadth-First Search](pages/algorithms/graph-algorithms.md#breadth-first-search-bfs)
+  - [Dijkstra's Algorithm](pages/algorithms/graph-algorithms.md#dijkstras-algorithm)
+- [Dynamic Programming](pages/algorithms/dynamic-programming-greedy.md#dynamic-programming)
+- [Greedy Algorithms](pages/algorithms/dynamic-programming-greedy.md#greedy-algorithms)
+- [Divide and Conquer Algorithms](pages/algorithms/divide-and-conquer-backtracking.md#divide-and-conquer)
+- [Backtracking Algorithms](pages/algorithms/divide-and-conquer-backtracking.md#backtracking)
+- [String Matching Algorithms](pages/algorithms/string-matching.md)
+  - [Knuth-Morris-Pratt Algorithm](pages/algorithms/string-matching.md#knuth-morris-pratt-kmp-algorithm)
+  - [Rabin-Karp Algorithm](pages/algorithms/string-matching.md#rabin-karp-algorithm)
+- [Tree Traversal Algorithms](pages/algorithms/tree-traversal.md)
+  - [Inorder](pages/algorithms/tree-traversal.md#inorder-traversal)
+  - [Preorder](pages/algorithms/tree-traversal.md#preorder-traversal)
+  - [Postorder](pages/algorithms/tree-traversal.md#postorder-traversal)
+- [Hashing Algorithms](pages/algorithms/hashing-algorithms.md)
+  - [SHA-1](pages/algorithms/hashing-algorithms.md#sha-1)
+  - [MD5](pages/algorithms/hashing-algorithms.md#md5)
 
 <sub>[Back to top](#table-of-contents)</sub>
 

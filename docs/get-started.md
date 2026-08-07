@@ -2,6 +2,39 @@
 
 ---
 
+<input type="text" id="topic-filter" placeholder="Filter topics… (e.g. kafka, oauth, singleton)" style="width:100%;box-sizing:border-box;padding:0.5em;font-size:1em;margin-bottom:1em;">
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var input = document.getElementById('topic-filter');
+  if (!input) return;
+  // Every top-level <li> in the content body, walking nested sub-lists too.
+  var items = document.querySelectorAll('h1 ~ ul li, h1 ~ ol li');
+  input.addEventListener('input', function () {
+    var term = input.value.trim().toLowerCase();
+    items.forEach(function (li) {
+      if (!term) {
+        li.style.display = '';
+        return;
+      }
+      var ownText = li.childNodes.length ? li.textContent.toLowerCase() : '';
+      var matches = ownText.indexOf(term) !== -1;
+      li.style.display = matches ? '' : 'none';
+    });
+    if (!term) return;
+    // Keep ancestors of a match visible even if the ancestor's own text doesn't match.
+    items.forEach(function (li) {
+      if (li.style.display !== 'none') {
+        var parentLi = li.parentElement && li.parentElement.closest('li');
+        while (parentLi) {
+          parentLi.style.display = '';
+          parentLi = parentLi.parentElement && parentLi.parentElement.closest('li');
+        }
+      }
+    });
+  });
+});
+</script>
+
 ## Table of Contents
 
 <!-- TOC -->
@@ -66,7 +99,6 @@
 - Logic Programming
 - Domain-Specific Languages (DSLs)
 
-
 <sub>[Back to top](#table-of-contents)</sub>
 
 ## Web Development Frameworks
@@ -109,21 +141,19 @@
 - Image and Video Processing
 - Time Series Analysis
 
-
 <sub>[Back to top](#table-of-contents)</sub>
 
 ### Database Concepts
- - [ACID](pages/data-processing/db-concepts/acid.md)
- - [BASE](pages/data-processing/db-concepts/base.md)
- - [CAP Theorem](pages/data-processing/db-concepts/cap.md)
- - CRDTs
- - Snapshot Isolation
- - Two-Phase Commit (2PC)
- - Eventual Consistency
- - MVCC (Multi-Version Concurrency Control)
- - Read Committed Isolation
- - Distributed Databases
-
+- [ACID](pages/data-processing/db-concepts/acid.md)
+- [BASE](pages/data-processing/db-concepts/base.md)
+- [CAP Theorem](pages/data-processing/db-concepts/cap.md)
+- CRDTs
+- Snapshot Isolation
+- Two-Phase Commit (2PC)
+- Eventual Consistency
+- MVCC (Multi-Version Concurrency Control)
+- Read Committed Isolation
+- Distributed Databases
 
 <sub>[Back to top](#table-of-contents)</sub>
 
@@ -167,7 +197,6 @@
   - Redis Streams
   - IBM MQ
   - Microsoft Azure Event Hubs
-
 
 <sub>[Back to top](#table-of-contents)</sub>
 
@@ -217,7 +246,7 @@
 - Version Control
 - DevOps Culture
 
-  <sub>[Back to top](#table-of-contents)</sub>
+<sub>[Back to top](#table-of-contents)</sub>
 
 ## Data Structures
 - Array
@@ -319,7 +348,7 @@
   - Aspect-Oriented Programming (AOP)
   - Service Locator
 
-    <sub>[Back to top](#table-of-contents)</sub>
+<sub>[Back to top](#table-of-contents)</sub>
 
 ## Architectural Patterns
   - Model-View-Controller (MVC)
@@ -330,15 +359,15 @@
   - Microkernel
   - Hexagonal
   - [Microservices](pages/architectural-patterns/microservices.md)
-    - [Distributed Transaction]()<!-- TODO: -->
-      - [Saga]()<!-- TODO: -->
-  - [Message-Driven]()<!-- TODO: -->
-    - [Event-Driven]()<!-- TODO: -->
-      - [Event Sourcing]()<!-- TODO: -->
+    - Distributed Transaction
+      - Saga
+  - Message-Driven
+    - Event-Driven
+      - Event Sourcing
   - [Reactive Systems](pages/architectural-patterns/reactive.md)
   - Command and Query Responsibility Segregation (CQRS)
-   
-    <sub>[Back to top](#table-of-contents)</sub>  
+
+<sub>[Back to top](#table-of-contents)</sub>
 
 ## Web Services and API Design
 - [RESTful Architecture](pages/ws-and-api-design/restful.md)
@@ -369,7 +398,7 @@
 - Webhooks and Event-Driven Architectures
 - Cross-Origin Resource Sharing (CORS)
 - API Governance and Maintenance
-  
+
 <sub>[Back to top](#table-of-contents)</sub>
 
 ---

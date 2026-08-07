@@ -197,6 +197,6 @@ A: Use Factory Method when you need to vary the creation of a single product typ
 
 ---
 
-[Get Started](../../../get-started.md) | [Factory Patterns](../factory.md)
+[Get Started](../../../../get-started.md) | [Factory Patterns](../factory.md)
 
 ---

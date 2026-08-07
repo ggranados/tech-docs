@@ -173,6 +173,6 @@ A: Yes. A non-static factory can hold configuration or state that influences whi
 
 ---
 
-[Get Started](../../../get-started.md) | [Factory Patterns](../factory.md)
+[Get Started](../../../../get-started.md) | [Factory Patterns](../factory.md)
 
 ---

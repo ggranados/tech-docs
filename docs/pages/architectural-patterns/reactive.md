@@ -14,6 +14,8 @@
     * [Message-Driven](#message-driven)
   * [Characteristics of Reactive Systems](#characteristics-of-reactive-systems)
   * [Examples](#examples)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -122,6 +124,37 @@ Here are a few examples of systems where a reactive architecture fits well:
 <sub>[Back to top](#table-of-contents)</sub>
 
 ___
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: What's the difference between "reactive programming" and a "Reactive System" as described in the Reactive Manifesto?**
+A: Reactive programming (e.g., Reactive Streams) is an implementation technique for handling asynchronous data flows with backpressure. A Reactive System is a broader architectural style — the whole system is designed to be responsive, resilient, elastic, and message-driven, and reactive programming is just one tool used to achieve that at the component level.
+
+---
+
+**Q: How does elasticity differ from resilience among the four Reactive Manifesto traits?**
+A: Resilience is about staying operational despite failures, using isolation, replication, delegation, and recovery. Elasticity is about dynamically scaling resources up or down in response to changing workload. Resilience answers "what happens when something breaks," elasticity answers "what happens when load changes."
+
+---
+
+**Q: Why do Reactive Systems favor eventual consistency over strict consistency?**
+A: Because components communicate asynchronously and are distributed, enforcing strict consistency would require blocking coordination that undermines responsiveness and elasticity. Reactive Systems instead prioritize availability and partition tolerance, letting data converge to a consistent state over time as events and transactions propagate.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Event-Driven Architecture](message-driven/event-driven.md) — event-driven communication is the concrete mechanism behind the Message-Driven trait
+- [Microservices Architecture](microservices.md) — reactive principles like resilience and elasticity are commonly applied at the individual microservice level
+- [Reactive Programming Paradigm](../programming/paradigms/reactive.md) — the programming-level counterpart to the system-level architectural style described here
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
 
 ## Ref.
 

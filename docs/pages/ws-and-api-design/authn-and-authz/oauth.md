@@ -19,6 +19,8 @@
       * [JWT Bearer Token Flow](#jwt-bearer-token-flow)
     * [Resource Owner Password Credentials Flow](#resource-owner-password-credentials-flow)
   * [Example](#example)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -306,6 +308,38 @@ Basic example of the Authorization Code Flow implemented in an HTML page using J
 </body>
 </html>
 ```
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: Why is the Implicit Flow now discouraged even though it's simpler than the Authorization Code Flow?**
+A: The access token is returned directly in the URL fragment with no client authentication or refresh-token support, making it vulnerable to token leakage via browser history or referrer headers. The Authorization Code Flow (with PKCE for public clients) is now recommended instead.
+
+---
+
+**Q: What's the difference between the Client Credentials Flow and the Authorization Code Flow in terms of who is being authorized?**
+A: Client Credentials authorizes the application itself with no end user involved, used for service-to-service calls, while the Authorization Code Flow authorizes the application to act on behalf of a specific resource owner (end user).
+
+---
+
+**Q: OAuth is described as an authorization protocol — so why do people often use it to "log in"?**
+A: OAuth alone only grants access to resources; it doesn't standardize identity. OpenID Connect adds an identity layer (the ID Token) on top of OAuth 2.0 specifically to support authentication/login use cases.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [OpenID Connect (OIDC)](openid-connect.md) — adds an identity/authentication layer on top of OAuth 2.0.
+- [JSON Web Token (JWT)](jwt.md) — commonly used as the access token format in OAuth flows.
+- [Authentication (AuthN) and Authorization (AuthZ)](authn-authz.md) — OAuth as an authorization method within this broader model.
+- [Single Sign-On (SSO)](sso.md) — OAuth is one of the protocols that can be combined to implement SSO.
 
 <sub>[Back to top](#table-of-contents)</sub>
 

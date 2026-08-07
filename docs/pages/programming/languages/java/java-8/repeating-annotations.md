@@ -6,6 +6,8 @@
 * [Repeating Annotations](#repeating-annotations)
   * [Overview](#overview)
   * [Examples](#examples)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -97,6 +99,36 @@ public class Main {
 ````
 
 In this example, we use reflection to obtain the Roles annotation from the MyClass class. We then retrieve the array of Role annotations and iterate over them to print out each role value.
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: Why couldn't you just write the same annotation twice before Java 8?**
+A: The language specification disallowed duplicate annotations of the same type on one element. `@Repeatable` tells the compiler to auto-wrap repeated occurrences into a generated container annotation instead.
+
+---
+
+**Q: Do I need to interact with the container annotation (e.g. `Roles`) directly in my code?**
+A: Only when reading annotations via reflection, using `getAnnotation(Roles.class)` or `getAnnotationsByType(Role.class)`. The compiler handles wrapping the repeated annotations into the container automatically when you apply them.
+
+---
+
+**Q: Is the container annotation something I write once per repeatable annotation type?**
+A: Yes — each repeatable annotation type needs exactly one container annotation, and retention/target rules must be declared for both.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Functional Interfaces](functional-interfaces.md) — another Java 8 language feature enforced through a special-purpose annotation (`@FunctionalInterface`)
+- [Java Development](../develop.md#reflection-and-dynamic-class-loading) — broader context on reflection and dynamic class loading in Java
+
+<sub>[Back to top](#table-of-contents)</sub>
 
 ---
 

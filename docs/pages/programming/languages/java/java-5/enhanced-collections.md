@@ -28,6 +28,8 @@
         * [Sorting Methods:](#sorting-methods)
         * [Searching Methods:](#searching-methods)
         * [Searching for Sublist:](#searching-for-sublist)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -509,6 +511,38 @@ Max/Min Methods:
 
 <sub>[Back to top](#table-of-contents)</sub>
 
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: Why must `compareTo()` be consistent with `equals()` when implementing `Comparable`?**
+A: Sorted collections like `TreeSet` and `TreeMap` treat two elements as duplicates when `compareTo()` returns 0, regardless of what `equals()` says; if the two methods disagree, elements you'd expect to coexist can silently overwrite each other or vanish.
+
+---
+
+**Q: When would I use a `Comparator` instead of implementing `Comparable` directly on a class?**
+A: When you don't own the class (so you can't add `compareTo()`), or when you need more than one ordering — `Comparable` only gives a class a single natural order, while you can define as many `Comparator` implementations as you need.
+
+---
+
+**Q: What precondition does `Collections.binarySearch()` require, and what happens if I skip it?**
+A: The list must already be sorted in ascending order matching the comparator (or natural order) used for the search; running binary search on an unsorted list gives undefined, unreliable results instead of throwing an error.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Original Collections API](../java-1_2/collections-api.md) — the pre-generics API this page replaces.
+- [List Interface](list-interface.md) — implementation details for `List`, referenced throughout the comparing/sorting examples.
+- [Set Interface](set-interface.md) — implementation details for `Set`, one of the four interfaces summarized in the comparison table.
+- [Map Interface](map-interface.md) — implementation details for `Map`, the other interface in the comparison table.
+
+<sub>[Back to top](#table-of-contents)</sub>
 
 ---
 

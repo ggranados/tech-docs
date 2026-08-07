@@ -238,6 +238,6 @@ A: `javax.xml.parsers.DocumentBuilderFactory` and `javax.xml.transform.Transform
 
 ---
 
-[Get Started](../../../get-started.md) | [Factory Patterns](../factory.md)
+[Get Started](../../../../get-started.md) | [Factory Patterns](../factory.md)
 
 ---

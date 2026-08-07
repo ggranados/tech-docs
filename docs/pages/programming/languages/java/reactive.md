@@ -13,6 +13,8 @@
     * [Asynchronous Calls](#asynchronous-calls)
     * [Reactive version](#reactive-version)
   * [Reactive Libraries for Java](#reactive-libraries-for-java)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -235,6 +237,38 @@ Some of the most popular and recommended libraries for reactive programming in J
 
 
 _____
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: What specific problem does backpressure solve in the Reactive Streams Specification?**
+A: It lets a slow subscriber signal how much data it can currently handle, preventing a fast publisher from flooding it and causing memory exhaustion or dropped messages — this is the core guarantee the spec adds on top of plain async callbacks.
+
+---
+
+**Q: Why is the `Mono`-based `getUserDetailsAsync` example considered better than the `CompletableFuture` version on this page?**
+A: The `CompletableFuture` version still calls `.join()`, which blocks the calling thread while waiting for both futures; the Reactor version composes the two calls with `zipWith()` and stays non-blocking end-to-end, so the thread is freed to do other work while the pipeline is in flight.
+
+---
+
+**Q: How does the reactive approach differ from the plain `java.util.concurrent` concurrency model covered elsewhere?**
+A: `CompletableFuture` (see [Concurrency](concurrency.md)) still requires a blocking call to combine results and offers no backpressure; reactive libraries like Project Reactor stay non-blocking throughout the pipeline and let subscribers control the rate of data they receive.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Reactive Programming](../../paradigms/reactive.md) — the language-agnostic paradigm this page implements in Java.
+- [Java 9 Reactive Streams](java-9/reactive-streams.md) — the JDK's built-in Flow API implementing the Reactive Streams Specification discussed here.
+- [Project Reactor](java-8/project-reactor.md) — deep dive into the library used in this page's Mono/zipWith example.
+- [Concurrency](concurrency.md) — the thread- and `CompletableFuture`-based model this page contrasts reactive programming against.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
 
 ## Ref.
 

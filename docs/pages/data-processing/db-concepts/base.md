@@ -7,6 +7,8 @@
   * [Basically Available](#basically-available)
   * [Soft State](#soft-state)
   * [Eventually Consistent](#eventually-consistent)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 ---
@@ -33,6 +35,37 @@ BASE systems prioritize eventual consistency over strong consistency. This means
 >ACID databases prioritize strong consistency and transactional integrity, making them suitable for use cases where data consistency is critical, such as financial systems. On the other hand, BASE databases are often used in scenarios where high availability and fault tolerance are more important than immediate consistency, such as web applications, content delivery networks, and social media platforms.
 
 ![img.png](../../../img/base.png)
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: How does "eventual consistency" differ from having no consistency guarantees at all?**
+A: Eventual consistency guarantees that, given no new updates, all replicas will converge to the same value; it's a weaker but still well-defined guarantee, not an absence of consistency — the system simply doesn't promise when convergence happens.
+
+---
+
+**Q: Why would an architect choose BASE over ACID for a system?**
+A: When availability and horizontal scalability under network partitions matter more than immediate consistency — e.g., social feeds, shopping carts, content delivery — BASE trades strict consistency for the ability to keep serving reads and writes even during partitions or node failures.
+
+---
+
+**Q: Can a system mix ACID and BASE approaches?**
+A: Yes. Many architectures use ACID for critical transactional data (e.g., payments in a relational store) and BASE for high-volume, less consistency-sensitive data (e.g., activity feeds in a NoSQL store), applying each model where its trade-offs fit the use case.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [ACID](acid.md) — contrasting model that prioritizes strict consistency and transactional integrity
+- [CAP Theorem](cap.md) — the theoretical basis explaining why BASE systems favor availability and partition tolerance
+- [NoSQL (Not Only SQL) Database](../nosql/nosql.md) — database category that commonly implements BASE semantics
 
 <sub>[Back to top](#table-of-contents)</sub>
 

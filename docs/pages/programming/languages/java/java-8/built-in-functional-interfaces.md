@@ -21,6 +21,8 @@
     * [Function](#function-1)
     * [Supplier](#supplier-1)
     * [UnaryOperator](#unaryoperator-1)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -309,6 +311,38 @@ Summary of the primitive version of functional interfaces:
 ---
 
 - See also: [java.util.function Documentation](https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html)
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: Why does Java provide primitive-specialized interfaces like `IntPredicate` instead of just using `Predicate<Integer>`?**
+A: To avoid autoboxing/unboxing overhead. Boxing every primitive into a wrapper object on each call is wasteful in hot loops, so Java ships primitive variants that operate directly on `int`, `long`, or `double`.
+
+---
+
+**Q: What's the difference between `Function<T, R>` and `UnaryOperator<T>`?**
+A: `UnaryOperator<T>` extends `Function<T, T>` — input and output must be the same type. Use it whenever a transformation preserves the type, since it communicates that intent more precisely than a generic `Function`.
+
+---
+
+**Q: When would I choose `BiFunction` over chaining two `Function` calls?**
+A: When an operation genuinely needs two independent inputs at once, such as combining two values into a result. `Function.andThen`/`compose` only chain single-input transformations, so they can't express a two-argument combination.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Functional Interfaces](functional-interfaces.md) — the general single-abstract-method contract these built-in interfaces implement
+- [Lambda Expression](lamda-expression.md) — the primary syntax used to implement these interfaces
+- [Method References](method-references.md) — a more concise alternative syntax for implementing these interfaces
+- [Streams](stream-api.md) — the API that consumes these functional interfaces most heavily (map, filter, reduce)
+
+<sub>[Back to top](#table-of-contents)</sub>
 
 ---
 

@@ -8,6 +8,8 @@
 * [Method references](#method-references)
   * [Table of Contents](#table-of-contents)
   * [Examples](#examples)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -69,6 +71,37 @@ Or, we can use a method reference to simply refer to the capitalize static metho
    ````java 
    messages.forEach(StringUtils::capitalize);
    ````
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+___
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: When should I prefer a method reference over a lambda expression?**
+A: When the lambda body does nothing but call an existing method with a matching signature. A method reference is shorter and communicates intent without adding new behavior.
+
+---
+
+**Q: What's the difference between `ClassName::instanceMethodName` and `instance::instanceMethodName`?**
+A: The former is unbound — the first parameter supplied by the functional interface becomes the receiver of the call. The latter is bound to a specific, already-existing object instance.
+
+---
+
+**Q: Can a constructor reference (`ClassName::new`) be used with any functional interface?**
+A: Only if the constructor's parameter list matches the interface's abstract method signature — for example, a no-arg constructor matches `Supplier<T>`.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+___
+
+## Related Topics
+
+- [Lambda Expression](lamda-expression.md) — the syntax method references act as shorthand for
+- [Functional Interfaces](functional-interfaces.md) — the contract method references must satisfy
+- [Built-in Functional Interfaces](built-in-functional-interfaces.md) — common target types for method references
 
 <sub>[Back to top](#table-of-contents)</sub>
 

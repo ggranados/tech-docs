@@ -9,6 +9,8 @@
   * [What's Imperative Programming](#whats-imperative-programming)
   * [Languages](#languages)
   * [Examples](#examples)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -43,10 +45,41 @@ System.out.println("Sum: " + sum);
 
 > Declarative style is a contrast to the Imperative style
 
-- See also: [Declarative Programming]()
+- See also: [Declarative Programming](declarative.md)
 
 <sub>[Back to top](#table-of-contents)</sub>
 
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: How do procedural and object-oriented programming relate to imperative programming?**
+A: Both are subsets of imperative programming — they share the core trait of specifying explicit, step-by-step statements that modify program state. Procedural programming organizes those statements into reusable functions, while OOP additionally bundles state and behavior into objects.
+
+---
+
+**Q: What's the practical difference between writing imperative code and declarative code for the same task?**
+A: Imperative code specifies *how* to reach a result — the exact loop, conditionals, and state mutations. Declarative code specifies *what* result you want and lets the underlying implementation (e.g., a query engine or stream API) decide how to get there. The `for` loop summation example on this page is imperative; the same sum via `IntStream.rangeClosed(1, 10).sum()` is declarative.
+
+---
+
+**Q: Why is Java still considered an imperative language even though it has streams and lambdas?**
+A: Java's core execution model — statements executed in sequence, mutable variables, explicit control flow — remains imperative. Streams and lambdas (introduced in Java 8) let you write declarative/functional-style code on top of that imperative foundation, but they don't change what the language fundamentally is.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Procedural Programming](procedural.md) — a subset of imperative programming organized around reusable functions
+- [Object-Oriented Programming](object-oriented.md) — a subset of imperative programming that bundles state and behavior into objects
+- [Declarative Programming](declarative.md) — the contrasting paradigm that specifies outcomes instead of steps
+
+<sub>[Back to top](#table-of-contents)</sub>
 
 ---
 

@@ -18,6 +18,8 @@
     * [Unbounded Wildcards](#unbounded-wildcards)
     * [Bounded Wildcards](#bounded-wildcards)
   * [Type Erasure](#type-erasure)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -356,6 +358,39 @@ public void genericMethod(Building t) {
 ...
 }
 ```
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: What's the difference between an upper bounded (`<T extends Number>`) and a lower bounded (`<? super T>`) type parameter?**
+A: An upper bound restricts the type argument to a specific type or its subclasses (useful when you only need to read/produce values); a lower bound restricts it to a specific type or its superclasses (useful when you need to write/consume values) — this is the PECS rule: "Producer Extends, Consumer Super".
+
+---
+
+**Q: What does type erasure actually do to generic type parameters, and why does Java do it?**
+A: At compile time, the compiler replaces each type parameter with its bound (or `Object` if unbounded), inserts the necessary casts, and emits ordinary bytecode with no generic type information left in it — this keeps generics backward compatible with pre-Java-5 code and avoids any runtime overhead.
+
+---
+
+**Q: Why did the diamond operator matter once generics existed?**
+A: Before Java 7, you had to repeat the type argument on both sides of an assignment (`new ArrayList<String>()`); the diamond operator lets the compiler infer it from the declared type, cutting the verbosity generics had introduced.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Original Collections API](../java-1_2/collections-api.md) — the pre-generics API that motivated this feature.
+- [Updated Java Collections API](enhanced-collections.md) — how generics reshaped the Collections Framework in practice.
+- [Diamond Operator](../java-7/diamond-operator.md) — the Java 7 syntax simplification for generic instantiation discussed here.
+
+<sub>[Back to top](#table-of-contents)</sub>
 
 ---
 

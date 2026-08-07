@@ -15,6 +15,8 @@
     * [Microsoft Azure Active Directory (Azure AD)](#microsoft-azure-active-directory-azure-ad)
     * [Salesforce Identity](#salesforce-identity)
     * [OneLogin](#onelogin)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -116,6 +118,37 @@ Each of these commercial implementations offers unique features and capabilities
 <sub>[Back to top](#table-of-contents)</sub>
 
 ___
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: What's the practical difference between Authentication and Authorization within IAM?**
+A: Authentication verifies who an entity is (passwords, biometrics, MFA), while Authorization determines what that already-verified entity is allowed to do, based on assigned roles, responsibilities, and permissions.
+
+---
+
+**Q: How does Federation differ from Single Sign-On (SSO)?**
+A: SSO lets a user authenticate once to access multiple applications within the same trust domain (e.g., one organization). Federation extends that trust across domains, allowing a user to access resources in one domain using credentials issued and verified by another trusted domain, such as a partner organization.
+
+---
+
+**Q: Why do nearly all commercial IAM platforms (Okta, Auth0, Azure AD, Ping Identity, Salesforce Identity, OneLogin) standardize on OAuth 2.0 and OpenID Connect?**
+A: These are the industry-standard, interoperable protocols for delegated authorization (OAuth 2.0) and federated identity verification (OpenID Connect), letting each platform integrate with third-party apps, APIs, and other identity providers without proprietary, one-off integrations.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [AuthN and AuthZ](../../ws-and-api-design/authn-and-authz/authn-authz.md) — deeper dive into the authentication and authorization mechanics IAM relies on
+- [Single Sign-On (SSO)](../../ws-and-api-design/authn-and-authz/sso.md) — the mechanism behind the SSO capability described above
+- [SAML](../../ws-and-api-design/authn-and-authz/saml.md) — the federation protocol used by OneLogin and other IAM platforms alongside OAuth 2.0
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
 
 ## Ref.
 

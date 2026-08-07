@@ -9,6 +9,8 @@
   * [How It Works](#how-it-works)
   * [Benefits](#benefits)
   * [Example](#example)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -70,6 +72,39 @@ Consider a weather monitoring system. The weather station (*subject*) gathers we
 
 
 <sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: How does the Observer pattern differ from a publish-subscribe messaging system?**
+A: Classic Observer is in-process: the subject holds direct references to its observers and notifies them synchronously. Pub-sub messaging systems add a broker/topic between publisher and subscriber, fully decoupling them so they don't need references to each other and can communicate asynchronously, often across processes or services.
+
+---
+
+**Q: In the weather station example, what happens if one Concrete Observer's update method throws an exception?**
+A: Since the subject typically iterates its observer list and invokes each observer's update method synchronously, an unhandled exception in one observer can interrupt the notification loop before the remaining observers are updated. Robust implementations isolate each observer's failure (e.g., wrapping each call) so one bad observer doesn't break real-time updates for the others.
+
+---
+
+**Q: Which SOLID principle does the Observer pattern most directly support?**
+A: The Open/Closed Principle — new observer types can be added by implementing the observer interface (extension) without modifying the subject or any existing observer classes (no modification).
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [SOLID](../solid.md) — the Open/Closed Principle that Observer directly supports
+- [Factory Pattern](../creational/factory.md) — a creational counterpart, contrasting object creation with the behavioral notification role of Observer
+- [Event-Driven Architecture](../../architectural-patterns/message-driven/event-driven.md) — the publish-subscribe idea behind Observer scaled up to a system-wide architectural style
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
 
 ## Ref.
 

@@ -13,6 +13,8 @@
     * [Thread Management in Asynchronous Programming](#thread-management-in-asynchronous-programming)
   * [Example](#example)
   * [Languages](#languages)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -202,6 +204,37 @@ Several modern programming languages and frameworks are commonly used for reacti
 <sub>[Back to top](#table-of-contents)</sub>
 
 ___
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: How does reactive programming relate to the classic Observer pattern?**
+A: Reactive programming uses the Observer pattern as a building block — an `observable` emits data/events and `observers` subscribe and react — but extends it with operators for composing, transforming, filtering, and combining streams (like `map`, `filter`, `debounceTime`), which the plain Observer pattern doesn't provide.
+
+---
+
+**Q: What's the practical benefit of the asynchronous thread model shown in the synchronous-vs-asynchronous example?**
+A: In the synchronous example, a blocking I/O call ties up the entire thread until it completes. In the asynchronous example, the thread is released to do other work while the I/O operation is pending, and `await` only pauses that specific execution path — this is what lets reactive systems handle many concurrent operations without a thread per operation.
+
+---
+
+**Q: Where do Reactive Streams, Project Reactor, and Spring WebFlux fit together in the Java ecosystem?**
+A: Reactive Streams (Java 9) is the low-level specification defining the interfaces (`Publisher`, `Subscriber`, `Subscription`) for asynchronous stream processing with backpressure. Project Reactor is a concrete implementation of that spec providing `Mono`/`Flux` types. Spring WebFlux builds on Reactor to let you write reactive, non-blocking web applications.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Concurrent Programming](concurrent.md) — reactive systems rely on concurrency models like event loops and non-blocking I/O
+- [Functional Programming](functional.md) — reactive stream operators (map, filter, reduce) are built from functional composition
+- [Reactive Programming in Java](../languages/java/reactive.md) — how Reactive Streams, Project Reactor, and WebFlux implement these concepts in Java
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
 
 ## Ref.
 

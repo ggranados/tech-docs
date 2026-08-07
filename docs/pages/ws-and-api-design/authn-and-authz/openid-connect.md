@@ -12,6 +12,8 @@
   * [OIDC Flows](#oidc-flows)
   * [Example](#example)
   * [OIDC Providers](#oidc-providers)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -231,6 +233,38 @@ Here are some of the commonly used and recommended OIDC providers:
 
 
 >These providers vary in terms of features, pricing, ease of integration, and target audience. When choosing an OIDC provider, consider factors such as the specific requirements of your application, security features, scalability, and developer experience. It's also a good practice to review the latest documentation and user reviews to make an informed decision.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: What does the ID Token give you that a plain OAuth 2.0 access token doesn't?**
+A: The ID Token is a JWT containing verified identity and profile claims about the authenticated user and is meant for the client to consume directly, while an access token is opaque to the client and meant only for calling resource servers/APIs.
+
+---
+
+**Q: In the Hybrid Flow, why is the ID Token returned immediately while the access token is not?**
+A: The ID Token can be validated client-side right away to confirm the user's identity, while the access token is obtained via the more secure authorization-code exchange step, reducing its exposure in the browser.
+
+---
+
+**Q: Why can multiple OIDC providers (Auth0, Okta, Keycloak, Azure AD...) all interoperate with the same client application code?**
+A: Because OIDC standardizes discovery, token formats, and claims on top of OAuth 2.0, so any spec-compliant client library can talk to any compliant IDP without provider-specific integration code.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [OAuth](oauth.md) — the authorization framework OpenID Connect is built on top of.
+- [JSON Web Token (JWT)](jwt.md) — the token format used for the OIDC ID Token.
+- [Single Sign-On (SSO)](sso.md) — a primary use case enabled by OIDC.
+- [Security Assertion Markup Language (SAML)](saml.md) — an alternative, XML-based protocol for the same federated-identity problem.
 
 <sub>[Back to top](#table-of-contents)</sub>
 

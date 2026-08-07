@@ -11,6 +11,8 @@
     * [Authentication Methods (AuthN):](#authentication-methods-authn)
   * [Authorization (AuthZ):](#authorization-authz)
     * [Authorization Methods (AuthZ):](#authorization-methods-authz)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -126,7 +128,38 @@ Authorization is typically governed by access control policies that define the r
 
 <sub>[Back to top](#table-of-contents)</sub>
 
+---
 
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: If a JWT can carry claims used for authorization, does that make JWT an authorization protocol?**
+A: No — JWT is just a token format for transporting claims. Those claims can inform an authorization decision, but JWT itself defines no consent or delegation model; that's the job of protocols like OAuth.
+
+---
+
+**Q: What's the practical difference between RBAC and ABAC?**
+A: RBAC grants permissions based on a user's assigned role, while ABAC evaluates dynamic attributes (user, resource, environment) against policies, making it more granular but more complex to manage.
+
+---
+
+**Q: Does passing MFA during authentication remove the need for authorization checks afterward?**
+A: No — authentication (verifying identity) and authorization (deciding what that identity can do) are always separate steps; MFA only strengthens the authentication step.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [JSON Web Token (JWT)](jwt.md) — a token format commonly used to carry authentication and authorization claims.
+- [OAuth](oauth.md) — an authorization protocol referenced here as an authentication method.
+- [OpenID Connect (OIDC)](openid-connect.md) — adds an authentication layer on top of OAuth.
+- [Security Assertion Markup Language (SAML)](saml.md) — an XML-based protocol for exchanging authN/authZ data.
+- [Single Sign-On (SSO)](sso.md) — relies on these authentication and authorization mechanisms.
+
+<sub>[Back to top](#table-of-contents)</sub>
 
 ___
 

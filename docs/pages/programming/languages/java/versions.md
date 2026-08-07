@@ -32,6 +32,8 @@ Visit: [Oracle Java Language Updates](https://docs.oracle.com/en/java/javase/20/
   * [Java 19](#java-19)
   * [Java 20](#java-20)
   * [Java 21 LTS](#java-21-lts)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -335,6 +337,38 @@ ___
 
 
 ___
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: Which of these versions are actually LTS releases I should prioritize learning?**
+A: Java 6, 8, 11, 17, and 21 are marked LTS on this page; Java 8 is the most important baseline since, per the page's intro note, all later versions (9-21) are largely additive on top of it.
+
+---
+
+**Q: What's the single most important release to master before moving to newer Java features?**
+A: Java 8 (LTS) — it introduced lambda expressions, the Stream API, functional interfaces, and the new Date/Time API, which subsequent versions build on rather than replace.
+
+---
+
+**Q: When were generics and the diamond operator introduced, and how are they related?**
+A: Generics arrived in Java 5 (2004) and required repeating the type argument at both declaration and instantiation; the diamond operator, introduced in Java 7 (2011), removed that redundancy by letting the compiler infer the type from context.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Java](java.md) — language overview that links back into this version history.
+- [Generics](java-5/generics.md) — the Java 5 feature detailed on this page.
+- [Diamond Operator](java-7/diamond-operator.md) — the Java 7 feature detailed on this page.
+- [Stream API](java-8/stream-api.md) — the flagship Java 8 feature this page calls out as the modern baseline.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
 
 ## Ref.
 

@@ -11,6 +11,8 @@
   * [Languages](#languages)
   * [Example](#example)
   * [Declarative programming vs. imperative programming](#declarative-programming-vs-imperative-programming)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 ---
@@ -80,6 +82,39 @@ Declarative programming is a high-level programming concept, which is the opposi
 Declarative programming relies on underlying components of a given language to carry out the necessary steps to reach the stated outcome. In declarative programming, typical programming constructs such as loops and if/then conditions do not exist, because they are **instructional**
 
 - See also: [Imperative Programming](imperative.md)
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: If SQL is declarative, why do I still need to know about indexes and query plans to make it fast?**
+A: Declarative means you specify *what* data you want, not the retrieval algorithm — the query engine decides *how*. Performance tuning (indexes, execution plans) is still necessary because the engine's chosen strategy isn't always optimal, but you're influencing it rather than writing the retrieval logic yourself.
+
+---
+
+**Q: Is functional programming the same thing as declarative programming?**
+A: No — functional programming is a distinct paradigm (built on pure functions, immutability, and composition) that tends to produce declarative-looking code, since composing functions describes the desired transformation rather than the step-by-step mutation of state. Not all declarative code is functional (e.g., HTML isn't), and not all functional code is purely declarative.
+
+---
+
+**Q: Why does declarative programming avoid loops and if/then constructs?**
+A: Loops and conditionals are "instructional" — they describe explicit control flow, i.e., *how* to do something. Declarative programming instead relies on the underlying language runtime or engine to figure out control flow from the relationships and constraints you describe.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Imperative Programming](imperative.md) — the contrasting paradigm that specifies explicit step-by-step control flow
+- [Functional Programming](functional.md) — often expressed in a declarative style through function composition
+- [Reactive Programming](reactive.md) — applies a declarative approach to asynchronous data streams and event propagation
+
+<sub>[Back to top](#table-of-contents)</sub>
 
 ---
 

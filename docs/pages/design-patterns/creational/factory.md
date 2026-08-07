@@ -184,6 +184,6 @@ A: Key warnings: the factory only ever creates one concrete type; there is no ru
 
 ---
 
-[Get Started](../../get-started.md) | [Design Patterns](../../get-started.md#design-patterns)
+[Get Started](../../../get-started.md) | [Design Patterns](../../../get-started.md#design-patterns)
 
 ---

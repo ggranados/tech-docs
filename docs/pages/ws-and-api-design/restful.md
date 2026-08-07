@@ -13,6 +13,8 @@
     * [URI (Uniform Resource Identifier) and URL (Uniform Resource Locator)](#uri-uniform-resource-identifier-and-url-uniform-resource-locator)
     * [Request and Response Headers](#request-and-response-headers)
     * [HTTP Status Codes in REST](#http-status-codes-in-rest)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -251,6 +253,38 @@ HTTP status codes are three-digit numbers sent by the server in response to a cl
   - Serverless Architectures and REST
   - Webhooks and Event-Driven REST APIs
 -->
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: The Code on Demand constraint is described as optional and rarely used — does skipping it make an API "not RESTful"?**
+A: No. Code on Demand is the only optional constraint in Fielding's REST style; an API can satisfy all five other constraints (statelessness, client-server, cacheability, uniform interface, layered system) and still be fully RESTful.
+
+---
+
+**Q: How does the Layered System constraint relate to putting an API Gateway in front of your services?**
+A: An API Gateway is a textbook example of a layered-system intermediary — clients only see the gateway, not the underlying services, so gateways, proxies, and load balancers can be inserted or changed without clients noticing.
+
+---
+
+**Q: If a server stores session state to avoid resending data on every request, does that violate REST?**
+A: Yes. The Statelessness constraint requires every request to carry all information needed to process it; server-side session state between requests breaks that constraint and reduces scalability.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [RESTful API Design](restful/restful-api-design.md) — practical patterns (endpoints, versioning, HATEOAS) built on these architectural constraints.
+- [API Design Principles](restful/api-design-principles.md) — broader design principles that complement REST's constraints.
+- [Resource Design and Representation](restful/resource-design-representation.md) — how resources identified by URIs are modeled and represented.
+- [Authentication (AuthN) and Authorization (AuthZ)](authn-and-authz/authn-authz.md) — securing REST APIs via the `Authorization` header.
+
+<sub>[Back to top](#table-of-contents)</sub>
 
 ---
 

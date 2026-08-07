@@ -8,6 +8,8 @@
   * [Table of Contents](#table-of-contents)
   * [What's a Functional Interface?](#whats-a-functional-interface)
     * [Default Methods](#default-methods)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -116,6 +118,36 @@ As seen in the output, the overridden method doSomething() provides a custom imp
 
 ---
 
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: Why does `@FunctionalInterface` matter if it's optional?**
+A: It makes the compiler enforce the single-abstract-method rule. Without it, someone could add a second abstract method later and silently break every lambda that implements the interface.
+
+---
+
+**Q: Can a functional interface have multiple default methods?**
+A: Yes. Only the count of abstract methods matters — default and static methods don't count toward the "single abstract method" rule.
+
+---
+
+**Q: How do lambda expressions relate to functional interfaces?**
+A: A lambda is a concise instance of the interface's single abstract method. The compiler infers the target functional interface from the context where the lambda is assigned or passed.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Built-in Functional Interfaces](built-in-functional-interfaces.md) — the standard `java.util.function` interfaces that implement this contract
+- [Lambda Expression](lamda-expression.md) — the concise syntax used to implement functional interfaces
+- [Method References](method-references.md) — an alternate syntax for implementing functional interfaces
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
 
 ## Ref.
 

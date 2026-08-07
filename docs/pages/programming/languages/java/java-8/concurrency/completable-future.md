@@ -19,6 +19,8 @@
   * [CompletableFuture vs Future](#completablefuture-vs-future)
   * [Best Practices](#best-practices)
   * [Common Pitfalls](#common-pitfalls)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -536,6 +538,37 @@ ExecutorService executor = Executors.newFixedThreadPool(10);
 CompletableFuture.supplyAsync(() -> task(), executor);
 // Forgot executor.shutdown()! JVM won't exit
 ```
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: What's the difference between `thenApply` and `thenCompose`?**
+A: `thenApply` transforms the result in place, like `map`. `thenCompose` flattens a nested `CompletableFuture` returned by the function, like `flatMap`, avoiding a `CompletableFuture<CompletableFuture<T>>`.
+
+---
+
+**Q: Why should blocking I/O calls use a custom executor instead of the default `ForkJoinPool.commonPool()`?**
+A: The common pool is shared JVM-wide, including by parallel streams. Blocking it with slow I/O starves other unrelated tasks that depend on the same pool.
+
+---
+
+**Q: What happens to an exception thrown inside `supplyAsync()` if no `exceptionally`/`handle` is attached?**
+A: It's captured on the future but never surfaces — the callback chain simply stops producing further results. It must be explicitly handled to avoid silent failures.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Callable and Future](callable-and-future.md) — the older, blocking API CompletableFuture replaces
+- [Executors](executors.md) — thread pools used as custom executors for async stages
+- [Project Reactor](../project-reactor.md) — a richer reactive alternative for streams of async values
 
 <sub>[Back to top](#table-of-contents)</sub>
 

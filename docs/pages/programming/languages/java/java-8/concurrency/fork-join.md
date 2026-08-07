@@ -18,6 +18,8 @@
   * [Work-Stealing Algorithm](#work-stealing-algorithm)
   * [Best Practices](#best-practices)
   * [Common Pitfalls](#common-pitfalls)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -569,6 +571,37 @@ protected Data compute() {
 
 ---
 
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: Why does calling `join()` immediately after `fork()` on the same task defeat the purpose of Fork/Join?**
+A: It blocks the current thread waiting for that subtask right away instead of letting it continue submitting other subtasks. Fork both subtasks first, then join both, to get real parallelism.
+
+---
+
+**Q: Why shouldn't `compute()` perform blocking I/O?**
+A: Fork/Join uses a small, fixed pool of worker threads with work-stealing. Blocking one starves the pool of a worker for CPU-bound parallel work, unlike a general-purpose ExecutorService sized for I/O.
+
+---
+
+**Q: How does the work-stealing algorithm keep threads busy?**
+A: Idle worker threads steal tasks from the tail (oldest) of other threads' deques, while owning threads push and pop from the head (LIFO) for better cache locality.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Executors](executors.md) — the general-purpose thread pool framework Fork/Join specializes
+- [Streams](../stream-api.md#parallel-streams) — parallel streams are built on top of the Fork/Join common pool
+- [CompletableFuture](completable-future.md) — another async abstraction that can share the common pool
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
 ## Ref.
 
 **Official Documentation:**
@@ -595,7 +628,7 @@ protected Data compute() {
 ---
 
 [Get Started](../../../../../../get-started.md) |
-[Java Concurrency](../concurrency.md) |
+[Java Concurrency](../../concurrency.md) |
 [Java 8](../../versions.md#java-8-lts)
 
 ---

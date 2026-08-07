@@ -18,6 +18,8 @@
   * [Cancellation and Interruption](#cancellation-and-interruption)
   * [Limitations](#limitations)
   * [Future Execution Flow](#future-execution-flow)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -440,6 +442,37 @@ sequenceDiagram
         Future-->>Client: throw CancellationException
     end
 ```
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: Why was `CompletableFuture` introduced when `Callable`/`Future` already existed?**
+A: `Future.get()` blocks and offers no way to chain, combine, or attach callbacks to results. `CompletableFuture` (Java 8) fixes all of that with a non-blocking, composable API.
+
+---
+
+**Q: What's the difference between `cancel(true)` and `cancel(false)`?**
+A: `cancel(true)` attempts to interrupt the thread if the task is already running. `cancel(false)` only prevents the task from starting if it hasn't started yet.
+
+---
+
+**Q: What does `invokeAny` do differently from `invokeAll`?**
+A: `invokeAll` waits for and returns the results of every submitted task. `invokeAny` returns as soon as one task completes successfully and cancels the rest.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [CompletableFuture](completable-future.md) — the modern, non-blocking successor to Callable/Future
+- [Executors](executors.md) — the thread pools that Callable tasks are submitted to
+- [Threads](threads.md) — the underlying execution unit Executors manage
 
 <sub>[Back to top](#table-of-contents)</sub>
 

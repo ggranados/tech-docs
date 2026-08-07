@@ -11,6 +11,8 @@
     * [Authentication Flow](#authentication-flow)
   * [SAML Benefits](#saml-benefits)
   * [Example](#example)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 ---
@@ -133,6 +135,38 @@ Explanation of the XML elements in the SAML assertion:
 This XML represents a basic SAML assertion that communicates the fact that the user (Alice) has been authenticated by the Identity Provider (https://idpcorp.com) and is authorized to access the Service Provider (https://acmeapp.com). It also includes information about the authentication method used and the validity period of the assertion.
 
 >In a real-world scenario, the SAML assertion would be included in the SAML response sent from the Identity Provider to the Service Provider during the authentication process. The SAML response would also include digital signatures and other metadata to ensure security and integrity.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: SAML and OAuth/OIDC both enable federated access — when would you choose SAML over OAuth/OIDC for a new project?**
+A: SAML fits enterprise/B2B SSO scenarios with existing SAML-based IdPs (e.g., Active Directory Federation Services); for modern web/mobile APIs, OAuth 2.0/OIDC is generally preferred due to lighter JSON-based tokens and native SPA/mobile support.
+
+---
+
+**Q: What's the difference between the Authentication Statement and the Attribute Statement inside a SAML assertion?**
+A: The Authentication Statement confirms the user was authenticated (and how), while the Attribute Statement carries additional claims about the user, such as roles or email, that the Service Provider can use for authorization decisions.
+
+---
+
+**Q: How does the Service Provider trust that a SAML assertion hasn't been tampered with?**
+A: The IdP digitally signs the SAML response/assertion with its private key, and the SP validates that signature against the IdP's known public certificate before trusting the assertion.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Single Sign-On (SSO)](sso.md) — the primary use case SAML is designed to enable.
+- [OAuth](oauth.md) — a modern, JSON-based alternative to SAML for delegated access.
+- [OpenID Connect (OIDC)](openid-connect.md) — a modern alternative to SAML for federated authentication.
+- [Authentication (AuthN) and Authorization (AuthZ)](authn-authz.md) — SAML as one protocol for exchanging authN/authZ data.
 
 <sub>[Back to top](#table-of-contents)</sub>
 

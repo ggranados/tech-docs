@@ -13,6 +13,8 @@
   * [Java Memory Model:](#java-memory-model)
   * [Parallel Streams:](#parallel-streams)
   * [Reactive Programming:](#reactive-programming)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 ---
@@ -123,6 +125,38 @@ Libraries like **Reactor** and **RxJava** provide reactive programming capabilit
 - See also: [Java 9 Reactive Streams](java-9/reactive-streams.md)
 - See also: [Reactor](java-9/reactor-core.md)
 
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: When should I reach for `CompletableFuture` instead of plain `Callable`/`Future`?**
+A: `Callable` submitted to an executor gives you back a `Future` that only supports blocking `get()`; `CompletableFuture` adds composition — chaining, combining multiple async results, and non-blocking callbacks — so prefer it whenever you need to orchestrate several asynchronous steps together.
+
+---
+
+**Q: What's the difference between `synchronized` blocks and the `java.util.concurrent` lock utilities?**
+A: `synchronized` uses the JVM's intrinsic lock — simple but all-or-nothing, with no timeout or fairness control; explicit `Lock`/`Semaphore`/`Condition` types from `java.util.concurrent` let you try-lock with a timeout, interrupt a waiting thread, or configure fairness, at the cost of manually releasing the lock.
+
+---
+
+**Q: How do parallel streams relate to the Fork/Join framework mentioned on this page?**
+A: Parallel streams split work using the common `ForkJoinPool` under the hood, so the Fork/Join framework is the low-level mechanism that powers `.parallelStream()` without you managing threads directly.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Multithreading and Concurrency](../../paradigms/concurrent.md) — the language-agnostic paradigm this page implements in Java.
+- [Threads](java-8/concurrency/threads.md) — detailed coverage of thread creation and lifecycle referenced throughout this page.
+- [CompletableFuture](java-8/concurrency/completable-future.md) — deep dive into the async composition API introduced here.
+- [Reactive Programming in Java](reactive.md) — the non-blocking, backpressure-aware alternative to the thread-based concurrency covered on this page.
 
 <sub>[Back to top](#table-of-contents)</sub>
 

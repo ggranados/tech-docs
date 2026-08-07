@@ -18,6 +18,8 @@
   * [How is Java Versioned?](#how-is-java-versioned)
   * [Functional Programing in Java](#functional-programing-in-java)
   * [Reactive Programing in Java](#reactive-programing-in-java)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -126,6 +128,37 @@ Java introduced functional programming features with the release of [Java 9](ver
 
 ___
 
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: The page says Java has "four main editions" but only lists three (SE, EE, ME)?**
+A: That is a page inconsistency worth noting — historically Java also had Java Card as a fourth edition for smart-card/embedded devices; in practice, modern day-to-day development only involves SE (desktop/server apps), EE/Jakarta EE (enterprise apps), and ME (embedded/mobile).
+
+---
+
+**Q: What actually makes Java "Write Once, Run Anywhere" possible?**
+A: The compiler produces platform-independent bytecode (`.class` files) instead of native machine code; the JVM installed on each target machine interprets or JIT-compiles that bytecode into platform-specific instructions, so the same bytecode runs unmodified on Windows, Linux, or macOS.
+
+---
+
+**Q: Which Java versions should I treat as must-know LTS releases?**
+A: Per the Oracle support roadmap referenced on this page, the actively supported long-term support versions are 8, 11, and 17 (with 21 following as the next LTS) — see [Main Java Version Changes](versions.md#main-java-version-changes) for what each one added.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Java Development](develop.md) — learning path covering every subject introduced on this overview page in depth.
+- [Main Java Version Changes](versions.md) — full changelog for every JDK release referenced here.
+- [OOP in Java](oop.md) — deep dive into the object-oriented concepts summarized in the "What's OOP?" section.
+- [Object-Oriented Programming](../../paradigms/object-oriented.md) — the language-agnostic paradigm Java implements.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
 
 ## Ref.
 

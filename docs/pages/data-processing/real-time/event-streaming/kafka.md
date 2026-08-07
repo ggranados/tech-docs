@@ -32,3 +32,45 @@ Extensive Ecosystem: The Kafka ecosystem includes a variety of tools and technol
 Security: Kafka provides security features, including authentication and authorization mechanisms, to protect data and access to the system.
 
 Real-World Use Cases: Kafka is used in a wide range of use cases, including log and event data aggregation, real-time analytics, monitoring, fraud detection, recommendation engines, and more.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: How do partitions enable parallelism, and how does that affect consumer scaling?**
+A: Each partition is consumed by only one consumer within a consumer group at a time, so the number of partitions caps how many consumers can process a topic in parallel. To scale consumption further, you need to increase the partition count.
+
+---
+
+**Q: What happens to data availability if a broker holding a partition fails?**
+A: Kafka replicates each partition across multiple brokers. If the leader broker for a partition fails, one of its in-sync replica followers is automatically elected as the new leader, so consumers and producers keep operating without data loss.
+
+---
+
+**Q: What's the difference between using Kafka Streams and Kafka Connect?**
+A: Kafka Streams is a client library for building applications that transform or aggregate data already flowing through Kafka topics, while Kafka Connect is a framework for moving data in and out of Kafka to and from external systems — databases, files, other message queues — without writing custom producer/consumer code.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Event Streaming](../event-streaming.md) — the broader concept Kafka implements as a distributed event streaming platform
+- [NoSQL (Not Only SQL) Database](../../nosql/nosql.md) — commonly paired with Kafka as a downstream sink for streamed data
+- [CAP Theorem](../../db-concepts/cap.md) — explains the consistency/availability trade-offs Kafka's replication model makes
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Ref.
+
+- [Apache Kafka Documentation](https://kafka.apache.org/documentation/) — official documentation
+- [Apache Kafka Introduction](https://kafka.apache.org/intro) — official introduction to core concepts
+
+---

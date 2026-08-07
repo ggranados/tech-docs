@@ -13,6 +13,8 @@
     * [Event Brokers](#event-brokers)
     * [Event Processing](#event-processing)
     * [Fault Tolerance and Scalability](#fault-tolerance-and-scalability)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -52,6 +54,37 @@ Event processing involves consuming and acting upon events in real-time. Consume
 ### Fault Tolerance and Scalability
 Event streaming systems are designed to be fault-tolerant and highly scalable. They often use distributed architectures to ensure reliability and handle large workloads.
 
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: What's the difference between event streaming and traditional message queuing?**
+A: Traditional message queues typically remove a message once it's consumed, whereas event streams persist events for a configurable retention period, allowing multiple independent consumers to read the same stream and even replay historical events.
+
+---
+
+**Q: How does the publish-subscribe model improve system decoupling?**
+A: Producers publish events without knowing which consumers exist, and consumers subscribe to topics without knowing which producers generated the events. This lets teams add or change producers and consumers independently as long as they agree on the event/topic contract.
+
+---
+
+**Q: Which technologies actually implement event streaming in practice?**
+A: Apache Kafka and Apache Pulsar are the most widely used event brokers that implement the concepts described here, providing the durable, partitioned, fault-tolerant infrastructure needed to publish and consume event streams at scale.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Kafka](event-streaming/kafka.md) — the most widely used distributed event streaming platform implementing these concepts
+- [CAP Theorem](../db-concepts/cap.md) — explains the consistency/availability trade-offs event streaming systems must make
+- [NoSQL (Not Only SQL) Database](../nosql/nosql.md) — often used alongside event streams as a durable store for processed events
 
 <sub>[Back to top](#table-of-contents)</sub>
 

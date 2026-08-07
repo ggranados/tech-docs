@@ -19,6 +19,8 @@
   * [Languages](#languages)
     * [Pure Functional Programming Languages](#pure-functional-programming-languages)
     * [Non-Pure Functional Programming Languages:](#non-pure-functional-programming-languages)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -228,6 +230,38 @@ Non-pure functional programming languages combine functional programming concept
 
 <sub>[Back to top](#table-of-contents)</sub>
 
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: Why does immutability matter so much for functional programming, beyond just avoiding bugs?**
+A: Immutable data eliminates a whole class of concurrency problems since no thread can ever observe a partially-updated or torn value — there's nothing to lock. It also makes reasoning about code easier because a value's state can't change out from under you between when you read it and when you use it.
+
+---
+
+**Q: What's the difference between a pure function and just "a function with no side effects"?**
+A: A pure function requires both properties together: no side effects (it doesn't mutate external state) *and* referential transparency (the same input always produces the same output). A function could avoid side effects but still be impure if its output depends on external mutable state, like a random seed or the system clock.
+
+---
+
+**Q: Can Java really be called a functional language after Java 8?**
+A: Not a pure one. Java 8 added lambda expressions, the Stream API, and first-class functions, which let you write in a functional style, but Java still allows mutable state and side effects everywhere — it's classified as a non-pure functional language, unlike Haskell or Clojure.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Imperative Programming](imperative.md) — the contrasting paradigm focused on "how" rather than "what"
+- [Declarative Programming](declarative.md) — functional code is typically expressed in this style through function composition
+- [Concurrent Programming](concurrent.md) — immutability and pure functions make concurrent code easier to reason about
+- [FP in Java](../languages/java/fp.md) — how Java's lambdas and Streams apply these principles
+
+<sub>[Back to top](#table-of-contents)</sub>
 
 ---
 

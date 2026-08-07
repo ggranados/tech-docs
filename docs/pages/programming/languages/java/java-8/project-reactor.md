@@ -33,6 +33,8 @@
     * [Example](#example)
   * [Error Handling](#error-handling)
   * [Resource Management](#resource-management)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -1226,6 +1228,38 @@ Project Reactor provides mechanisms to manage resources effectively in a reactiv
 
 <sub>[Back to top](#table-of-contents)</sub>
 
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: When should I use `Mono` instead of `Flux` if `Flux` can already represent zero, one, or many elements?**
+A: `Mono` communicates intent (at-most-one result), terminates immediately on error rather than continuing to emit, and matches API contracts — like a single database lookup — that expect exactly zero or one result.
+
+---
+
+**Q: What's the practical difference between the `sample` and `throttleLast` operators?**
+A: They're functionally equivalent — both emit the most recent value within a time window and ignore the rest. They differ only in naming and the convention (sampling vs. throttling) each is documented under.
+
+---
+
+**Q: Why does the reactive push model behave differently from Java 8 Streams' pull model in practice?**
+A: Streams pull all data through a single terminal operation and can't represent infinite or asynchronous sources. Reactor pushes events as they arrive, supports backpressure, and allows multiple subscribers to attach and detach dynamically from a hot source.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Reactive Streams](../java-9/reactive-streams.md) — the specification Project Reactor implements
+- [Reactor Core](../java-9/reactor-core.md) — a condensed companion reference for `Flux`/`Mono` basics
+- [Streams](stream-api.md) — the pull-based Java 8 Streams API this page contrasts Reactor against
+- [CompletableFuture](concurrency/completable-future.md) — another Java 8 async abstraction, useful for single-value async results
+
+<sub>[Back to top](#table-of-contents)</sub>
 
 ---
 

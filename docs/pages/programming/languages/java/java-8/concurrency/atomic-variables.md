@@ -24,6 +24,8 @@
   * [Performance Considerations](#performance-considerations)
   * [Best Practices](#best-practices)
   * [Common Pitfalls](#common-pitfalls)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -791,6 +793,37 @@ private volatile int count = 0;
 
 ---
 
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: Why is `count++` unsafe even though it looks like a single operation?**
+A: It's actually three steps — read, add, write — that aren't atomic together. Two threads can interleave between those steps and one increment gets lost.
+
+---
+
+**Q: When should I use `LongAdder` instead of `AtomicLong`?**
+A: Under high contention with infrequent reads, such as request counters. `LongAdder` spreads updates across multiple internal cells to reduce cache-line contention, at the cost of a slower `sum()`.
+
+---
+
+**Q: Why does calling `counter.get()` and then `counter.incrementAndGet()` separately still risk a race condition?**
+A: Each call is atomic individually, but the combination isn't — another thread can act between the two calls. A CAS loop (`compareAndSet` retried until it succeeds) is needed to make the compound check-then-act operation atomic.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Java Memory Model](java-memory-model.md) — the visibility and ordering guarantees atomic variables rely on
+- [Thread Synchronization](synchronization.md) — the lock-based alternative to lock-free atomics
+- [Locks and Conditions](locks-and-conditions.md) — explicit locking for cases atomics can't handle
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
 ## Ref.
 
 **Official Documentation:**
@@ -814,7 +847,7 @@ private volatile int count = 0;
 ---
 
 [Get Started](../../../../../../get-started.md) |
-[Java Concurrency](../concurrency.md) |
+[Java Concurrency](../../concurrency.md) |
 [Java 8](../../versions.md#java-8-lts)
 
 ---

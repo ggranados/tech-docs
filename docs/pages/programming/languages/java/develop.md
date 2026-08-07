@@ -26,6 +26,8 @@
     * [Java for Web Development](#java-for-web-development)
     * [Java for Android Development](#java-for-android-development)
     * [Java Security](#java-security)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -252,6 +254,38 @@
   - Java Security API
 
 _____
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: What order should I work through these Learning Subjects in?**
+A: Start with Java Basics, OOP, and Exception Handling as the language foundation, then move to Generics and Collections before Lambdas/FP, since streams and functional interfaces operate on generic collection types; Multithreading, Concurrency, and Reactive Programming build on all of the above and are best tackled last.
+
+---
+
+**Q: How do the "Generics and Collections" and "Lambdas and Functional Interfaces" subjects relate to each other?**
+A: Generics give the Collections Framework compile-time type safety, while Streams (linked under Generics and Collections) consume lambdas and functional interfaces to process those typed collections declaratively — the two subjects are meant to be learned together.
+
+---
+
+**Q: Where do build tools like Maven and Gradle fit into this roadmap?**
+A: They're covered under "Java Tools and Development" alongside IDEs, debugging, profiling, and JUnit — treat them as the tooling layer you adopt once you're comfortable writing and testing plain Java code.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Java](java.md) — the language overview this development path expands on.
+- [Main Java Version Changes](versions.md) — maps each learning subject to the JDK version that introduced it.
+- [OOP in Java](oop.md) — full coverage of the Object-Oriented Programming subject listed here.
+- [Multithreading and Concurrency](concurrency.md) — full coverage of the concurrency subject listed here.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
 
 ## Ref.
 

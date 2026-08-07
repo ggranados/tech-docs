@@ -15,6 +15,8 @@
   * [Example](#example)
   * [JWT Bearer Token Flow](#jwt-bearer-token-flow)
   * [Other Common Flows Using JWT](#other-common-flows-using-jwt)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -229,6 +231,37 @@ JWTs offer flexibility and can be used in custom authentication and authorizatio
 
 <sub>[Back to top](#table-of-contents)</sub>
 
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: Since a JWT's payload is only base64url-encoded, not encrypted, what does that mean for what you can put in the claims?**
+A: Anyone holding the token can decode and read the payload, so never place secrets or sensitive data in JWT claims — only non-sensitive identity/authorization data; use JWE if encryption is required.
+
+---
+
+**Q: In the JWT Bearer Token Flow, what stops a stolen token from being replayed indefinitely?**
+A: A short expiration set via the `exp` claim combined with signature validation on every request; the client uses a separate refresh token, not the JWT itself, to obtain new short-lived access tokens.
+
+---
+
+**Q: If HS256 is used to sign the JWT, can the resource server validate it without contacting the authorization server?**
+A: Yes, but only if it shares the same secret key as the issuer. HS256 is symmetric, so anyone holding that secret can also forge tokens — RS256 (asymmetric, public-key verification) is preferred when the verifier shouldn't be able to sign tokens.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Authentication (AuthN) and Authorization (AuthZ)](authn-authz.md) — how JWT fits into the broader AuthN/AuthZ picture.
+- [OAuth](oauth.md) — a protocol where JWTs are commonly used as bearer access tokens.
+- [OpenID Connect (OIDC)](openid-connect.md) — uses JWT as the format for its ID Token.
+- [Single Sign-On (SSO)](sso.md) — often implemented using JWTs to represent authenticated sessions.
+
+<sub>[Back to top](#table-of-contents)</sub>
 
 ___
 

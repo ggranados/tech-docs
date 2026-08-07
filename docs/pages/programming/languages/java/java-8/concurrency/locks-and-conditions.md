@@ -18,6 +18,8 @@
   * [StampedLock](#stampedlock)
   * [Best Practices](#best-practices)
   * [Common Pitfalls](#common-pitfalls)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -731,6 +733,37 @@ if (lock.tryLock()) {
 
 ---
 
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: When is `ReentrantLock` preferable to `synchronized`?**
+A: When you need `tryLock`/timed acquisition, interruptible waiting, fairness guarantees, or multiple `Condition` variables per lock — none of which `synchronized` supports.
+
+---
+
+**Q: What's the key advantage of `StampedLock`'s optimistic read over a normal `ReadWriteLock` read lock?**
+A: Optimistic reads don't block writers at all — they read without acquiring a lock and only fall back to a real read lock if `validate()` detects a concurrent write, giving much higher throughput for read-heavy workloads.
+
+---
+
+**Q: Why must `Condition.await()` be called in a while loop rather than an if?**
+A: Spurious wakeups and multiple waiters mean the condition may not actually hold when the thread wakes. Rechecking the predicate in a loop is required, exactly like with `wait()`/`notify()`.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Thread Synchronization](synchronization.md) — the implicit-locking alternative to explicit `Lock` objects
+- [Atomic Variables](atomic-variables.md) — a lock-free option for simple state
+- [Java Memory Model](java-memory-model.md) — the visibility guarantees locks provide
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
 ## Ref.
 
 **Official Documentation:**
@@ -756,7 +789,7 @@ if (lock.tryLock()) {
 ---
 
 [Get Started](../../../../../../get-started.md) |
-[Java Concurrency](../concurrency.md) |
+[Java Concurrency](../../concurrency.md) |
 [Java 8](../../versions.md#java-8-lts)
 
 ---

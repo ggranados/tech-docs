@@ -10,6 +10,8 @@
   * [Schema](#schema)
   * [Scaling](#scaling)
   * [Examples](#examples)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -73,7 +75,38 @@ Examples of SQL databases include:
 - Microsoft SQL Server.
 
 
-___
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: Why do relational databases typically scale vertically instead of horizontally?**
+A: The tabular structure with foreign-key relationships, joins, and ACID transaction guarantees relies on tight coordination across the dataset, which is far easier to provide on a single powerful machine than across many distributed nodes. Horizontal scaling requires techniques like sharding or read replicas that add significant complexity.
+
+---
+
+**Q: When is a fixed schema an advantage rather than a limitation?**
+A: A fixed schema catches data-integrity problems — wrong types, missing required fields, broken relationships — at write time rather than letting bad data accumulate silently, which matters most for domains like finance, inventory, or healthcare where correctness is critical.
+
+---
+
+**Q: How do primary keys and foreign keys work together to maintain relationships between tables?**
+A: A primary key uniquely identifies each row in its table, and a foreign key in another table stores that primary key's value to reference the related row. The database enforces referential integrity so you can't insert a foreign key value that doesn't correspond to an existing primary key.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [ACID](../db-concepts/acid.md) — the transactional guarantees relational databases are built to enforce
+- [NoSQL (Not Only SQL) Database](../nosql/nosql.md) — contrasting database model built for unstructured/semi-structured data
+- [CAP Theorem](../db-concepts/cap.md) — explains why relational databases favor consistency over the availability trade-offs NoSQL systems make
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
 
 ## Ref.
 

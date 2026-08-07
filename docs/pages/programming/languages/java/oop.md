@@ -20,6 +20,8 @@
     * [Method Overloading](#method-overloading)
       * [Example](#example-1)
   * [What Is a Package?](#what-is-a-package)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -322,6 +324,38 @@ The [Java Platform API Specification](https://docs.oracle.com/javase/8/docs/api/
 <sub>[Back to top](#table-of-contents)</sub>
 
 _____
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: In the Animal/Dog/Cat example, how does the JVM know which makeSound() to call at runtime?**
+A: That's method overriding resolved via dynamic dispatch — even though the reference type is `Animal`, the JVM looks up the actual object's runtime type (`Dog` or `Cat`) and invokes its overridden method, which is what makes polymorphism work.
+
+---
+
+**Q: Why does the Person example use both `private` fields and public getters/setters instead of just making the fields public?**
+A: That's encapsulation and data hiding in practice — keeping `name` and `age` private forces all access through methods, so `setAge()` can enforce the non-negative validation rule; public fields would let any caller bypass that invariant.
+
+---
+
+**Q: What's the practical difference between overriding and overloading shown on this page?**
+A: Overriding (Dog/Cat extending Animal) redefines an inherited method with the same signature and is resolved at runtime based on the object's actual type; overloading (Calculator's `add(int,int)` vs `add(double,double)`) defines multiple methods with the same name but different parameters and is resolved at compile time based on argument types.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Object-Oriented Programming](../../paradigms/object-oriented.md) — the language-agnostic paradigm these Java mechanics implement.
+- [SOLID Principles](../../../design-patterns/solid.md) — design principles that build directly on encapsulation, abstraction, and polymorphism.
+- [Generics](java-5/generics.md) — adds compile-time type safety on top of the class/interface model described here.
+- [Java](java.md) — language overview linking back to this page's OOP concepts.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
 
 ## Ref.
 

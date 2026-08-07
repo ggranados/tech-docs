@@ -20,3 +20,43 @@ Real-time processing: EDA is well-suited for real-time applications and scenario
 Flexibility: New event consumers can be added or removed without disrupting the overall system, making it adaptable to changing requirements.
 Fault tolerance: EDA can enhance fault tolerance by allowing events to be retried or routed to alternative consumers in case of failures.
 Common use cases for event-driven architecture include real-time analytics, microservices communication, IoT applications, and systems that require high scalability and responsiveness. However, implementing event-driven architecture effectively can be challenging, as it requires careful consideration of event schemas, routing strategies, and fault tolerance mechanisms.
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: How does using an event broker or message queue differ from having event producers call event consumers directly?**
+A: With a broker (e.g., Kafka, RabbitMQ, AWS SNS/SQS) in between, producers and consumers never reference each other directly — the broker receives events and routes them to subscribers. This is what gives EDA loose coupling: consumers can be added, removed, or changed without the producer knowing they exist.
+
+---
+
+**Q: What makes event-driven architecture a good fit for real-time analytics and IoT, but potentially risky for systems that need strict consistency?**
+A: EDA processes events asynchronously as they occur, which is exactly what real-time analytics and IoT streams need. But because consumers react independently and on their own schedule, there's no guarantee all consumers have processed an event at any given instant — systems that require strong, immediate consistency across components need extra coordination (e.g., sagas, idempotent handlers) on top of plain EDA.
+
+---
+
+**Q: What's the difference between an event producer/consumer and the event processing layer mentioned in the article?**
+A: Producers and consumers are the endpoints that emit and react to events. Event processing is a separate concern that sits between them (often in or alongside the broker) — it handles transformation, filtering, routing, and aggregation of events before they reach consumers, giving fine-grained control over which consumers see which events.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Reactive Systems](../reactive.md) — reactive systems name message-driven communication as one of their four core traits, closely related to EDA
+- [Microservices Architecture](../microservices.md) — asynchronous messaging via EDA is a common pattern for decoupling microservice communication
+- [Event Streaming](../../data-processing/real-time/event-streaming.md) — platforms like Kafka implement the event broker role described here at scale
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Ref.
+
+- [Event-driven architecture style — Azure Architecture Center](https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/event-driven) — official documentation
+- [What is Event-Driven Architecture? — AWS](https://aws.amazon.com/event-driven-architecture/) — official documentation
+
+---

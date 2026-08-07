@@ -7,6 +7,8 @@
   * [Characteristics and Principles of Microservices](#characteristics-and-principles-of-microservices)
   * [Microservices Patterns](#microservices-patterns)
   * [Challenges of Microservices Implementation](#challenges-of-microservices-implementation)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -267,6 +269,37 @@ Handling data in a microservices architecture involves challenges related to dat
 <sub>[Back to top](#table-of-contents)</sub>
 
 ___
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: How does the Database per Service pattern support independent scaling, and what problem does it create for reporting or cross-service queries?**
+A: Because each service owns its own database, it can pick the best-fit storage technology and scale that store independently of others. The trade-off is that a query spanning multiple services can no longer be a simple join — it requires patterns like API Composition or event-driven data replication to assemble a combined view.
+
+---
+
+**Q: What's the difference between choreography and orchestration in the Saga pattern?**
+A: In choreography, each service publishes events and reacts to events published by others, with no central coordinator. In orchestration, a central component explicitly directs each step of the distributed transaction and issues compensating actions if a step fails.
+
+---
+
+**Q: Why are API Gateway and Circuit Breaker commonly paired in a microservices system?**
+A: The API Gateway is the single entry point routing client requests to backend services, so a failing downstream service can otherwise cascade failures back through the gateway to every client. Pairing it with a Circuit Breaker lets the gateway (or the calling service) stop sending requests to a failing service once failures repeat, protecting the rest of the system until that service recovers.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Event-Driven Architecture](message-driven/event-driven.md) — asynchronous messaging is the common pattern used to decouple microservice communication
+- [Reactive Systems](reactive.md) — reactive principles (resilience, elasticity) are frequently applied to individual microservices
+- [RESTful API Design](../ws-and-api-design/restful.md) — the synchronous HTTP/REST protocol most commonly used for microservice APIs
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
 
 ## Ref.
 

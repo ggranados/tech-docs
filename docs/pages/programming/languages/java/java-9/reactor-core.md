@@ -28,6 +28,8 @@
     * [Creating a ConnectableFlux](#creating-a-connectableflux)
     * [Throttling](#throttling)
   * [Concurrency](#concurrency)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -412,7 +414,38 @@ You might wonder why you shouldn't just use Flux for all cases. After all, Flux 
 
 ## Concurrency
 
+---
 
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: Why does this page define `Mono` separately when `Flux` could represent zero, one, or many elements?**
+A: `Mono` adds semantic clarity for at-most-one results, terminates immediately on error rather than continuing to emit, and matches API contracts — like a single database lookup — that explicitly return a single async result.
+
+---
+
+**Q: What's the difference between `Flux.just()` and `Flux.fromIterable()` for creating a stream?**
+A: `Flux.just()` takes a fixed varargs list of literal values, while `fromIterable()` wraps an existing `Iterable` (such as a `List`) as its source.
+
+---
+
+**Q: Both `Flux` and `Mono` implement `Publisher` — what does that buy you?**
+A: It lets you program against the Reactive Streams `Publisher` interface itself, making code interoperable with any compliant reactive library, not just Reactor's own types.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Reactive Streams](reactive-streams.md) — the specification Reactor Core implements
+- [Project Reactor](../java-8/project-reactor.md) — the fuller reference covering operators, backpressure, and error handling
+- [Streams](../java-8/stream-api.md) — the pull-based Java 8 Streams API, contrasted with Reactor's push model
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
 
 ## Ref.
 

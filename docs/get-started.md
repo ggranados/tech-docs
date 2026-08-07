@@ -249,16 +249,16 @@ document.addEventListener('DOMContentLoaded', function () {
 <sub>[Back to top](#table-of-contents)</sub>
 
 ## Data Structures
-- Array
-- Linked List
-- Stack
-- Queue
-- Binary Tree
-- Hash Table
-- Heap
-- Graph
-- Trie
-- AVL Tree
+- [Array](pages/data-structures/linear-structures.md#array)
+- [Linked List](pages/data-structures/linear-structures.md#linked-list)
+- [Stack](pages/data-structures/linear-structures.md#stack)
+- [Queue](pages/data-structures/linear-structures.md#queue)
+- [Binary Tree](pages/data-structures/trees.md#binary-tree)
+- [Hash Table](pages/data-structures/hash-table.md)
+- [Heap](pages/data-structures/heap.md)
+- [Graph](pages/data-structures/graph.md)
+- [Trie](pages/data-structures/trees.md#trie)
+- [AVL Tree](pages/data-structures/trees.md#avl-tree)
 
 <sub>[Back to top](#table-of-contents)</sub>
 

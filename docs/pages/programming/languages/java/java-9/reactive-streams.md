@@ -13,6 +13,8 @@
     * [Transformation](#transformation)
     * [Common Operators and Transformations](#common-operators-and-transformations)
   * [JDK9 java.util.concurrent.Flow](#jdk9-javautilconcurrentflow)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -198,6 +200,37 @@ The interfaces available in JDK >= 9 `java.util.concurrent.Flow`, are 1:1 semant
 <sub>[Back to top](#table-of-contents)</sub>
 
 _____
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: How does a Subscriber use backpressure to avoid being overwhelmed by a fast Publisher?**
+A: It calls `request(n)` on its `Subscription` to explicitly state how many items it can currently handle. The Publisher must not push more than that, buffering or otherwise handling excess per its own policy.
+
+---
+
+**Q: What's the relationship between `java.util.concurrent.Flow` (JDK 9+) and the `org.reactivestreams` API?**
+A: They're semantically identical, 1:1 equivalent interfaces. `Flow` was added to the JDK so reactive libraries wouldn't need an external Reactive Streams dependency, with a migration period expected as libraries adopt it.
+
+---
+
+**Q: What role does a `Processor` play in a reactive pipeline?**
+A: It acts as both a `Subscriber` (to an upstream `Publisher`) and a `Publisher` (to downstream `Subscriber`s), letting it transform or filter data as it passes through the pipeline.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Reactor Core](reactor-core.md) — a reactive library implementation of this specification
+- [Project Reactor](../java-8/project-reactor.md) — the full Project Reactor reference built on Reactive Streams
+- [Streams](../java-8/stream-api.md) — the pull-based Java 8 Streams API this specification contrasts with
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
 
 ## Ref.
 

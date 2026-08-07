@@ -14,6 +14,8 @@
     * [LinkedHashSet](#linkedhashset)
   * [Choose the appropriate implementation](#choose-the-appropriate-implementation)
     * [Comparison Table](#comparison-table)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -206,6 +208,37 @@ Always consider the trade-offs and performance characteristics to make an inform
 | Iteration Performance     | 	`O(n)`                    | 	`O(log n)`	                       | `O(n)`                                |
 | Use Cases	                | When order doesn't matter	 | When elements need to be sorted    | 	When order of insertion is important |
 
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: Why must objects placed into a `HashSet` have a correct `equals()`/`hashCode()` implementation?**
+A: `HashSet` uses `hashCode()` to pick a bucket and `equals()` to check for duplicates within that bucket; if the two methods are inconsistent (e.g. two "equal" objects with different hash codes), the set can silently accept duplicates or fail to find elements that are logically present.
+
+---
+
+**Q: What ordering guarantee, if any, does `TreeSet` provide over `HashSet`?**
+A: `TreeSet` keeps elements in sorted order (natural ordering or a supplied comparator) at `O(log n)` cost per operation; `HashSet` gives no ordering guarantee at all but offers faster average-case `O(1)` operations.
+
+---
+
+**Q: How does `HashSet` handle hash collisions, per this page's cross-reference to `HashMap`?**
+A: The same way — `HashSet` is backed internally by a `HashMap`, so it uses separate chaining (a linked list, or a red-black tree past the treeify threshold) within each bucket to store colliding entries.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Updated Java Collections API](enhanced-collections.md) — overview covering `Set` alongside `List`, `Map`, and `Queue`/`Deque`.
+- [Map Interface](map-interface.md) — `HashSet`'s internal implementation detail (hash collision handling) referenced on this page.
+- [List Interface](list-interface.md) — the duplicate-allowing, ordered counterpart to `Set`.
 
 <sub>[Back to top](#table-of-contents)</sub>
 

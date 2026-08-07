@@ -20,6 +20,8 @@
   * [Choose the appropriate implementation](#choose-the-appropriate-implementation)
     * [Queue Comparison Table](#queue-comparison-table)
     * [Deque Comparison Table](#deque-comparison-table)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -363,6 +365,38 @@ For Deque:
 | Iteration Performance	 | `O(n)`	                | `O(n)`                 | 	`O(n)`                               |
 | Use Cases	             | Basic Deque Operations | 	General-purpose Deque | 	Bounded Deque with blocking behavior |
 
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: What's the practical difference between `Queue`'s FIFO processing and `Deque`'s dual-ended access?**
+A: `Queue` only exposes single-direction FIFO operations (`offer`/`poll`/`peek`); `Deque` extends it with `addFirst`/`addLast`/`removeFirst`/`removeLast`, letting the same structure behave as either a FIFO queue or a LIFO stack.
+
+---
+
+**Q: Why would I pick `ArrayBlockingQueue` in a producer-consumer scenario?**
+A: It's a fixed-capacity, thread-safe queue whose `put()`/`take()` operations block automatically when the queue is full or empty, coordinating producers and consumers without you writing manual wait/notify logic.
+
+---
+
+**Q: When is `PriorityQueue` preferable to a plain `LinkedList`-based `Queue`?**
+A: When elements must be processed by priority rather than insertion order — e.g. task scheduling or Dijkstra's algorithm — since `PriorityQueue` orders elements by natural ordering or a supplied `Comparator` instead of FIFO.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Updated Java Collections API](enhanced-collections.md) — overview covering `Queue`/`Deque` alongside `List`, `Set`, and `Map`.
+- [List Interface](list-interface.md) — `LinkedList` implements both `List` and `Deque`, covered on both pages.
+- [Concurrency Utilities](../java-8/concurrency/concurrency-utilities.md) — background on the blocking-queue concurrency primitives used by `ArrayBlockingQueue` and `LinkedBlockingDeque`.
+- [Multithreading and Concurrency](../concurrency.md) — thread coordination context for the blocking queue implementations discussed here.
 
 <sub>[Back to top](#table-of-contents)</sub>
 

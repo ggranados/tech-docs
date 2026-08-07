@@ -16,6 +16,8 @@
     * [OIDC](#oidc)
     * [Kerberos](#kerberos)
   * [Disadvantages of SSO](#disadvantages-of-sso)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -190,6 +192,38 @@ SSO might not be suitable for all types of applications. Some applications, such
 - **Costs and Resources**:
 Implementing and maintaining an SSO solution can involve significant costs, including licensing fees for commercial IdPs or resources for building and maintaining an in-house solution.
 
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: In the demonstration, each app generates its own token via a central provider — what actually gets shared between App1, App2, and App3?**
+A: Nothing is shared directly between the apps; each app independently trusts and validates tokens issued by the same central SSO provider, so the session is federated through that provider rather than passed peer-to-peer.
+
+---
+
+**Q: The page lists "Central Point of Failure" as a disadvantage — how is this risk typically mitigated in production SSO deployments?**
+A: Through IdP high-availability and redundancy, such as clustering and failover instances, plus monitoring, since an IdP outage would otherwise block login to every connected application at once.
+
+---
+
+**Q: Of the four protocols listed (SAML, OAuth, OIDC, Kerberos), which are actually authentication protocols suitable for implementing SSO itself?**
+A: SAML, OIDC, and Kerberos are authentication protocols and can drive SSO directly. OAuth by itself is an authorization protocol and is typically paired with OIDC, which layers authentication on top of it, to support SSO.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Security Assertion Markup Language (SAML)](saml.md) — one of the core protocols used to implement SSO.
+- [OAuth](oauth.md) — an authorization protocol often combined with OIDC in SSO implementations.
+- [OpenID Connect (OIDC)](openid-connect.md) — the modern authentication protocol most commonly used for SSO.
+- [Authentication (AuthN) and Authorization (AuthZ)](authn-authz.md) — the underlying concepts that SSO builds on.
 
 <sub>[Back to top](#table-of-contents)</sub>
 

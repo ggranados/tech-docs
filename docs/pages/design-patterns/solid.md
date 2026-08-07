@@ -9,6 +9,8 @@
   * [Liskov Substitution Principle (LSP)](#liskov-substitution-principle-lsp)
   * [Interface Segregation Principle (ISP)](#interface-segregation-principle-isp)
   * [Dependency Inversion Principle (DIP):](#dependency-inversion-principle-dip)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -282,6 +284,37 @@ By following the SOLID principles, developers aim to create software that is mor
 <sub>[Back to top](#table-of-contents)</sub>
 
 ___
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: In the DIP example, why does injecting `Switchable` through the `Switch` constructor matter instead of just calling `new LightBulb()` inside `Switch`?**
+A: Injecting the abstraction means `Switch` depends only on the `Switchable` interface, not a concrete class. Any `Switchable` implementation — a real light bulb, a fan, or a mock for testing — can be substituted without changing `Switch` at all, which is the loose coupling DIP is meant to produce.
+
+---
+
+**Q: How do OCP and DIP work together in practice?**
+A: OCP is achieved by defining extension points through interfaces or abstract classes (like `Shape` or `Switchable`), so new behavior is added via new implementations rather than editing existing code. DIP is what wires those implementations into high-level modules — by injecting the abstraction rather than instantiating a concrete class — so the extension points OCP creates are actually used without hard-coded dependencies.
+
+---
+
+**Q: Can a class satisfy SRP but still violate ISP?**
+A: Yes. SRP is about a class having a single reason to change, while ISP is about the interfaces a class depends on or implements not forcing it to support methods it doesn't need. A focused, single-responsibility `Engineer` class can still be forced to implement an unrelated `eat()` method if it's stuck implementing a bloated `Worker` interface — the two principles address orthogonal design concerns.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Observer Pattern](behavioral/observer.md) — a behavioral pattern that directly supports the Open/Closed Principle
+- [Factory Pattern](creational/factory.md) — a creational pattern commonly used to apply DIP by decoupling object creation from concrete classes
+- [Object-Oriented Programming](../programming/paradigms/object-oriented.md) — the paradigm SOLID's five principles are designed for
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
 
 ## Ref.
 

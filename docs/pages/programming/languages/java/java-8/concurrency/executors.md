@@ -20,6 +20,8 @@
   * [Best Practices](#best-practices)
   * [Common Pitfalls](#common-pitfalls)
   * [Thread Pool Architecture](#thread-pool-architecture)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -390,6 +392,37 @@ graph TB
 4. Each worker executes its task
 5. Results are returned via Future objects
 6. Threads are reused for next tasks
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: Why is `newCachedThreadPool` risky for long-running tasks?**
+A: It creates a new thread whenever none is idle, with no upper bound. Many concurrent long-running tasks can spawn thousands of threads and exhaust system resources.
+
+---
+
+**Q: What's the difference between `scheduleAtFixedRate` and `scheduleWithFixedDelay`?**
+A: Fixed rate schedules the next run based on the previous run's *start* time, so runs may overlap if a task runs long. Fixed delay waits for the previous run to finish before starting the delay countdown for the next.
+
+---
+
+**Q: Why must `shutdown()` always be paired with `awaitTermination()` or `shutdownNow()`?**
+A: `shutdown()` only stops accepting new tasks. Without awaiting termination, the JVM may exit while queued tasks are still pending, or a hung task may never be detected.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Threads](threads.md) — the underlying execution unit executors manage
+- [Callable and Future](callable-and-future.md) — the task types submitted to an ExecutorService
+- [Fork/Join Framework](fork-join.md) — a specialized executor for divide-and-conquer parallelism
 
 <sub>[Back to top](#table-of-contents)</sub>
 

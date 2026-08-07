@@ -35,6 +35,8 @@
     * [Find element from a List by property of element](#find-element-from-a-list-by-property-of-element)
     * [Find maximum and minimum number from List of Integers](#find-maximum-and-minimum-number-from-list-of-integers)
     * [Get sum of integers in using reduce operation](#get-sum-of-integers-in-using-reduce-operation)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -1047,6 +1049,38 @@ Output:
 ```
 Sum: 312
 ```
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: Why does calling a stream a second time throw an exception?**
+A: Streams are one-time-use pipelines tied to a terminal operation. Once a terminal operation consumes the stream, its traversal state is exhausted — a new stream must be created from the source to process it again.
+
+---
+
+**Q: When does using `parallelStream()` actually help performance?**
+A: Mainly for large datasets with CPU-bound, independent, stateless operations. For small collections or I/O-bound work, the overhead of splitting work across the Fork/Join pool can make it slower than a sequential stream.
+
+---
+
+**Q: What's the benefit of short-circuiting operations like `findFirst` or `anyMatch`?**
+A: They let the pipeline stop processing as soon as a result is determined, avoiding unnecessary traversal of the rest of a stream — which is essential for infinite streams.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Lambda Expression](lamda-expression.md) — the syntax used inside most stream operations
+- [Functional Interfaces](functional-interfaces.md) — the contracts (`Function`, `Predicate`, etc.) stream operations accept
+- [Built-in Functional Interfaces](built-in-functional-interfaces.md) — the specific interfaces used by map, filter, and reduce
+- [Fork/Join Framework](concurrency/fork-join.md) — the mechanism parallel streams use internally
 
 <sub>[Back to top](#table-of-contents)</sub>
 

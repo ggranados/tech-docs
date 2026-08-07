@@ -12,6 +12,8 @@
     * [CA](#ca)
     * [CP](#cp)
     * [AP](#ap)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 ---
@@ -105,6 +107,37 @@ This means the system remains available and can tolerate network partitions, eve
 
 >It's important to note that the CAP theorem doesn't provide a strict dichotomy; instead, it highlights trade-offs and the need to make design decisions based on the specific requirements and constraints of a distributed system. In practice, many distributed databases and systems aim for a balance between these properties, and various strategies, such as eventual consistency and quorum-based approaches, are used to achieve the desired trade-offs.
 
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: Since network partitions are rare, can I just design for CA and ignore partition tolerance?**
+A: In practice, true CA systems don't survive at scale across a real network — partitions eventually happen. Architects should design for CP or AP and treat CA as viable only within a single node or a tightly coupled cluster where partitions are effectively impossible.
+
+---
+
+**Q: Is CAP theorem still relevant when a system uses eventual consistency?**
+A: Yes — eventual consistency is essentially how AP systems resolve the CAP trade-off: they stay available and partition-tolerant by relaxing the consistency guarantee to "eventually consistent" instead of "always consistent."
+
+---
+
+**Q: How does CAP theorem relate to ACID and BASE?**
+A: ACID-style strong consistency aligns with CP systems, while BASE's eventual consistency aligns with AP systems. CAP theorem provides the distributed-systems reasoning for why you can't have ACID-level consistency and BASE-level availability simultaneously during a partition.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [ACID](acid.md) — strong consistency model typically associated with CP-oriented systems
+- [BASE](base.md) — availability-oriented model typically associated with AP-oriented systems
+- [NoSQL (Not Only SQL) Database](../nosql/nosql.md) — NoSQL systems make explicit CAP trade-offs depending on their design goals
+
+<sub>[Back to top](#table-of-contents)</sub>
 
 ---
 

@@ -15,6 +15,8 @@
     * [Map Interface](#map-interface)
   * [Explicit Type Casting](#explicit-type-casting)
   * [Updated Java Collections API](#updated-java-collections-api)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -131,6 +133,41 @@ The addition of generics in Java 5 brought significant enhancements to the Colle
 - See also: [Diamond Operator](../java-7/diamond-operator.md)
 - See also: [Stream API](../java-8/stream-api.md)
 
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: Why did pre-generics collections require explicit casting, and what risk did that introduce?**
+A: Before Java 5, collections stored everything as `Object` references, so every retrieval needed an explicit cast back to the original type; if the wrong type had been inserted, that cast failed at runtime with a `ClassCastException` instead of being caught by the compiler.
+
+---
+
+**Q: What are the four primary interfaces of the Collections Framework described on this page?**
+A: `List` (ordered, allows duplicates), `Set` (no duplicates), `Queue`/`Deque` (ordered for processing, double-ended access), and `Map` (unique keys mapped to values).
+
+---
+
+**Q: What changed about the Collections API when Java 5 introduced generics?**
+A: Collections could be parameterized with a type argument (e.g. `List<String>`), so the compiler enforces type safety at compile time and the explicit casts shown in this page's "before" examples are no longer needed.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Updated Java Collections API](../java-5/enhanced-collections.md) — the Java 5 rewrite of this API using generics.
+- [Generics](../java-5/generics.md) — the type-safety feature that eliminated the explicit casting shown on this page.
+- [List Interface](../java-5/list-interface.md) — detailed look at one of the four core interfaces introduced here.
+- [Diamond Operator](../java-7/diamond-operator.md) — Java 7 syntax that further simplified generic collection instantiation.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
 
 ## Ref.
 

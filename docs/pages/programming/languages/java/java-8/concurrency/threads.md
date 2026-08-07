@@ -13,6 +13,8 @@
     * [Race Conditions](#race-conditions)
     * [Deadlocks](#deadlocks)
     * [Livelocks](#livelocks)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -330,6 +332,38 @@ Livelocks often occur when multiple threads are trying to be overly polite by re
 
 Livelocks can be mitigated by introducing randomness or timeouts into the thread behavior to break the repeated patterns and allow the threads to make progress.
 
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: What's the practical difference between extending `Thread` and implementing `Runnable`?**
+A: Implementing `Runnable` separates the task from the threading mechanism, allows the class to extend something else (Java has no multiple inheritance), and lets the same task run on different threads or executors.
+
+---
+
+**Q: Why doesn't a thread start running immediately after `start()` is called?**
+A: `start()` only makes the thread "Runnable" — eligible for execution. The OS/JVM scheduler decides when it actually gets CPU time, and it can also block waiting for a monitor, I/O, or another thread via `join()`.
+
+---
+
+**Q: What's the difference between a race condition and a deadlock?**
+A: A race condition produces incorrect results when threads access shared data without proper ordering or synchronization. A deadlock halts execution entirely because threads circularly wait on resources held by each other.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Thread Synchronization](synchronization.md) — preventing race conditions on shared data
+- [Executors](executors.md) — the higher-level framework for managing threads
+- [Callable and Future](callable-and-future.md) — running tasks that return results on a thread
+- [Java Memory Model](java-memory-model.md) — why shared state needs explicit visibility guarantees
 
 <sub>[Back to top](#table-of-contents)</sub>
 

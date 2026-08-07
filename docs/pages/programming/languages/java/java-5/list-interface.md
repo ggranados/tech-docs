@@ -12,6 +12,8 @@
     * [LinkedList](#linkedlist)
   * [Choose the appropriate implementation](#choose-the-appropriate-implementation)
     * [Comparison Table](#comparison-table)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -174,6 +176,38 @@ Always consider the trade-offs and performance characteristics to make an inform
 
 <sub>[Back to top](#table-of-contents)</sub>
 
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: When should I choose `ArrayList` over `LinkedList` per this page's comparison?**
+A: Choose `ArrayList` when you need fast, frequent random access (`O(1)`) and insertions/deletions are rare; choose `LinkedList` when you frequently insert or remove elements (`O(1)`) and can tolerate slower `O(n)` indexed access.
+
+---
+
+**Q: Why does `LinkedList` have `O(n)` access time despite `O(1)` insertion?**
+A: Its elements live in separate nodes connected by pointers rather than contiguous memory, so reaching an arbitrary index means traversing the chain from the head (or tail) node by node — there's no direct offset calculation like an array provides.
+
+---
+
+**Q: How does the `List` interface fit into the rest of the Collections Framework?**
+A: `List` is one of the four core interfaces (alongside `Set`, `Queue`/`Deque`, and `Map`); it's the only one that guarantees both ordering and duplicate elements, accessible by index.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Updated Java Collections API](enhanced-collections.md) — overview covering `List` alongside `Set`, `Map`, and `Queue`/`Deque`.
+- [Set Interface](set-interface.md) — the no-duplicates counterpart to `List`.
+- [Queue and Deque Interfaces](queue-deque-interfaces.md) — ordered collections built for processing rather than random access.
+- [Generics](generics.md) — the type-safety mechanism behind `List<T>`.
+
+<sub>[Back to top](#table-of-contents)</sub>
 
 ---
 

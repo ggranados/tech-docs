@@ -33,6 +33,8 @@
     * [Synchronization Example](#synchronization-example)
     * [Message Passing Example](#message-passing-example)
   * [Languages](#languages)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -740,6 +742,37 @@ Modern programming languages provide varying levels of support for concurrent pr
   - Lightweight coroutines
   - Flow for reactive streams
   - Integration with Java concurrency
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: What's the real difference between concurrency and parallelism, and why does it matter for design decisions?**
+A: Concurrency is about structuring a program so independent tasks can make progress during overlapping time periods (even on a single core); parallelism is about actually executing tasks at the same instant on multiple cores. A concurrent design enables parallelism but doesn't require it — this matters because you can improve responsiveness with concurrency alone (e.g., an event loop) without needing multiple processors.
+
+---
+
+**Q: When should I reach for the actor model or message passing instead of shared-memory threading?**
+A: Choose message passing (actors, channels) when you want to eliminate race conditions by design, need location transparency for distributed systems, or are building fault-tolerant systems with supervision. Choose shared state when you need low-overhead access to data within a single process and can manage synchronization carefully.
+
+---
+
+**Q: How do I prevent deadlocks when a design requires acquiring multiple locks?**
+A: Break at least one of the four Coffman conditions — most commonly by enforcing a consistent lock-acquisition order across all threads, using lock timeouts so threads give up instead of waiting forever, or avoiding nested locks altogether by redesigning around lock-free structures or message passing.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Reactive Programming](reactive.md) — event-driven asynchronous programming that often relies on concurrency models like event loops
+- [Functional Programming](functional.md) — immutability and pure functions reduce the risk of race conditions in concurrent code
+- [Java Concurrency](../languages/java/concurrency.md) — Java's concrete concurrency toolkit (Executors, Future, CompletableFuture, Java Memory Model)
 
 <sub>[Back to top](#table-of-contents)</sub>
 

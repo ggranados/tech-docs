@@ -23,6 +23,8 @@
   * [RESTful Principles (if applicable)](#restful-principles-if-applicable)
   * [Statelessness](#statelessness)
   * [HATEOAS (Hypermedia as the Engine of Application State)](#hateoas-hypermedia-as-the-engine-of-application-state)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 ---
@@ -315,7 +317,37 @@ This enables clients to interact with the API more dynamically and autonomously,
 
 <sub>[Back to top](#table-of-contents)</sub>
 
+---
 
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: Are all of these principles REST-specific, or do they apply to any API style?**
+A: Most, such as Consistency, Simplicity, Versioning, Security, and Documentation, apply to any API style (REST, GraphQL, gRPC); only the "RESTful Principles," Statelessness, and HATEOAS sections are REST-specific constraints layered on top of the general principles.
+
+---
+
+**Q: The Idempotency section shows DELETE as idempotent — why does that matter for retry logic?**
+A: If a client's request times out and it retries, an idempotent operation like DELETE produces the same end state no matter how many times it's repeated, so blind retries are safe; non-idempotent operations like POST need extra safeguards, such as idempotency keys, to avoid duplicate side effects.
+
+---
+
+**Q: How does the API First approach change the working relationship between frontend and backend teams?**
+A: Because the API specification (endpoints, request/response shapes) is agreed upon before implementation, frontend and backend teams can build against the same contract in parallel instead of the frontend waiting on a finished backend.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [RESTful API Design](restful-api-design.md) — applies these principles to concrete endpoint, versioning, and HATEOAS patterns.
+- [Resource Design and Representation](resource-design-representation.md) — how resources are modeled to align with these principles.
+- [RESTful Architecture](../restful.md) — the architectural constraints these design principles build on.
+- [Authentication (AuthN) and Authorization (AuthZ)](../authn-and-authz/authn-authz.md) — detail on the Security principle referenced above.
+
+<sub>[Back to top](#table-of-contents)</sub>
 
 ---
 

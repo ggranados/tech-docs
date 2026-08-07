@@ -227,6 +227,37 @@ This would move the book from being authored by F. Scott Fitzgerald to the new a
 
 ---
 
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: The example uses both `/authors/{id}/books` and `/books/{id}/author` for the same relationship — why expose it both ways instead of picking one?**
+A: Each direction serves a different client access pattern — browsing an author's catalog versus looking up a book's author — so exposing both makes the API more intuitive and avoids forcing clients to fetch and filter the full collection.
+
+---
+
+**Q: Why does updating a book's author use PUT/PATCH on `/books/1` instead of a dedicated endpoint like `/books/1/author`?**
+A: The author is just a property (`author_id`) of the book resource, so it's modified like any other resource attribute through the standard update methods on the resource itself, keeping the API uniform rather than adding one-off relationship endpoints.
+
+---
+
+**Q: The page says JSON is the most common representation format — when would XML or HTML still be the right choice?**
+A: XML remains common in enterprise, legacy, or SOAP-adjacent systems and where strict schema validation is required; HTML representations matter when a REST API also needs to be directly browsable and HATEOAS-navigable by a human via a browser.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [RESTful API Design](restful-api-design.md) — endpoint and URI patterns used to expose the resources modeled here.
+- [API Design Principles](api-design-principles.md) — general principles, including HATEOAS, that apply to resource representations.
+- [RESTful Architecture](../restful.md) — the underlying architectural constraints, including URIs and HTTP verbs, referenced throughout this page.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
 ## Ref.
 
 - https://www.oreilly.com/library/view/restful-web-services/9780596529260/

@@ -16,6 +16,8 @@
     * [LinkedHashMap](#linkedhashmap)
   * [Choose the appropriate implementation](#choose-the-appropriate-implementation)
     * [Comparison Table](#comparison-table)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -283,6 +285,38 @@ Choose the appropriate Map implementation based on your specific use case, consi
 | Iteration Performance     | `O(n)`              | `O(log n)`                  | `O(n)`                               |
 | Use Cases                 | General-purpose Map | When keys need to be sorted | When order of insertion is important |
 
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: How does `HashMap` resolve hash collisions internally, according to this page?**
+A: It uses separate chaining — each bucket holds a linked list of `Node` entries with the same index, and since Java 8, a bucket's list is converted into a balanced red-black tree once it exceeds the `TREEIFY_THRESHOLD` (8 entries), improving worst-case lookup time.
+
+---
+
+**Q: Why would I pick `LinkedHashMap` over a plain `HashMap`?**
+A: `LinkedHashMap` preserves insertion order while offering access/retrieval performance close to `HashMap` — useful when you need predictable iteration order without paying for the sorted-tree overhead of a `TreeMap`.
+
+---
+
+**Q: Is `HashMap` thread-safe, and what should I use if it needs to be?**
+A: No — as the page notes, `HashMap` is not thread-safe; use `ConcurrentHashMap` for concurrent access, since it provides thread safety without the heavy full-map locking of the legacy `Hashtable`.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Updated Java Collections API](enhanced-collections.md) — overview covering `Map` alongside `List`, `Set`, and `Queue`/`Deque`.
+- [Set Interface](set-interface.md) — `HashSet` is internally backed by a `HashMap` and shares the same collision-handling mechanism.
+- [List Interface](list-interface.md) — the ordered, index-based counterpart to `Map`'s key-based lookup.
+- [Concurrency Utilities](../java-8/concurrency/concurrency-utilities.md) — covers `ConcurrentHashMap`, the thread-safe alternative mentioned here.
 
 <sub>[Back to top](#table-of-contents)</sub>
 

@@ -12,6 +12,8 @@
     * [Lambda Listener](#lambda-listener)
     * [Lambda Capture](#lambda-capture)
     * [Lambda Inference](#lambda-inference)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -253,6 +255,37 @@ e. The commented line `Consumer<?> c3 = msg -> System.out.println(msg.length());
 ```
 
 <sub>[View on Github](https://github.com/ggranados/java/blob/master/FunctionalProgramming/src/org/linkedinlearning/functionalprogramming/lambda/LambdaInference.java)</sub> |
+<sub>[Back to top](#table-of-contents)</sub>
+
+___
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: Why can lambda expressions omit parameter types, like `(a, b) -> ...`?**
+A: The compiler infers them through type inference, using the target functional interface's abstract method signature as context.
+
+---
+
+**Q: What variables can a lambda capture from its enclosing scope?**
+A: Only final or effectively-final local variables. Instance and static fields can be freely read and written since they aren't stack-local and don't have the same lifetime constraints.
+
+---
+
+**Q: Why does `Object x1 = msg -> System.out.println(msg.length());` fail to compile?**
+A: `Object` is not a functional interface, so the compiler has no target type to infer the lambda parameter's type from. An explicit cast to a functional interface type resolves it.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+___
+
+## Related Topics
+
+- [Functional Interfaces](functional-interfaces.md) — the single-abstract-method contract that lambdas implement
+- [Method References](method-references.md) — a shorthand alternative to lambdas that call an existing method
+- [Built-in Functional Interfaces](built-in-functional-interfaces.md) — the standard interfaces most lambdas target
+
 <sub>[Back to top](#table-of-contents)</sub>
 
 ___

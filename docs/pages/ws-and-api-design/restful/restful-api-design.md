@@ -27,6 +27,8 @@
     * [API Documentation](#api-documentation)
     * [Client Implementation](#client-implementation)
     * [Error Handling](#error-handling)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -580,6 +582,37 @@ Clients of your API should be designed to follow links and use hypermedia contro
 
 Implement clear error handling and provide informative error responses that also include links to relevant resources for further actions or guidance.
 
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: With five versioning approaches shown (URI, Accept header, custom header, subdomain, query parameter), which is actually most widely recommended?**
+A: URI/path versioning (e.g., `/v1/resources`) is the most widely adopted in practice because it's explicit, cache-friendly, and easy for developers to discover and test, even though header-based versioning is considered more "RESTfully pure."
+
+---
+
+**Q: The page suggests HATEOAS can replace the need for API versioning entirely — is that realistic for most teams?**
+A: Rarely in practice. HATEOAS requires clients to be built to dynamically follow links rather than hardcode URIs, which most client teams don't do, so most real-world APIs still combine some form of versioning with partial hypermedia support.
+
+---
+
+**Q: When paginating with `page`/`per_page`, what's the risk of not enforcing a maximum on `per_page`?**
+A: A client could request an extremely large page size, forcing the server to load and serialize a huge dataset in one response, which can degrade performance or be used as a denial-of-service vector — this is why the "Handling Edge Cases" section calls out enforcing such limits.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [API Design Principles](api-design-principles.md) — the broader principles (including HATEOAS) that these patterns implement.
+- [Resource Design and Representation](resource-design-representation.md) — how the resources referenced by these endpoint patterns are modeled.
+- [RESTful Architecture](../restful.md) — the architectural constraints (uniform interface, statelessness) these design patterns satisfy.
 
 <sub>[Back to top](#table-of-contents)</sub>
 

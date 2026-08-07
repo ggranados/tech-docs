@@ -20,6 +20,8 @@
     * [Recursion](#recursion)
     * [First-Class Functions](#first-class-functions)
     * [Closures](#closures)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -507,6 +509,38 @@ public class ClosureExample {
 
 <sub>[Back to top](#table-of-contents)</sub>
 
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: What must be true about an interface for a lambda expression to implement it?**
+A: It must be a functional interface — one with exactly one abstract method (a SAM, "Single Abstract Method"); the optional `@FunctionalInterface` annotation just makes the compiler enforce that constraint.
+
+---
+
+**Q: Why is the immutable `Person` class on this page considered thread-safe?**
+A: All fields are `final` and set only in the constructor, there are no setters, and the mutable `hobbies` list is defensively copied on the way in and returned as an unmodifiable view on the way out — so no thread can observe or cause a partial/inconsistent state change.
+
+---
+
+**Q: What's the practical difference between the anonymous-class and lambda closure examples?**
+A: Both close over the enclosing scope, but the anonymous class needs a full class body implementing the `Counter` interface plus its own field, while the lambda captures an effectively-final array to hold mutable state and expresses the same behavior in one line — lambdas are more concise but still can't reassign a captured local variable directly.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Functional Programming](../../paradigms/functional.md) — the language-agnostic paradigm this page implements in Java.
+- [Lambda Expression](java-8/lamda-expression.md) — full syntax reference for the lambda expressions used throughout this page.
+- [Stream API](java-8/stream-api.md) — the primary functional-style API built on top of these lambda and functional-interface features.
+- [Concurrency](concurrency.md) — explains why immutability (covered here) matters for thread safety.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
 
 ## Ref.
 

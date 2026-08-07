@@ -221,7 +221,6 @@ Validates documentation structure by scanning `docs/` for orphaned (unreferenced
 - `docs/index.md` — Homepage
 - `docs/get-started.md` — Main navigation hub
 - `docs/_config.yml` — Jekyll configuration
-- `docs/pages/common/template.md` — Legacy basic template
 - `.claude/templates/page.md` — Full page template with Q&A and Related Topics
 - `README.md` — GitHub repository description
 
@@ -240,7 +239,7 @@ Only GG merges to `develop` or `master`.
 ## Notes for AI Assistants
 
 1. **Consistency is Key:** Always follow the established markdown structure
-2. **Template:** Use `.claude/templates/page.md` for new pages (richer than `common/template.md`)
+2. **Template:** Use `.claude/templates/page.md` for new pages — the sole canonical template
 3. **Link Validation:** Check that internal links use correct relative paths
 4. **Reference Quality:** Prioritize official documentation links over tutorials
 5. **No Deep Content:** Overviews, not exhaustive tutorials

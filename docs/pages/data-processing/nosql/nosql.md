@@ -10,6 +10,8 @@
   * [Schema](#schema)
   * [Scaling](#scaling)
   * [Examples](#examples)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -66,6 +68,38 @@ Examples of NoSQL databases include MongoDB (document store), Cassandra (wide-co
 
 
 ___
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: When should I choose a document store over a key-value store?**
+A: Choose a document store (MongoDB, Couchbase) when you need to query and index nested fields inside semi-structured records. Choose a key-value store (Redis, DynamoDB) when access is purely by a known key and you need the fastest possible simple lookups.
+
+---
+
+**Q: Does "schema-less" mean NoSQL databases have no data validation at all?**
+A: No. Schema-less means the database doesn't enforce a fixed table structure at write time, but applications typically still enforce an implicit schema in code, and many NoSQL databases (e.g., MongoDB) support optional schema validation rules.
+
+---
+
+**Q: If NoSQL scales horizontally, why would I ever pick a relational database?**
+A: Relational databases remain the better choice when strong ACID transactional guarantees, complex multi-table joins, and mature tooling matter more than horizontal write scalability. Many real architectures use both, picking per use case — an approach known as polyglot persistence.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [SQL (Relational) Database](../sql/relational.md) — contrasting structured, schema-based database model
+- [BASE](../db-concepts/base.md) — the consistency model most NoSQL databases follow instead of ACID
+- [CAP Theorem](../db-concepts/cap.md) — explains the availability/consistency trade-offs NoSQL databases make
+- [Kafka](../real-time/event-streaming/kafka.md) — often paired with NoSQL stores for real-time data ingestion pipelines
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
 
 ## Ref.
 

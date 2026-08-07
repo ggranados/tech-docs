@@ -19,6 +19,8 @@
     * [Message Passing](#message-passing)
   * [OOP Languages](#oop-languages)
   * [Examples](#examples)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -144,6 +146,37 @@ System.out.println("Area: " + area);
 <sub>[Back to top](#table-of-contents)</sub>
 
 ___
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: What's the actual difference between static and dynamic polymorphism?**
+A: Static (compile-time) polymorphism is resolved by the compiler based on method signatures — method and operator overloading. Dynamic (runtime) polymorphism is resolved based on the actual object type at runtime through method overriding, and is what enables the "IS-A" substitution central to OOP design.
+
+---
+
+**Q: Aren't encapsulation and abstraction the same thing?**
+A: No. Encapsulation is about bundling data and behavior together and restricting direct access to internal state. Abstraction is about exposing only essential characteristics through interfaces or abstract classes while hiding implementation detail. Encapsulation is a mechanism; abstraction is a design goal it helps achieve.
+
+---
+
+**Q: Why is OOP classified as a subset of imperative programming?**
+A: Because OOP still relies on explicit, step-by-step statements and mutable object state to accomplish tasks — objects just organize that state and behavior into units. It doesn't change the fundamental "how to do it" execution model that defines imperative programming.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Imperative Programming](imperative.md) — the broader paradigm that OOP is a subset of
+- [Structured Programming](structured.md) — the control-flow discipline that OOP builds upon
+- [OOP in Java](../languages/java/oop.md) — how these concepts (encapsulation, inheritance, polymorphism) are implemented in Java
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
 
 ## Ref.
 

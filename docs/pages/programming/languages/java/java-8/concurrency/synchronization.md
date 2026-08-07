@@ -20,6 +20,8 @@
   * [Producer-Consumer Pattern](#producer-consumer-pattern)
   * [Best Practices](#best-practices)
   * [Common Pitfalls](#common-pitfalls)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -761,6 +763,38 @@ private final Object lock = new Object();
 
 ---
 
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: Why must `getBalance()` also be synchronized even though it only reads?**
+A: Without synchronization, a reader thread isn't guaranteed to see the latest value written by another thread. `synchronized` provides both mutual exclusion and memory visibility.
+
+---
+
+**Q: Why use `notifyAll()` instead of `notify()` when in doubt?**
+A: `notify()` wakes an arbitrary single waiting thread, which can be the wrong one if multiple threads wait on different conditions guarded by the same monitor. `notifyAll()` is safer at the cost of some extra wakeups.
+
+---
+
+**Q: How does synchronizing on a private lock object avoid the problem of synchronizing on `this`?**
+A: External code can't lock on a private field it doesn't have a reference to, which prevents outside code from unintentionally blocking your class's synchronized methods.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Locks and Conditions](locks-and-conditions.md) — the explicit-locking alternative with more control
+- [Threads](threads.md) — thread basics and lifecycle that synchronization coordinates
+- [Java Memory Model](java-memory-model.md) — why synchronization guarantees visibility, not just exclusion
+- [Atomic Variables](atomic-variables.md) — a lock-free alternative for simple counters and flags
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
 ## Ref.
 
 **Official Documentation:**
@@ -786,7 +820,7 @@ private final Object lock = new Object();
 ---
 
 [Get Started](../../../../../../get-started.md) |
-[Java Concurrency](../concurrency.md) |
+[Java Concurrency](../../concurrency.md) |
 [Java 8](../../versions.md#java-8-lts)
 
 ---

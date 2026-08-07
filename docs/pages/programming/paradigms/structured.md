@@ -9,6 +9,8 @@
   * [What's Structured Programming](#whats-structured-programming)
   * [Examples](#examples)
   * [Languages](#languages)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -93,6 +95,37 @@ By structuring the code in this way, it becomes more organized, easier to follow
 
 <sub>[Back to top](#table-of-contents)</sub>
 
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: What are the three core control-flow constructs structured programming is built on?**
+A: Sequential execution (statements run top-down), selection (if-else, switch-case conditionals), and iteration (for, while, do-while loops). The theorem behind structured programming states any computable function can be expressed using only these three constructs.
+
+---
+
+**Q: How does structured programming differ from procedural programming?**
+A: Procedural programming is about organizing code into reusable procedures/functions. Structured programming is a narrower discipline about the control flow *within* code (avoiding unstructured jumps like `goto` in favor of sequence, selection, and iteration). The two are complementary — most procedural languages are also structured.
+
+---
+
+**Q: Why was structured programming introduced as its own paradigm?**
+A: It emerged as a reaction to unstructured code that relied heavily on `goto` statements, which produced hard-to-follow "spaghetti code." Enforcing sequence, selection, and iteration made programs easier to read, debug, and maintain.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Procedural Programming](procedural.md) — organizes structured control flow into reusable procedures
+- [Imperative Programming](imperative.md) — the broader paradigm that structured programming refines
+- [Object-Oriented Programming](object-oriented.md) — extends structured programming's control-flow discipline with objects
+
+<sub>[Back to top](#table-of-contents)</sub>
 
 ---
 

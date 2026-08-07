@@ -19,6 +19,8 @@
   * [Comparison Summary](#comparison-summary)
   * [Best Practices](#best-practices)
   * [Common Pitfalls](#common-pitfalls)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -720,6 +722,37 @@ CountDownLatch latch = new CountDownLatch(5);
 
 ---
 
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: When would I choose `CyclicBarrier` over `CountDownLatch`?**
+A: `CountDownLatch` is one-time and models "wait for N events." `CyclicBarrier` is reusable and models "N threads wait for each other," which suits multi-phase parallel algorithms.
+
+---
+
+**Q: Why is a `Semaphore` useful even when I have plenty of threads available?**
+A: It caps concurrent access to a limited resource, like a connection pool or rate limit, regardless of how many threads exist — preventing resource exhaustion rather than just coordinating thread timing.
+
+---
+
+**Q: What's unique about `Phaser` compared to `CyclicBarrier`?**
+A: `Phaser` supports a dynamic, changing number of registered parties across multiple phases, whereas `CyclicBarrier` requires a fixed party count set at construction.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Threads](threads.md) — the basic execution units these utilities coordinate
+- [Executors](executors.md) — thread pools often used alongside these coordination utilities
+- [Thread Synchronization](synchronization.md) — the lower-level primitives these utilities are built on top of
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
 ## Ref.
 
 **Official Documentation:**
@@ -745,7 +778,7 @@ CountDownLatch latch = new CountDownLatch(5);
 ---
 
 [Get Started](../../../../../../get-started.md) |
-[Java Concurrency](../concurrency.md) |
+[Java Concurrency](../../concurrency.md) |
 [Java 8](../../versions.md#java-8-lts)
 
 ---

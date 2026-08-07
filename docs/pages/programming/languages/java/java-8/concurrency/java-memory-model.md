@@ -18,6 +18,8 @@
   * [ThreadLocal](#threadlocal)
   * [Common Visibility Problems](#common-visibility-problems)
   * [Best Practices](#best-practices)
+  * [Q&A](#qa)
+  * [Related Topics](#related-topics)
   * [Ref.](#ref)
 <!-- TOC -->
 
@@ -534,6 +536,37 @@ public class UnsafeCounter {
     // Implementation
 }
 ```
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Q&A
+
+Common questions a software architect trainee would ask about this topic.
+
+**Q: Why can Thread 2 print 0 even after Thread 1 sets `number = 42` before `ready = true`?**
+A: Without a happens-before relationship (e.g. `volatile`, `synchronized`), the JVM and CPU may cache or reorder writes, so Thread 2 isn't guaranteed to observe the main-memory-consistent value.
+
+---
+
+**Q: Does making a variable `volatile` make compound operations like `counter++` thread-safe?**
+A: No. `volatile` only guarantees visibility and ordering, not atomicity. Read-modify-write sequences still need `synchronized` or an `Atomic` class.
+
+---
+
+**Q: Why does the double-checked locking singleton break without `volatile`?**
+A: Without `volatile`, another thread can observe a non-null reference to a partially-constructed object due to instruction reordering during construction.
+
+<sub>[Back to top](#table-of-contents)</sub>
+
+---
+
+## Related Topics
+
+- [Thread Synchronization](synchronization.md) — the mutual-exclusion mechanism that also provides memory visibility
+- [Atomic Variables](atomic-variables.md) — lock-free classes that rely on JMM visibility guarantees
+- [Locks and Conditions](locks-and-conditions.md) — explicit locking with the same happens-before guarantees
 
 <sub>[Back to top](#table-of-contents)</sub>
 

@@ -374,30 +374,30 @@ document.addEventListener('DOMContentLoaded', function () {
   - [API Design Principles](pages/ws-and-api-design/restful/api-design-principles.md)
   - [Resource Design and Representation](pages/ws-and-api-design/restful/resource-design-representation.md)
   - [RESTful API Design](pages/ws-and-api-design/restful/restful-api-design.md)
-- SOAP
-- RPC
-- gRPC
-- GraphQL
-- HTTP and HTTPS
-- Data Formats
+- [SOAP](pages/ws-and-api-design/soap-rpc.md#soap)
+- [RPC](pages/ws-and-api-design/soap-rpc.md#rpc)
+- [gRPC](pages/ws-and-api-design/grpc-graphql.md#grpc)
+- [GraphQL](pages/ws-and-api-design/grpc-graphql.md#graphql)
+- [HTTP and HTTPS](pages/ws-and-api-design/http-data-formats.md#http-and-https)
+- [Data Formats](pages/ws-and-api-design/http-data-formats.md#data-formats)
 - [Authentication (AuthN) and Authorization (AuthZ)](pages/ws-and-api-design/authn-and-authz/authn-authz.md)
   - [SSO](img/sso.png)
   - [OAuth](pages/ws-and-api-design/authn-and-authz/oauth.md)
   - [OpenID Connect](pages/ws-and-api-design/authn-and-authz/openid-connect.md)
   - [JSON Web Token (JWT)](pages/ws-and-api-design/authn-and-authz/jwt.md)
   - [SAML](pages/ws-and-api-design/authn-and-authz/saml.md)
-  - Kerberos
-  - LDAP
-- API Security
-- Error Handling and Validation
-- Documentation and Discovery
-- API Versioning
-- Performance and Scalability
-- Testing and Mocking
-- API Lifecycle Management
-- Webhooks and Event-Driven Architectures
-- Cross-Origin Resource Sharing (CORS)
-- API Governance and Maintenance
+  - [Kerberos](pages/ws-and-api-design/authn-and-authz/kerberos-ldap.md#kerberos)
+  - [LDAP](pages/ws-and-api-design/authn-and-authz/kerberos-ldap.md#ldap)
+- [API Security](pages/ws-and-api-design/api-versioning-security.md#api-security)
+- [Error Handling and Validation](pages/ws-and-api-design/error-handling-cors.md#error-handling-and-validation)
+- [Documentation and Discovery](pages/ws-and-api-design/api-lifecycle-management.md#documentation-and-discovery)
+- [API Versioning](pages/ws-and-api-design/api-versioning-security.md#api-versioning)
+- [Performance and Scalability](pages/ws-and-api-design/api-lifecycle-management.md#performance-and-scalability)
+- [Testing and Mocking](pages/ws-and-api-design/api-lifecycle-management.md#testing-and-mocking)
+- [API Lifecycle Management](pages/ws-and-api-design/api-lifecycle-management.md#api-lifecycle-management-1)
+- [Webhooks and Event-Driven Architectures](pages/ws-and-api-design/webhooks-event-driven-apis.md)
+- [Cross-Origin Resource Sharing (CORS)](pages/ws-and-api-design/error-handling-cors.md#cross-origin-resource-sharing-cors)
+- [API Governance and Maintenance](pages/ws-and-api-design/api-lifecycle-management.md#api-governance-and-maintenance)
 
 <sub>[Back to top](#table-of-contents)</sub>
 

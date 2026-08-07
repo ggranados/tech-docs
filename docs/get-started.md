@@ -234,17 +234,17 @@ document.addEventListener('DOMContentLoaded', function () {
 <sub>[Back to top](#table-of-contents)</sub>
 
 ## DevOps Practices
-- Continuous Integration (CI)
-- Continuous Delivery (CD)
-- Infrastructure as Code (IaC)
-- Configuration Management
-- Continuous Deployment
-- Continuous Monitoring
-- Agile Development
-- Automated Testing
-- Collaboration and Communication
-- Version Control
-- DevOps Culture
+- [Continuous Integration (CI)](pages/devops/ci-cd.md#continuous-integration-ci)
+- [Continuous Delivery (CD)](pages/devops/ci-cd.md#continuous-delivery-cd)
+- [Infrastructure as Code (IaC)](pages/devops/infrastructure-as-code.md#infrastructure-as-code-iac)
+- [Configuration Management](pages/devops/infrastructure-as-code.md#configuration-management)
+- [Continuous Deployment](pages/devops/ci-cd.md#continuous-deployment)
+- [Continuous Monitoring](pages/devops/devops-culture-practices.md#continuous-monitoring)
+- [Agile Development](pages/devops/devops-culture-practices.md#agile-development)
+- [Automated Testing](pages/devops/devops-culture-practices.md#automated-testing)
+- [Collaboration and Communication](pages/devops/devops-culture-practices.md#collaboration-and-communication)
+- [Version Control](pages/devops/devops-culture-practices.md#version-control)
+- [DevOps Culture](pages/devops/devops-culture-practices.md#devops-culture)
 
 <sub>[Back to top](#table-of-contents)</sub>
 

@@ -91,12 +91,12 @@ document.addEventListener('DOMContentLoaded', function () {
 - [Object Oriented Programming (OOP)](pages/programming/paradigms/object-oriented.md)
 - [Declarative Programming](pages/programming/paradigms/declarative.md)
 - [Functional Programming](pages/programming/paradigms/functional.md)
-- Event-Driven Programming
+- [Event-Driven Programming](pages/programming/paradigms/event-driven-programming.md)
 - [Reactive Programming](pages/programming/paradigms/reactive.md)
 - [Concurrent Programming](pages/programming/paradigms/concurrent.md)
-- Aspect-Oriented Programming (AOP)
-- Logic Programming
-- Domain-Specific Languages (DSLs)
+- [Aspect-Oriented Programming (AOP)](pages/programming/paradigms/aspect-oriented-programming.md)
+- [Logic Programming](pages/programming/paradigms/logic-programming.md)
+- [Domain-Specific Languages (DSLs)](pages/programming/paradigms/domain-specific-languages.md)
 
 <sub>[Back to top](#table-of-contents)</sub>
 
@@ -124,21 +124,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
 ## Data Processing
 
-- Batch Processing
+- [Batch Processing](pages/data-processing/paradigms/data-processing-paradigms.md#batch-processing)
 - [Real-Time Processing](#real-time-processing)
-- ETL (Extract, Transform, Load)
+- [ETL (Extract, Transform, Load)](pages/data-processing/paradigms/data-processing-paradigms.md#etl-extract-transform-load)
 - [SQL Databases](#relational-databases--sql-)
-- Data Warehousing
-- In-Memory Processing
-- Data Integration
+- [Data Warehousing](pages/data-processing/paradigms/data-processing-paradigms.md#data-warehousing)
+- [In-Memory Processing](pages/data-processing/paradigms/data-processing-paradigms.md#in-memory-processing)
+- [Data Integration](pages/data-processing/paradigms/data-processing-paradigms.md#data-integration)
 - [NoSQL Databases](#nosql-databases)
-- MapReduce
-- Machine Learning and AI
-- Data Cleaning and Transformation
-- Data Lakes
-- Text and Natural Language Processing (NLP)
-- Image and Video Processing
-- Time Series Analysis
+- [MapReduce](pages/data-processing/paradigms/data-processing-paradigms.md#mapreduce)
+- [Machine Learning and AI](pages/data-processing/paradigms/specialized-data-workloads.md#machine-learning-and-ai)
+- [Data Cleaning and Transformation](pages/data-processing/paradigms/specialized-data-workloads.md#data-cleaning-and-transformation)
+- [Data Lakes](pages/data-processing/paradigms/data-processing-paradigms.md#data-lakes)
+- [Text and Natural Language Processing (NLP)](pages/data-processing/paradigms/specialized-data-workloads.md#text-and-natural-language-processing-nlp)
+- [Image and Video Processing](pages/data-processing/paradigms/specialized-data-workloads.md#image-and-video-processing)
+- [Time Series Analysis](pages/data-processing/paradigms/specialized-data-workloads.md#time-series-analysis)
 
 <sub>[Back to top](#table-of-contents)</sub>
 
@@ -146,13 +146,13 @@ document.addEventListener('DOMContentLoaded', function () {
 - [ACID](pages/data-processing/db-concepts/acid.md)
 - [BASE](pages/data-processing/db-concepts/base.md)
 - [CAP Theorem](pages/data-processing/db-concepts/cap.md)
-- CRDTs
-- Snapshot Isolation
-- Two-Phase Commit (2PC)
-- Eventual Consistency
-- MVCC (Multi-Version Concurrency Control)
-- Read Committed Isolation
-- Distributed Databases
+- [CRDTs](pages/data-processing/db-concepts/distributed-consistency.md#crdts)
+- [Snapshot Isolation](pages/data-processing/db-concepts/isolation-levels.md#snapshot-isolation)
+- [Two-Phase Commit (2PC)](pages/data-processing/db-concepts/distributed-consistency.md#two-phase-commit-2pc)
+- [Eventual Consistency](pages/data-processing/db-concepts/distributed-consistency.md#eventual-consistency)
+- [MVCC (Multi-Version Concurrency Control)](pages/data-processing/db-concepts/isolation-levels.md#mvcc-multi-version-concurrency-control)
+- [Read Committed Isolation](pages/data-processing/db-concepts/isolation-levels.md#read-committed-isolation)
+- [Distributed Databases](pages/data-processing/db-concepts/distributed-consistency.md#distributed-databases)
 
 <sub>[Back to top](#table-of-contents)</sub>
 
@@ -344,8 +344,8 @@ document.addEventListener('DOMContentLoaded', function () {
 - [SOLID](pages/design-patterns/solid.md)
 - Inversion of Control (IoC)
   - [Dependency Injection (DI)](pages/design-patterns/ioc/dependency-injection.md)
-  - Template Method Pattern
-  - Aspect-Oriented Programming (AOP)
+  - [Template Method Pattern](pages/design-patterns/behavioral/template-method.md)
+  - [Aspect-Oriented Programming (AOP)](pages/programming/paradigms/aspect-oriented-programming.md)
   - [Service Locator](pages/design-patterns/ioc/service-locator.md)
 
 <sub>[Back to top](#table-of-contents)</sub>

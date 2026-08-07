@@ -201,21 +201,21 @@ document.addEventListener('DOMContentLoaded', function () {
 <sub>[Back to top](#table-of-contents)</sub>
 
 ## Networking Concepts
-- IP Addressing
-- Subnetting
-- Routing
-- Switching
-- TCP/IP
-- DNS (Domain Name System)
-- DHCP (Dynamic Host Configuration Protocol)
-- Firewall
-- VPN (Virtual Private Network)
-- OSI Model (Open Systems Interconnection Model)
-- NAT (Network Address Translation)
-- VLAN (Virtual Local Area Network)
-- Load Balancing
-- Bandwidth
-- Latency
+- [IP Addressing](pages/networking/ip-addressing.md)
+- [Subnetting](pages/networking/ip-addressing.md#subnetting)
+- [Routing](pages/networking/routing-switching.md#routing)
+- [Switching](pages/networking/routing-switching.md#switching)
+- [TCP/IP](pages/networking/tcp-ip.md)
+- [DNS (Domain Name System)](pages/networking/dns.md)
+- [DHCP (Dynamic Host Configuration Protocol)](pages/networking/ip-addressing.md#dhcp)
+- [Firewall](pages/networking/firewall-vpn.md#firewall)
+- [VPN (Virtual Private Network)](pages/networking/firewall-vpn.md#vpn-virtual-private-network)
+- [OSI Model (Open Systems Interconnection Model)](pages/networking/osi-model.md)
+- [NAT (Network Address Translation)](pages/networking/ip-addressing.md#nat-network-address-translation)
+- [VLAN (Virtual Local Area Network)](pages/networking/routing-switching.md#vlan-virtual-local-area-network)
+- [Load Balancing](pages/networking/load-balancing.md)
+- [Bandwidth](pages/networking/bandwidth-latency.md#bandwidth)
+- [Latency](pages/networking/bandwidth-latency.md#latency)
 
 <sub>[Back to top](#table-of-contents)</sub>
 

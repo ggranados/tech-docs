@@ -102,22 +102,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
 ## Web Development Frameworks
 ### Backend
-- Spring
-  - Spring Cloud
-  - Spring Data
-  - Spring Security
-  - SpringBoot
-- Quarkus
-- Express.js
-- Nest.js
+- [Spring](pages/frameworks/backend/spring.md)
+  - [Spring Cloud](pages/frameworks/backend/spring.md#spring-cloud)
+  - [Spring Data](pages/frameworks/backend/spring.md#spring-data)
+  - [Spring Security](pages/frameworks/backend/spring.md#spring-security)
+  - [SpringBoot](pages/frameworks/backend/spring.md#spring-boot)
+- [Quarkus](pages/frameworks/backend/quarkus.md)
+- [Express.js](pages/frameworks/backend/expressjs.md)
+- [Nest.js](pages/frameworks/backend/nestjs.md)
 
 ### Frontend
-- React
-- Angular
-- Vue.js
-- Sass
-- LESS
-- Bootstrap
+- [React](pages/frameworks/frontend/react.md)
+- [Angular](pages/frameworks/frontend/angular.md)
+- [Vue.js](pages/frameworks/frontend/vuejs.md)
+- [Sass](pages/frameworks/frontend/frontend-styling-tooling.md#sass)
+- [LESS](pages/frameworks/frontend/frontend-styling-tooling.md#less)
+- [Bootstrap](pages/frameworks/frontend/frontend-styling-tooling.md#bootstrap)
 
 <sub>[Back to top](#table-of-contents)</sub>
 

@@ -339,6 +339,6 @@ A: Use Singleton for truly global, stateless or immutable infrastructure concern
 
 ---
 
-[Get Started](../../get-started.md) | [Design Patterns](../../get-started.md#design-patterns)
+[Get Started](../../../get-started.md) | [Design Patterns](../../../get-started.md#design-patterns)
 
 ---

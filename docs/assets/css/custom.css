@@ -1,0 +1,36 @@
+/* Readability overrides for dense technical content (nested lists, tables,
+   code blocks, Mermaid diagrams) layered on top of the pages-themes/midnight
+   remote theme. Kept scoped and additive — no broad element overrides that
+   could fight the theme's own stylesheet. */
+
+/* Wide code blocks and tables scroll within their own container instead of
+   breaking page layout on narrow viewports. */
+pre,
+.highlight {
+  overflow-x: auto;
+}
+
+table {
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+/* Distinguish nested list levels (this content routinely goes 3-4 levels
+   deep) with progressive indentation and a subtle left guide. */
+li > ul,
+li > ol {
+  margin-top: 0.25em;
+  padding-left: 1.5em;
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Mermaid diagrams: ensure the rendered SVG never overflows its column and
+   scrolls horizontally if a diagram is wider than the content area. */
+.mermaid {
+  overflow-x: auto;
+}
+
+.mermaid svg {
+  max-width: 100%;
+}

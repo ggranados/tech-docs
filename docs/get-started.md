@@ -351,21 +351,21 @@ document.addEventListener('DOMContentLoaded', function () {
 <sub>[Back to top](#table-of-contents)</sub>
 
 ## Architectural Patterns
-  - Model-View-Controller (MVC)
-  - Model-View-ViewModel (MVVM)
-  - Monolithic
-  - Repository Pattern
-  - Layered
-  - Microkernel
-  - Hexagonal
+  - [Model-View-Controller (MVC)](pages/architectural-patterns/mvc.md)
+  - [Model-View-ViewModel (MVVM)](pages/architectural-patterns/mvvm.md)
+  - [Monolithic](pages/architectural-patterns/monolithic.md)
+  - [Repository Pattern](pages/architectural-patterns/repository-pattern.md)
+  - [Layered](pages/architectural-patterns/layered.md)
+  - [Microkernel](pages/architectural-patterns/microkernel.md)
+  - [Hexagonal](pages/architectural-patterns/hexagonal.md)
   - [Microservices](pages/architectural-patterns/microservices.md)
-    - Distributed Transaction
-      - Saga
-  - Message-Driven
-    - Event-Driven
-      - Event Sourcing
+    - [Distributed Transaction](pages/architectural-patterns/microservices/distributed-transaction.md)
+      - [Saga](pages/architectural-patterns/microservices/distributed-transaction/saga.md)
+  - [Message-Driven](pages/architectural-patterns/message-driven.md)
+    - [Event-Driven](pages/architectural-patterns/message-driven/event-driven.md)
+      - [Event Sourcing](pages/architectural-patterns/message-driven/event-driven/event-sourcing.md)
   - [Reactive Systems](pages/architectural-patterns/reactive.md)
-  - Command and Query Responsibility Segregation (CQRS)
+  - [Command and Query Responsibility Segregation (CQRS)](pages/architectural-patterns/cqrs.md)
 
 <sub>[Back to top](#table-of-contents)</sub>
 

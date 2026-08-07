@@ -319,34 +319,34 @@ document.addEventListener('DOMContentLoaded', function () {
     - [Factory Method](pages/design-patterns/creational/factory/factory-method.md)
     - [Abstract Factory](pages/design-patterns/creational/factory/abstract-factory.md)
   - [Singleton](pages/design-patterns/creational/singleton.md)
-  - Builder
-  - Prototype
+  - [Builder](pages/design-patterns/creational/builder.md)
+  - [Prototype](pages/design-patterns/creational/prototype.md)
 - Structural Patterns:
-  - Adapter
-  - Decorator
-  - Proxy
-  - Composite
-  - Facade
-  - Bridge
-  - Flyweight
+  - [Adapter](pages/design-patterns/structural/adapter.md)
+  - [Decorator](pages/design-patterns/structural/decorator.md)
+  - [Proxy](pages/design-patterns/structural/proxy.md)
+  - [Composite](pages/design-patterns/structural/composite.md)
+  - [Facade](pages/design-patterns/structural/facade.md)
+  - [Bridge](pages/design-patterns/structural/bridge.md)
+  - [Flyweight](pages/design-patterns/structural/flyweight.md)
 - Behavioral Patterns:
   - [Observer](pages/design-patterns/behavioral/observer.md)
-  - Strategy
-  - Template Method
-  - Command
-  - Iterator
-  - Mediator
-  - State
-  - Visitor
-  - Chain of Responsibility
-  - Interpreter
-  - Memento
+  - [Strategy](pages/design-patterns/behavioral/strategy.md)
+  - [Template Method](pages/design-patterns/behavioral/template-method.md)
+  - [Command](pages/design-patterns/behavioral/command.md)
+  - [Iterator](pages/design-patterns/behavioral/iterator.md)
+  - [Mediator](pages/design-patterns/behavioral/mediator.md)
+  - [State](pages/design-patterns/behavioral/state.md)
+  - [Visitor](pages/design-patterns/behavioral/visitor.md)
+  - [Chain of Responsibility](pages/design-patterns/behavioral/chain-of-responsibility.md)
+  - [Interpreter](pages/design-patterns/behavioral/interpreter.md)
+  - [Memento](pages/design-patterns/behavioral/memento.md)
 - [SOLID](pages/design-patterns/solid.md)
 - Inversion of Control (IoC)
-  - Dependency Injection (DI)
+  - [Dependency Injection (DI)](pages/design-patterns/ioc/dependency-injection.md)
   - Template Method Pattern
   - Aspect-Oriented Programming (AOP)
-  - Service Locator
+  - [Service Locator](pages/design-patterns/ioc/service-locator.md)
 
 <sub>[Back to top](#table-of-contents)</sub>
 

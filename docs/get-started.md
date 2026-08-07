@@ -67,23 +67,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
 ## Programming
 ### Languages
-  - JavaScript (Node.js)
-  - Python
+  - [JavaScript (Node.js)](pages/programming/languages/javascript.md)
+  - [Python](pages/programming/languages/python.md)
   - [Java](pages/programming/languages/java/java.md)
     - [Java Development](pages/programming/languages/java/develop.md)
     - [Main Java Version Changes](pages/programming/languages/java/versions.md)
-  - PHP
-  - Ruby
-  - C#
-  - Go
-  - Rust
-  - Kotlin
-  - Clojure
-  - Swift
-  - JavaScript
-  - HTML
-  - CSS
-  - TypeScript
+  - [PHP](pages/programming/languages/php.md)
+  - [Ruby](pages/programming/languages/ruby.md)
+  - [C#](pages/programming/languages/csharp.md)
+  - [Go](pages/programming/languages/go.md)
+  - [Rust](pages/programming/languages/rust.md)
+  - [Kotlin](pages/programming/languages/kotlin.md)
+  - [Clojure](pages/programming/languages/clojure.md)
+  - [Swift](pages/programming/languages/swift.md)
+  - [HTML](pages/programming/languages/html-css.md#html)
+  - [CSS](pages/programming/languages/html-css.md#css)
+  - [TypeScript](pages/programming/languages/typescript.md)
 
 ### Paradigms
 - [Imperative Programming](pages/programming/paradigms/imperative.md)

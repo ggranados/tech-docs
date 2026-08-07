@@ -220,16 +220,17 @@ document.addEventListener('DOMContentLoaded', function () {
 <sub>[Back to top](#table-of-contents)</sub>
 
 ## Cloud Computing Platform
-- Amazon Web Services (AWS)
-- Microsoft Azure
-- Google Cloud Platform (GCP)
-- IBM Cloud
-- Alibaba Cloud
-- Oracle Cloud Infrastructure (OCI)
-- Salesforce Cloud
-- DigitalOcean
-- VMware Cloud
-- Rackspace
+- [Cloud Computing Concepts](pages/cloud-computing/cloud-computing-concepts.md) — service models, deployment models, shared responsibility
+- [Amazon Web Services (AWS)](pages/cloud-computing/aws-azure-gcp.md)
+- [Microsoft Azure](pages/cloud-computing/aws-azure-gcp.md)
+- [Google Cloud Platform (GCP)](pages/cloud-computing/aws-azure-gcp.md)
+- [IBM Cloud](pages/cloud-computing/other-cloud-providers.md#ibm-cloud)
+- [Alibaba Cloud](pages/cloud-computing/other-cloud-providers.md#alibaba-cloud)
+- [Oracle Cloud Infrastructure (OCI)](pages/cloud-computing/other-cloud-providers.md#oracle-cloud-infrastructure-oci)
+- [Salesforce Cloud](pages/cloud-computing/other-cloud-providers.md#salesforce-cloud)
+- [DigitalOcean](pages/cloud-computing/other-cloud-providers.md#digitalocean)
+- [VMware Cloud](pages/cloud-computing/other-cloud-providers.md#vmware-cloud)
+- [Rackspace](pages/cloud-computing/other-cloud-providers.md#rackspace)
 
 <sub>[Back to top](#table-of-contents)</sub>
 

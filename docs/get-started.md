@@ -294,22 +294,22 @@ document.addEventListener('DOMContentLoaded', function () {
 <sub>[Back to top](#table-of-contents)</sub>
 
 ## Cyber-security Fundamentals
-- Network Security
-- Information Security
-- Cryptography
-- Secure Coding Practices
-- Risk Management
-- Security Governance and Compliance
+- [Network Security](pages/cyber-security/network-and-information-security.md#network-security)
+- [Information Security](pages/cyber-security/network-and-information-security.md#information-security)
+- [Cryptography](pages/cyber-security/cryptography.md)
+- [Secure Coding Practices](pages/cyber-security/secure-coding-practices.md)
+- [Risk Management](pages/cyber-security/risk-governance-compliance.md#risk-management)
+- [Security Governance and Compliance](pages/cyber-security/risk-governance-compliance.md#security-governance-and-compliance)
 - Access Control and Authentication
   - [Identity and Access Management (IAM)](pages/cyber-security/access-control-and-authn/iam.md)
-- Incident Response and Management
-- Security Awareness and Training
-- Threat Intelligence and Analysis
-- Vulnerability Assessment and Penetration Testing
-- Web Application Security
-- Security Operations and Monitoring
-- Security Architecture and Design
-- Data Privacy and Protection 
+- [Incident Response and Management](pages/cyber-security/security-operations-response.md#incident-response-and-management)
+- [Security Awareness and Training](pages/cyber-security/security-operations-response.md#security-awareness-and-training)
+- [Threat Intelligence and Analysis](pages/cyber-security/security-operations-response.md#threat-intelligence-and-analysis)
+- [Vulnerability Assessment and Penetration Testing](pages/cyber-security/vulnerability-assessment-pentesting.md)
+- [Web Application Security](pages/cyber-security/web-application-security.md)
+- [Security Operations and Monitoring](pages/cyber-security/security-operations-response.md#security-operations-and-monitoring)
+- [Security Architecture and Design](pages/cyber-security/security-architecture-design.md)
+- [Data Privacy and Protection](pages/cyber-security/data-privacy-protection.md)
 
 <sub>[Back to top](#table-of-contents)</sub>
 
